@@ -1,8 +1,27 @@
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const currentScript = document.currentScript;
     let lenisInstance = null;
+    const scrollEffects = new Set();
+    let scrollEffectsFrame = 0;
+    const scheduleScrollEffects = () => {
+      if (scrollEffectsFrame) return;
+      scrollEffectsFrame = window.requestAnimationFrame(() => {
+        scrollEffectsFrame = 0;
+        scrollEffects.forEach((effect) => effect());
+      });
+    };
+    const onScroll = (effect) => {
+      scrollEffects.add(effect);
+      if (scrollEffects.size === 1) {
+        window.addEventListener("scroll", scheduleScrollEffects, { passive: true });
+      }
+    };
+    const useSmoothScroll = !motionPreference.matches
+      && !window.matchMedia("(pointer: coarse)").matches
+      && navigator.hardwareConcurrency > 4
+      && !navigator.connection?.saveData;
 
-    if (!motionPreference.matches) {
+    if (useSmoothScroll) {
       const lenisScript = document.createElement("script");
       lenisScript.src = "https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js";
       lenisScript.async = true;
@@ -13,11 +32,11 @@
         }
         lenisInstance = new window.Lenis({
           autoRaf: true,
-          duration: 0.8,
-          lerp: 0.12,
+          duration: 0.5,
+          lerp: 0.2,
           smoothWheel: true,
           syncTouch: false,
-          wheelMultiplier: 0.9,
+          wheelMultiplier: 1,
         });
         if (document.body.style.overflow === "hidden") lenisInstance.stop();
       });
@@ -750,28 +769,6 @@
       }, 1200);
     }
 
-    const parallaxGlobe = document.querySelector("[data-parallax-globe]");
-
-    if (parallaxGlobe && !motionPreference.matches) {
-      let parallaxFrame = 0;
-
-      const updateGlobeParallax = () => {
-        parallaxFrame = 0;
-        const bounds = parallaxGlobe.getBoundingClientRect();
-        const distanceFromCenter = window.innerHeight / 2 - (bounds.top + bounds.height / 2);
-        const offset = Math.min(Math.max(distanceFromCenter / window.innerHeight * 18, -9), 9);
-        parallaxGlobe.style.setProperty("--ticker-parallax-y", `${offset}px`);
-      };
-
-      const scheduleGlobeParallax = () => {
-        if (!parallaxFrame) parallaxFrame = window.requestAnimationFrame(updateGlobeParallax);
-      };
-
-      window.addEventListener("scroll", scheduleGlobeParallax, { passive: true });
-      window.addEventListener("resize", scheduleGlobeParallax);
-      updateGlobeParallax();
-    }
-
     const chatPanel = document.querySelector("#ai-chat-panel");
     const chatAside = document.querySelector(".ai-chat");
     const chatBackdrop = document.querySelector("[data-chat-backdrop]");
@@ -946,10 +943,8 @@
 
     if (kindnessStatement) {
       const kindnessWords = Array.from(kindnessStatement.querySelectorAll("span"));
-      let revealFrame = 0;
 
       const updateKindnessReveal = () => {
-        revealFrame = 0;
         if (motionPreference.matches) {
           kindnessWords.forEach((word) => word.style.setProperty("--word-reveal", "1"));
           return;
@@ -967,13 +962,9 @@
         });
       };
 
-      const scheduleKindnessReveal = () => {
-        if (!revealFrame) revealFrame = window.requestAnimationFrame(updateKindnessReveal);
-      };
-
-      window.addEventListener("scroll", scheduleKindnessReveal, { passive: true });
-      window.addEventListener("resize", scheduleKindnessReveal);
-      motionPreference.addEventListener("change", scheduleKindnessReveal);
+      onScroll(updateKindnessReveal);
+      window.addEventListener("resize", updateKindnessReveal);
+      motionPreference.addEventListener("change", updateKindnessReveal);
       updateKindnessReveal();
     }
 
@@ -1083,10 +1074,11 @@
       }
 
       let previousScrollY = window.scrollY;
+      let heroBottom = heroSection.getBoundingClientRect().bottom + window.scrollY;
 
-      window.addEventListener("scroll", () => {
+      onScroll(() => {
         const currentScrollY = window.scrollY;
-        const isPastHero = heroSection.getBoundingClientRect().bottom <= 0;
+        const isPastHero = currentScrollY >= heroBottom;
         const scrollDelta = currentScrollY - previousScrollY;
 
         if (!isPastHero) {
@@ -1101,7 +1093,11 @@
           headerWrap?.classList.add("has-fixed-nav");
         }
         previousScrollY = currentScrollY;
-      }, { passive: true });
+      });
+      window.addEventListener("resize", () => {
+        heroBottom = heroSection.getBoundingClientRect().bottom + window.scrollY;
+        scheduleScrollEffects();
+      });
     }
     const faqSection = document.querySelector("#faq");
     const footer = document.querySelector(".footer");
@@ -1116,7 +1112,7 @@
         );
       };
 
-      window.addEventListener("scroll", updateClosingBackground, { passive: true });
+      onScroll(updateClosingBackground);
       window.addEventListener("resize", updateClosingBackground);
       updateClosingBackground();
     }
@@ -1257,7 +1253,7 @@
         }
       };
 
-      window.addEventListener("scroll", updateScrollProgress, { passive: true });
+      onScroll(updateScrollProgress);
       window.addEventListener("resize", updateScrollProgress);
       updateScrollProgress();
     }

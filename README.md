@@ -11,6 +11,8 @@ Static site for SEA Foundation with a Gemini assistant served by a Vercel Node.j
 
 Vercel serves the static pages and routes `/api/chat` to `api/chat.js`. The function receives the site pages as reference content and replies in the currently selected language.
 
+Lenis is enabled only on non-touch devices with more than four logical CPU cores and no reduced-motion or data-saving preference. Other devices use native browser scrolling. Scroll-driven effects share a single animation-frame scheduler.
+
 ## Run locally
 
 Create a local `.env` file containing:
