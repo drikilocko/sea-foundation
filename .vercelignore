@@ -1,6 +1,7 @@
 .env
 .env.*
 !.env.example
+.htaccess
 .git/
 .qodo/
 node_modules/

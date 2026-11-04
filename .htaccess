@@ -4,6 +4,8 @@ ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteRule ^(?:\.env(?:\..*)?|\.git(?:/.*)?|server\.js|package\.json|vercel\.json|\.htaccess)(?:/|$) - [F,L,NC]
+
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
