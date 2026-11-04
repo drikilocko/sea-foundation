@@ -1,0 +1,12 @@
+{
+  "name": "sea-foundation-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SEA Foundation website with a secure Gemini AI assistant server",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.18"
+  }
+}
