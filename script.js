@@ -79,6 +79,8 @@
       "secteurs prioritaires": "priority areas",
       "pour le site du projet agricole": "for the agricultural project site",
       "plan stratégique": "strategic plan",
+      "3 secteurs prioritaires": "3 priority areas",
+      "22 hectares": "22 hectares",
       "Accueil": "Home",
       "À Propos": "About",
       "Présentation": "Overview",
@@ -101,8 +103,7 @@
       "Des jeunes, par les jeunes, pour les jeunes.": "By young people, for young people.",
       "L’Afrique de demain": "Tomorrow's Africa",
       "commence avec nous.": "starts with us.",
-      "SEA Foundation agit pour une jeunesse togolaise en bonne santé, qui entreprend et participe activement au développement du Togo.": "SEA Foundation works for healthy young people in Togo who can build businesses and actively contribute to the country's development.",
-      "Votre talent a sa place.": "Your talent belongs here.",
+      "S’engager avec SEA": "Get involved with SEA",
       "Votre engagement peut faire la différence.": "Your commitment can make a difference.",
       "SEA Action": "SEA Action",
       "Votre chemin vers un changement concret.": "Your path to meaningful change.",
@@ -374,7 +375,6 @@
       "Formation · Innov’ert": "Training · Innov'ert",
       "Atelier · Innov’ert": "Workshop · Innov'ert",
       "Conférence · SEA Foundation": "Conference · SEA Foundation",
-      "S’engager avec SEA": "Get involved with SEA",
       "Adidogomé · info@fondationsea.com": "Adidogomé · info@fondationsea.com",
       "Le plan couvre cinq ans et présente la vision de la Fondation, ses secteurs prioritaires, les axes d’intervention et les modalités de suivi et d’évaluation.": "The five-year plan sets out the Foundation's vision, priority sectors, areas of work, and monitoring and evaluation approach.",
       "Les règles de consultation des informations publiées par SEA Foundation.": "Rules for accessing information published by SEA Foundation.",
@@ -968,6 +968,47 @@
       logo.closest("a")?.addEventListener("focus", fillLogo, { once: true });
     });
 
+    const counters = document.querySelectorAll("[data-count-up]");
+    const animateCounter = (counter) => {
+      const target = Number(counter.dataset.countUp);
+      const start = Number(counter.dataset.countFrom || 0);
+      if (!Number.isSafeInteger(target) || !Number.isSafeInteger(start) || start > target) {
+        console.error("Valeur de décompte invalide:", counter);
+        return;
+      }
+
+      if (motionPreference.matches || start === target) {
+        counter.textContent = String(target);
+        return;
+      }
+
+      const duration = 1400;
+      let startedAt = 0;
+      const updateCounter = (timestamp) => {
+        if (!startedAt) startedAt = timestamp;
+        const progress = Math.min((timestamp - startedAt) / duration, 1);
+        const easedProgress = 1 - (1 - progress) ** 3;
+        counter.textContent = String(Math.round(start + (target - start) * easedProgress));
+        if (progress < 1) window.requestAnimationFrame(updateCounter);
+      };
+      window.requestAnimationFrame(updateCounter);
+    };
+
+    if (motionPreference.matches) {
+      counters.forEach(animateCounter);
+    } else if ("IntersectionObserver" in window) {
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.2 });
+      counters.forEach((counter) => counterObserver.observe(counter));
+    } else {
+      counters.forEach(animateCounter);
+    }
+
     const logosOnView = document.querySelectorAll(".footer .brand-mark, .footer-logo .sea-logo-fill, .brand-showcase .sea-logo-fill");
     if ("IntersectionObserver" in window) {
       const logoObserver = new IntersectionObserver((entries, observer) => {
@@ -980,6 +1021,39 @@
       logosOnView.forEach((logo) => logoObserver.observe(logo));
     } else {
       logosOnView.forEach((logo) => logo.classList.add("is-logo-filled"));
+    }
+
+    const quotesTrack = document.querySelector("#quotes-track");
+    const quotePrevious = document.querySelector("[data-quote-prev]");
+    const quoteNext = document.querySelector("[data-quote-next]");
+    if (
+      quotesTrack instanceof HTMLElement
+      && quotePrevious instanceof HTMLButtonElement
+      && quoteNext instanceof HTMLButtonElement
+    ) {
+      const updateQuoteControls = () => {
+        const maxScroll = quotesTrack.scrollWidth - quotesTrack.clientWidth;
+        quotePrevious.disabled = quotesTrack.scrollLeft <= 4;
+        quoteNext.disabled = quotesTrack.scrollLeft >= maxScroll - 4;
+      };
+      const moveQuote = (direction) => {
+        const firstCard = quotesTrack.querySelector(".quote-card");
+        if (!(firstCard instanceof HTMLElement)) {
+          console.error("La première citation du carrousel est introuvable.");
+          return;
+        }
+        const gap = Number.parseFloat(window.getComputedStyle(quotesTrack).columnGap) || 0;
+        quotesTrack.scrollBy({
+          left: direction * (firstCard.getBoundingClientRect().width + gap),
+          behavior: motionPreference.matches ? "auto" : "smooth",
+        });
+      };
+
+      quotePrevious.addEventListener("click", () => moveQuote(-1));
+      quoteNext.addEventListener("click", () => moveQuote(1));
+      quotesTrack.addEventListener("scroll", updateQuoteControls, { passive: true });
+      window.addEventListener("resize", updateQuoteControls);
+      updateQuoteControls();
     }
 
     const chatPanel = document.querySelector("#ai-chat-panel");

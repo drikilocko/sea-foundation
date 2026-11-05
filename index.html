@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;450;500;550;600;650;700;750;800&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261105-22">
+  <link rel="stylesheet" href="styles.css?v=20261105-28">
 </head>
 <body>
   <header class="topbar sea-hero-wrap">
@@ -53,7 +53,7 @@
         <div class="sea-copy">
           <div class="sea-kicker">Des jeunes, par les jeunes, pour les jeunes.</div>
           <h1 class="sea-headline"><span class="light">L’Afrique de demain</span><br>commence avec nous.</h1>
-          <p class="sea-summary">SEA Foundation agit pour une jeunesse togolaise en bonne santé, qui entreprend et participe activement au développement du Togo. <strong>Votre talent a sa place.</strong> Votre engagement peut faire la différence.</p>
+          <a class="button sea-hero-cta" href="inscription/index.html">S’engager avec SEA <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
         </div>
 
         <div class="sea-cta-card">
@@ -355,10 +355,10 @@
           <img class="sea-logo-fill__color" src="asset/3.png" alt="" aria-hidden="true">
         </span>
         <div class="brand-stats" aria-label="Repères de SEA Foundation">
-          <div class="brand-stat"><strong>15–35</strong><span>ans au cœur de nos actions</span></div>
-          <div class="brand-stat"><strong>3</strong><span>secteurs prioritaires</span></div>
-          <div class="brand-stat"><strong>22 ha</strong><span>pour le site du projet agricole</span></div>
-          <div class="brand-stat"><strong>2024–2028</strong><span>plan stratégique</span></div>
+          <div class="brand-stat"><strong aria-label="15–35 ans"><span aria-hidden="true"><span data-count-up="15">15</span>–<span data-count-up="35">35</span></span></strong><span>ans au cœur de nos actions</span></div>
+          <div class="brand-stat"><strong aria-label="3 secteurs prioritaires"><span aria-hidden="true" data-count-up="3">3</span></strong><span>secteurs prioritaires</span></div>
+          <div class="brand-stat"><strong aria-label="22 hectares"><span aria-hidden="true"><span data-count-up="22">22</span> ha</span></strong><span>pour le site du projet agricole</span></div>
+          <div class="brand-stat"><strong aria-label="Plan stratégique 2024–2028"><span aria-hidden="true"><span data-count-up="2024">2024</span>–<span data-count-up="2028" data-count-from="2024">2028</span></span></strong><span>plan stratégique</span></div>
         </div>
         <figure class="president-message">
           <img src="asset/president/IMG_6070.webp" alt="Emmanuel Sheyi Adebayor, président de SEA Foundation" loading="lazy" decoding="async">
@@ -379,7 +379,7 @@
         </div>
         <p class="section-note">Le document ne contient pas de témoignages de bénéficiaires. Ces cinq cartes reprennent donc des extraits et des engagements du plan, sans les attribuer à des personnes qui n’y sont pas citées.</p>
       </div>
-      <div class="quote-grid">
+      <div class="quote-grid" id="quotes-track" role="region" aria-label="Citations du plan stratégique">
         <article class="quote-card">
           <div><span class="quote-mark" aria-hidden="true">“</span><blockquote>« Les jeunes togolais en bonne santé, qui entreprennent et qui participent au développement. »</blockquote></div>
           <footer><strong>La vision de SEA Foundation</strong>Plan stratégique 2024–2028</footer>
@@ -401,6 +401,14 @@
           <footer><strong>Emmanuel Sheyi Adebayor</strong>Mot du président, plan stratégique 2024–2028</footer>
         </article>
       </div>
+      <nav class="quote-controls" aria-label="Navigation des citations">
+        <button class="slider-button" type="button" data-quote-prev aria-label="Citation précédente" aria-controls="quotes-track" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="slider-button" type="button" data-quote-next aria-label="Citation suivante" aria-controls="quotes-track">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </nav>
     </section>
 
     <section class="partners" id="partenaires">
@@ -575,6 +583,6 @@
       </a>
     </nav>
   </aside>
-  <script defer src="script.js?v=20261105-11"></script>
+  <script defer src="script.js?v=20261105-14"></script>
 </body>
 </html>
