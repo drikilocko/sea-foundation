@@ -748,6 +748,8 @@
       const preloader = document.createElement("div");
       preloader.className = "site-preloader is-loading";
       preloader.setAttribute("aria-hidden", "true");
+      const preloaderStartedAt = performance.now();
+      const preloaderLineDuration = 3000;
 
       const loadingLine = document.createElement("span");
       loadingLine.className = "site-preloader__line";
@@ -855,19 +857,27 @@
             removePreloader();
           }
         });
-        window.setTimeout(removePreloader, motionPreference.matches ? 100 : 1300);
+        window.setTimeout(removePreloader, motionPreference.matches ? 100 : 1600);
       };
 
       Promise.all(collectFirstScreenImages().map(loadImage)).then(() => {
-        preloader.classList.remove("is-loading");
-        preloader.classList.add("is-logo-visible");
+        const showLogo = () => {
+          preloader.classList.remove("is-loading");
+          preloader.classList.add("is-logo-visible", "is-logo-colored");
+          if (motionPreference.matches) {
+            window.setTimeout(openSite, 100);
+            return;
+          }
+          window.setTimeout(openSite, 3000);
+        };
+
         if (motionPreference.matches) {
-          preloader.classList.add("is-logo-colored");
-          window.setTimeout(openSite, 100);
+          showLogo();
           return;
         }
-        window.setTimeout(() => preloader.classList.add("is-logo-colored"), 420);
-        window.setTimeout(openSite, 2050);
+
+        const lineTimeRemaining = Math.max(0, preloaderLineDuration - (performance.now() - preloaderStartedAt));
+        window.setTimeout(showLogo, lineTimeRemaining);
       }).catch((error) => {
         console.error("The first two sections could not be loaded.", error);
         preloader.classList.remove("is-loading");
@@ -1230,6 +1240,16 @@
     const scrollProgress = document.querySelector(".scroll-progress");
     const heroSection = document.querySelector("#accueil");
     const headerPanel = document.querySelector(".sea-header-panel");
+    const setMenuIcon = (isOpen) => {
+      if (!(menuButton instanceof HTMLButtonElement)) return;
+      const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      icon.setAttribute("viewBox", "0 0 24 24");
+      icon.setAttribute("aria-hidden", "true");
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", isOpen ? "M6 6 18 18M18 6 6 18" : "M4 6h16M4 12h16M4 18h16");
+      icon.append(path);
+      menuButton.replaceChildren(icon);
+    };
 
     if (heroSection && headerPanel) {
       const headerWrap = headerPanel.closest(".sea-hero-wrap");
@@ -1288,7 +1308,7 @@
       if (!menuButton || !navLinks) return;
       menuButton.setAttribute("aria-expanded", "false");
       menuButton.setAttribute("aria-label", "Ouvrir le menu");
-      menuButton.textContent = "☰";
+      setMenuIcon(false);
       navLinks.classList.remove("open");
       navLinks.querySelectorAll("details[open]").forEach((dropdown) => {
         dropdown.open = false;
@@ -1300,7 +1320,7 @@
         const isOpen = menuButton.getAttribute("aria-expanded") === "true";
         menuButton.setAttribute("aria-expanded", String(!isOpen));
         menuButton.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
-        menuButton.textContent = isOpen ? "☰" : "×";
+        setMenuIcon(!isOpen);
         navLinks.classList.toggle("open", !isOpen);
       });
 
