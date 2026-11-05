@@ -1103,6 +1103,42 @@
     const responsiveMenuButton = document.querySelector(".sea-menu-toggle");
     const primaryNavigation = document.querySelector("#primary-navigation");
     const responsiveHeader = document.querySelector(".sea-header-panel");
+    const desktopNavHover = window.matchMedia("(min-width: 981px) and (hover: hover)");
+    const desktopNavGroups = primaryNavigation?.querySelectorAll(".sea-nav-group");
+
+    desktopNavGroups?.forEach((group) => {
+      group.addEventListener("pointerenter", (event) => {
+        if (!desktopNavHover.matches || event.pointerType === "touch") return;
+        desktopNavGroups.forEach((otherGroup) => {
+          if (otherGroup !== group) otherGroup.removeAttribute("open");
+        });
+        group.setAttribute("open", "");
+      });
+
+      group.addEventListener("pointerleave", () => {
+        if (!desktopNavHover.matches || group.contains(document.activeElement)) return;
+        group.removeAttribute("open");
+      });
+
+      group.addEventListener("focusin", () => {
+        if (desktopNavHover.matches) group.setAttribute("open", "");
+      });
+
+      group.addEventListener("focusout", (event) => {
+        if (
+          !desktopNavHover.matches
+          || group.contains(event.relatedTarget)
+          || group.matches(":hover")
+        ) return;
+        group.removeAttribute("open");
+      });
+    });
+
+    desktopNavHover.addEventListener("change", (event) => {
+      if (!event.matches) {
+        desktopNavGroups?.forEach((group) => group.removeAttribute("open"));
+      }
+    });
 
     if (responsiveMenuButton && primaryNavigation) {
       let previousMenuBodyOverflow = "";
