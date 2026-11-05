@@ -258,7 +258,7 @@
       "Confidentialité": "Privacy",
       "Cookies": "Cookies",
       "Conditions d’utilisation": "Terms of use",
-      "Retour en haut ↑": "Back to top ↑",
+      "Retour en haut": "Back to top",
       "Un avenir à construire ensemble.": "Building a future together.",
       "Un assistant pour vous orienter vers nos programmes, nos actions et les possibilités d’engagement.": "An assistant to help you explore our programmes, work and ways to get involved.",
       "Accompagnement · Engagement · Avenir": "Support · Commitment · Future",
@@ -373,7 +373,7 @@
       "Sur le terrain": "On the ground",
       "Formation · Innov’ert": "Training · Innov'ert",
       "Atelier · Innov’ert": "Workshop · Innov'ert",
-      "Conférence · OJA": "Conference · OJA",
+      "Conférence · SEA Foundation": "Conference · SEA Foundation",
       "S’engager avec SEA": "Get involved with SEA",
       "Adidogomé · info@fondationsea.com": "Adidogomé · info@fondationsea.com",
       "Le plan couvre cinq ans et présente la vision de la Fondation, ses secteurs prioritaires, les axes d’intervention et les modalités de suivi et d’évaluation.": "The five-year plan sets out the Foundation's vision, priority sectors, areas of work, and monitoring and evaluation approach.",
@@ -626,6 +626,7 @@
       if (!placement) return;
       if (navigation.id !== "primary-navigation") {
         navigation.id = "site-page-navigation";
+        const pageHeader = navigation.closest(".site-page-header");
         const menuButton = document.createElement("button");
         menuButton.className = "site-page-menu-toggle";
         menuButton.type = "button";
@@ -633,32 +634,44 @@
         menuButton.setAttribute("aria-controls", navigation.id);
         menuButton.setAttribute("aria-label", "Ouvrir le menu");
         menuButton.innerHTML = "<span></span><span></span>";
+        let previousBodyOverflow = "";
+        const closeSitePageMenu = () => {
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Ouvrir le menu");
+          navigation.classList.remove("is-open");
+          pageHeader?.classList.remove("is-menu-open");
+          document.body.style.overflow = previousBodyOverflow;
+          if (!document.body.style.overflow) lenisInstance?.start();
+        };
         menuButton.addEventListener("click", () => {
           const isOpen = menuButton.getAttribute("aria-expanded") === "true";
           menuButton.setAttribute("aria-expanded", String(!isOpen));
           menuButton.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
           navigation.classList.toggle("is-open", !isOpen);
+          pageHeader?.classList.toggle("is-menu-open", !isOpen);
+          if (!isOpen) {
+            previousBodyOverflow = document.body.style.overflow;
+            document.body.style.overflow = "hidden";
+            lenisInstance?.stop();
+          } else {
+            document.body.style.overflow = previousBodyOverflow;
+            if (!document.body.style.overflow) lenisInstance?.start();
+          }
         });
         navigation.addEventListener("click", (event) => {
           if (event.target instanceof Element && event.target.closest("a")) {
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.setAttribute("aria-label", "Ouvrir le menu");
-            navigation.classList.remove("is-open");
+            closeSitePageMenu();
           }
         });
         document.addEventListener("keydown", (event) => {
           if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.setAttribute("aria-label", "Ouvrir le menu");
-            navigation.classList.remove("is-open");
+            closeSitePageMenu();
             menuButton.focus();
           }
         });
         window.matchMedia("(min-width: 981px)").addEventListener("change", (event) => {
           if (event.matches) {
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.setAttribute("aria-label", "Ouvrir le menu");
-            navigation.classList.remove("is-open");
+            closeSitePageMenu();
           }
         });
         placement.insertBefore(menuButton, navigation);
