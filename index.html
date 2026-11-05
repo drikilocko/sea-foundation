@@ -6,45 +6,44 @@
   <meta name="theme-color" content="#f7f6f1">
   <meta name="description" content="SEA Foundation agit pour une jeunesse togolaise en bonne santé, qui entreprend et participe activement au développement du Togo.">
   <title>SEA Foundation — Le potentiel de la jeunesse, notre avenir</title>
+  <link rel="icon" type="image/png" href="asset/3.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;450;500;550;600;650;700;750;800&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261104-60">
+  <link rel="stylesheet" href="styles.css?v=20261105-05">
 </head>
 <body>
-  <header class="topbar oja-hero-wrap">
-    <div class="oja-header-panel">
-      <div class="oja-topbar">
-        <div class="oja-brand-wrap">
-          <img class="oja-logo" src="asset/logo1.png" alt="Logo de SEA Foundation">
-          <div class="oja-meta">
-            <span class="oja-subtitle">SEA Foundation</span>
-          </div>
+  <header class="topbar sea-hero-wrap">
+    <div class="sea-header-panel">
+      <div class="sea-topbar">
+        <div class="sea-brand-wrap">
+          <span class="sea-logo-fill sea-logo" role="img" aria-label="Logo de SEA Foundation"><img class="sea-logo-fill__base" src="asset/1.png" alt="" aria-hidden="true"><img class="sea-logo-fill__color" src="asset/3.png" alt="" aria-hidden="true"></span>
         </div>
-        <button class="oja-menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">
+        <button class="sea-menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">
           <span></span><span></span><span></span>
         </button>
 
-        <div class="oja-actions">
-          <a class="oja-button primary" href="inscription/index.html">Rejoindre</a>
-          <a class="oja-button" href="contact/index.html">Nous contacter</a>
+        <div class="sea-header-links">
+          <a href="inscription/index.html">Rejoindre</a>
+          <a href="contact/index.html">Nous contacter</a>
         </div>
       </div>
 
-      <nav class="oja-nav" id="primary-navigation" aria-label="Navigation principale">
+      <nav class="sea-nav" id="primary-navigation" aria-label="Navigation principale">
         <a href="index.html" class="active" aria-current="page">Accueil</a>
-        <details class="oja-nav-group">
+        <details class="sea-nav-group">
           <summary>À Propos</summary>
-          <div class="oja-subnav">
+          <div class="sea-subnav">
             <a href="a-propos/index.html">Présentation</a>
             <a href="#vision">Notre vision</a>
             <a href="#faq">Questions fréquentes</a>
           </div>
         </details>
-        <details class="oja-nav-group">
+        <details class="sea-nav-group">
           <summary>Actions</summary>
-          <div class="oja-subnav">
+          <div class="sea-subnav">
             <a href="actions/index.html">Toutes nos actions</a>
+            <a href="projet/index.html">Projet d’incubation agricole</a>
             <a href="#priority-sante">Santé & bien-être</a>
             <a href="#priority-education">Éducation & sport</a>
             <a href="#priority-entrepreneuriat">Entrepreneuriat</a>
@@ -53,9 +52,9 @@
           </div>
         </details>
         <a href="inscription/index.html">Inscription</a>
-        <details class="oja-nav-group">
+        <details class="sea-nav-group">
           <summary>Actualités</summary>
-          <div class="oja-subnav">
+          <div class="sea-subnav">
             <a href="#actualites">À la une</a>
             <a href="articles/index.html">Articles</a>
             <a href="evenements/index.html">Événements</a>
@@ -66,20 +65,57 @@
       </nav>
     </div>
 
-    <section class="hero oja-hero" id="accueil">
-      <div class="oja-main wrap">
-        <div class="oja-copy">
-          <div class="oja-kicker">Des jeunes, par les jeunes, pour les jeunes.</div>
-          <h1 class="oja-headline"><span class="light">L’Afrique de demain</span><br>commence avec nous.</h1>
-          <p class="oja-summary">SEA Foundation agit pour une jeunesse togolaise en bonne santé, qui entreprend et participe activement au développement du Togo. <strong>Votre talent a sa place.</strong> Votre engagement peut faire la différence.</p>
+    <section class="hero sea-hero" id="accueil">
+      <div class="sea-main wrap">
+        <div class="sea-copy">
+          <div class="sea-kicker">Des jeunes, par les jeunes, pour les jeunes.</div>
+          <h1 class="sea-headline"><span class="light">L’Afrique de demain</span><br>commence avec nous.</h1>
+          <p class="sea-summary">SEA Foundation agit pour une jeunesse togolaise en bonne santé, qui entreprend et participe activement au développement du Togo. <strong>Votre talent a sa place.</strong> Votre engagement peut faire la différence.</p>
         </div>
 
-        <div class="oja-cta-card" aria-label="Action principale">
-          <div class="oja-cta-content">
+        <div class="sea-cta-card">
+          <div class="sea-cta-content">
             <div class="text"><strong>SEA Action</strong>Votre chemin vers un changement concret.</div>
-            <span class="badge" aria-hidden="true">↗</span>
+            <a class="badge" href="#actualites" aria-label="Voir toutes les actualités">↗</a>
           </div>
-          <div class="oja-cta-image" aria-hidden="true"></div>
+          <div class="sea-news-slider" data-news-slider role="region" aria-roledescription="carrousel" aria-label="Les dernières actualités">
+            <article class="sea-news-slide is-active" data-news-slide aria-roledescription="diapositive" aria-label="1 sur 3">
+              <img src="asset/action/IMG_6063.webp" alt="" loading="lazy">
+              <div class="sea-news-slide__content">
+                <span class="sea-news-slide__category">Formation · Innov’ert</span>
+                <h2>Former les jeunes aux nouvelles pratiques agricoles</h2>
+                <time datetime="2026-05-04">4 mai 2026</time>
+                <a href="evenements/index.html">Découvrir <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <article class="sea-news-slide" data-news-slide aria-roledescription="diapositive" aria-label="2 sur 3" aria-hidden="true">
+              <img src="asset/argriculutre/WhatsApp-Image-2022-08-24-at-11.07.10.jpeg" alt="" loading="lazy">
+              <div class="sea-news-slide__content">
+                <span class="sea-news-slide__category">Atelier · Innov’ert</span>
+                <h2>Valoriser les huiles usagées grâce à un atelier dédié</h2>
+                <time datetime="2026-04-22">22 avril 2026</time>
+                <a href="evenements/index.html">Découvrir <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <article class="sea-news-slide" data-news-slide aria-roledescription="diapositive" aria-label="3 sur 3" aria-hidden="true">
+              <img src="asset/action/IMG_6068.webp" alt="" loading="lazy">
+              <div class="sea-news-slide__content">
+                <span class="sea-news-slide__category">Conférence</span>
+                <h2>Échanger autour des enjeux de gouvernance migratoire</h2>
+                <time datetime="2026-04-01">1 avril 2026</time>
+                <a href="evenements/index.html">Découvrir <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <div class="sea-news-slider__controls" aria-label="Commandes du carrousel">
+              <button type="button" data-news-previous aria-label="Actualité précédente">←</button>
+              <div class="sea-news-slider__dots" aria-label="Choisir une actualité">
+                <button type="button" data-news-go="0" aria-label="Afficher l’actualité 1" aria-current="true"></button>
+                <button type="button" data-news-go="1" aria-label="Afficher l’actualité 2"></button>
+                <button type="button" data-news-go="2" aria-label="Afficher l’actualité 3"></button>
+              </div>
+              <button type="button" data-news-next aria-label="Actualité suivante">→</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -151,31 +187,48 @@
           <p class="section-lead">Le plan retient trois secteurs prioritaires. Les cinq cartes ci-dessous distinguent ces axes et certains domaines d’intervention décrits dans le document.</p>
         </div>
         <div class="priority-grid" id="priority-track">
-          <article class="priority-card priority-card--active" id="priority-sante" style="--priority-image: url('asset/Design%20sans%20titre(1).jpg')" tabindex="0" aria-expanded="true">
+          <article class="priority-card priority-card--active" id="priority-sante" style="--priority-image: url('asset/sante/WHO_20210302_GHANA_COVAX-STORIES_007.jpg')" tabindex="0" aria-expanded="true">
             <div class="priority-topline"><span class="priority-number">01 / PRENDRE SOIN</span><span class="priority-icon">✳</span></div>
             <div class="priority-copy"><h3>Santé & bien-être</h3><p>Faciliter les soins primaires, une alimentation nutritive et la prévention des maladies pour les jeunes vulnérables.</p><div class="priority-actions"><a class="priority-action priority-action--light" href="#axes">Découvrir les actions <span class="arrow">↗</span></a><a class="priority-action priority-action--accent" href="contact/index.html">Nous contacter <span class="arrow">↗</span></a></div></div>
             <span class="priority-more" aria-hidden="true">↗</span>
           </article>
-          <article class="priority-card" id="priority-education" style="--priority-image: url('asset/card-education.jpg')" tabindex="0" aria-expanded="false">
+          <article class="priority-card" id="priority-education" style="--priority-image: url('asset/e%20-%20Copy.jpg')" tabindex="0" aria-expanded="false">
             <div class="priority-topline"><span class="priority-number">02 / APPRENDRE</span><span class="priority-icon">◈</span></div>
             <div class="priority-copy"><h3>Éducation & sport</h3><p>Soutenir les bourses et les enseignants, encourager le sport scolaire et préparer les jeunes à l’emploi.</p><div class="priority-actions"><a class="priority-action priority-action--light" href="#axes">Découvrir les actions <span class="arrow">↗</span></a><a class="priority-action priority-action--accent" href="contact/index.html">Nous contacter <span class="arrow">↗</span></a></div></div>
             <span class="priority-more" aria-hidden="true">↗</span>
           </article>
-          <article class="priority-card" id="priority-entrepreneuriat" style="--priority-image: url('asset/e.jpg')" tabindex="0" aria-expanded="false">
+          <article class="priority-card" id="priority-entrepreneuriat" style="--priority-image: url('asset/action/IMG_6063.webp')" tabindex="0" aria-expanded="false">
             <div class="priority-topline"><span class="priority-number">03 / ENTREPRENDRE</span><span class="priority-icon">↗</span></div>
             <div class="priority-copy"><h3>Entrepreneuriat</h3><p>Incuber les projets, former à la mobilisation de fonds et soutenir l’insertion socioprofessionnelle.</p><div class="priority-actions"><a class="priority-action priority-action--light" href="#axes">Découvrir les actions <span class="arrow">↗</span></a><a class="priority-action priority-action--accent" href="contact/index.html">Nous contacter <span class="arrow">↗</span></a></div></div>
             <span class="priority-more" aria-hidden="true">↗</span>
           </article>
-          <article class="priority-card" id="priority-agrobusiness" style="--priority-image: url('asset/Design%20sans%20titre(1).jpg')" tabindex="0" aria-expanded="false">
+          <article class="priority-card" id="priority-agrobusiness" style="--priority-image: url('asset/action/IMG_6072.webp')" tabindex="0" aria-expanded="false">
             <div class="priority-topline"><span class="priority-number">04 / INNOVER</span><span class="priority-icon">⌁</span></div>
             <div class="priority-copy"><h3>Agriculture & agrobusiness</h3><p>Former des agripreneurs et les accompagner dans différents maillons de la chaîne agricole.</p><div class="priority-actions"><a class="priority-action priority-action--light" href="#axes">Découvrir les actions <span class="arrow">↗</span></a><a class="priority-action priority-action--accent" href="contact/index.html">Nous contacter <span class="arrow">↗</span></a></div></div>
             <span class="priority-more" aria-hidden="true">↗</span>
           </article>
-          <article class="priority-card" id="priority-inclusion" style="--priority-image: url('asset/g.jpg')" tabindex="0" aria-expanded="false">
+          <article class="priority-card" id="priority-inclusion" style="--priority-image: url('asset/DSC4002-qtul5zeir8drmdw36bo2eqm6n0oop8hxw7a8igup06.jpg')" tabindex="0" aria-expanded="false">
             <div class="priority-topline"><span class="priority-number">05 / INCLURE</span><span class="priority-icon">◎</span></div>
             <div class="priority-copy"><h3>Inclusion & transparence</h3><p>Promouvoir l’équité de genre, l’inclusion du handicap et le libre accès aux rapports annuels.</p><div class="priority-actions"><a class="priority-action priority-action--light" href="#axes">Découvrir les actions <span class="arrow">↗</span></a><a class="priority-action priority-action--accent" href="contact/index.html">Nous contacter <span class="arrow">↗</span></a></div></div>
             <span class="priority-more" aria-hidden="true">↗</span>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact-section" aria-labelledby="impact-title">
+      <div class="wrap impact-section__inner">
+        <div class="impact-visual">
+          <img src="asset/action.webp" alt="Des jeunes réunis autour d’activités éducatives et communautaires." loading="lazy" decoding="async">
+        </div>
+        <div class="impact-copy">
+          <span class="eyebrow">Ensemble, sur le terrain</span>
+          <h2 class="section-heading" id="impact-title">Des actions qui ouvrent de nouvelles possibilités.</h2>
+          <p>Avec les jeunes, les communautés et nos partenaires, SEA Foundation agit pour rapprocher les opportunités en santé, en éducation et en entrepreneuriat.</p>
+          <div class="impact-actions">
+            <a class="button" href="#actualites">Découvrir nos actions <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="contact/index.html">Nous contacter <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -190,24 +243,24 @@
       </div>
       <div class="news-feature-grid">
         <article class="news-feature-card news-feature-card--lead">
-          <img src="asset/card-education.jpg" alt="" loading="lazy">
+          <img src="asset/action/IMG_6063.webp" alt="" loading="lazy">
           <div class="news-feature-tags"><span>Formation</span><span>Innov’ert</span></div>
-          <h3>Titre à préciser pour cet article.</h3>
+          <h3>Former les jeunes aux nouvelles pratiques agricoles</h3>
           <p class="news-feature-date">4 mai 2026</p>
           <a class="news-feature-link" href="evenements/index.html">Découvrir <span aria-hidden="true">→</span></a>
         </article>
         <div class="news-feature-stack">
           <article class="news-feature-card news-feature-card--side">
-            <img src="asset/e.jpg" alt="" loading="lazy">
+            <img src="asset/argriculutre/WhatsApp-Image-2022-08-24-at-11.07.10.jpeg" alt="" loading="lazy">
             <div class="news-feature-tags"><span>Atelier</span><span>Innov’ert</span></div>
-            <h3>Titre à préciser pour cet article.</h3>
+            <h3>Valoriser les huiles usagées grâce à un atelier dédié</h3>
             <p class="news-feature-date">22 avril 2026</p>
             <a class="news-feature-link" href="evenements/index.html">Découvrir <span aria-hidden="true">→</span></a>
           </article>
           <article class="news-feature-card news-feature-card--side">
-            <img src="asset/g.jpg" alt="" loading="lazy">
+            <img src="asset/action/IMG_6068.webp" alt="" loading="lazy">
             <div class="news-feature-tags"><span>Actualité</span><span>Conférences</span></div>
-            <h3>Titre à préciser pour cet article.</h3>
+            <h3>Échanger autour des enjeux de gouvernance migratoire</h3>
             <p class="news-feature-date">1 avril 2026</p>
             <a class="news-feature-link" href="evenements/index.html">Découvrir <span aria-hidden="true">→</span></a>
           </article>
@@ -305,11 +358,34 @@
       </header>
       <div class="approach-grid">
         <article class="approach-item"><img src="asset/card-education.jpg" alt="" loading="lazy"><div class="approach-item__copy"><span>01</span><h3>Faire participer les jeunes</h3><p>Associer les 15–35 ans comme acteurs du changement et leur donner une place dans les décisions qui les concernent.</p></div></article>
-        <article class="approach-item"><img src="asset/e.jpg" alt="" loading="lazy"><div class="approach-item__copy"><span>02</span><h3>Renforcer les systèmes sociaux</h3><p>Agir auprès des individus et des communautés, notamment par la communication et la lutte contre les normes sociales préjudiciables.</p></div></article>
+        <article class="approach-item"><img src="asset/e%20-%20Copy.jpg" alt="" loading="lazy"><div class="approach-item__copy"><span>02</span><h3>Renforcer les systèmes sociaux</h3><p>Agir auprès des individus et des communautés, notamment par la communication et la lutte contre les normes sociales préjudiciables.</p></div></article>
         <article class="approach-item"><img src="asset/Design%20sans%20titre(1).jpg" alt="" loading="lazy"><div class="approach-item__copy"><span>03</span><h3>Promouvoir l’équité et l’inclusion</h3><p>Accorder une attention fondamentale à l’égalité de genre et à l’inclusion des jeunes en situation de handicap.</p></div></article>
         <article class="approach-item"><img src="asset/g.jpg" alt="" loading="lazy"><div class="approach-item__copy"><span>04</span><h3>Communiquer sur des faits</h3><p>Utiliser les données pour le plaidoyer, sensibiliser et contribuer à la conception des politiques et des programmes.</p></div></article>
-        <article class="approach-item"><img src="asset/e.jpg" alt="" loading="lazy"><div class="approach-item__copy"><span>05</span><h3>Anticiper les risques</h3><p>Identifier dans les plans annuels les risques qui peuvent freiner les activités et prévoir des mesures d’atténuation.</p></div></article>
+        <article class="approach-item"><img src="asset/e%20-%20Copy.jpg" alt="" loading="lazy"><div class="approach-item__copy"><span>05</span><h3>Anticiper les risques</h3><p>Identifier dans les plans annuels les risques qui peuvent freiner les activités et prévoir des mesures d’atténuation.</p></div></article>
         <article class="approach-item"><img src="asset/g.jpg" alt="" loading="lazy"><div class="approach-item__copy"><span>06</span><h3>Rendre compte des résultats</h3><p>Partager les rapports annuels, consulter les bénéficiaires et utiliser les évaluations pour ajuster les actions.</p></div></article>
+      </div>
+    </section>
+
+    <section class="brand-showcase" aria-label="SEA Foundation en chiffres">
+      <div class="brand-showcase__inner">
+        <span class="sea-logo-fill brand-showcase__logo" role="img" aria-label="SEA Foundation">
+          <img class="sea-logo-fill__base" src="asset/1.png" alt="" aria-hidden="true">
+          <img class="sea-logo-fill__color" src="asset/3.png" alt="" aria-hidden="true">
+        </span>
+        <div class="brand-stats" aria-label="Repères de SEA Foundation">
+          <div class="brand-stat"><strong>15–35</strong><span>ans au cœur de nos actions</span></div>
+          <div class="brand-stat"><strong>3</strong><span>secteurs prioritaires</span></div>
+          <div class="brand-stat"><strong>22 ha</strong><span>pour le site du projet agricole</span></div>
+          <div class="brand-stat"><strong>2024–2028</strong><span>plan stratégique</span></div>
+        </div>
+        <figure class="president-message">
+          <img src="asset/president/IMG_6070.JPG.jpeg" alt="Emmanuel Sheyi Adebayor, président de SEA Foundation" loading="lazy" decoding="async">
+          <figcaption>
+            <span class="eyebrow">Le mot du président</span>
+            <blockquote>« Ensemble, nous pouvons bâtir un avenir meilleur pour la jeunesse togolaise. »</blockquote>
+            <cite>Emmanuel Sheyi Adebayor<br>Plan stratégique 2024–2028</cite>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -452,7 +528,7 @@
         </div>
       </div>
       <a class="footer-logo" href="#accueil" aria-label="SEA Foundation — retour à l’accueil">
-        <img src="asset/logo1.png" alt="Logo SEA Foundation">
+        <span class="sea-logo-fill" role="img" aria-label="Logo SEA Foundation"><img class="sea-logo-fill__base" src="asset/1.png" alt="" aria-hidden="true"><img class="sea-logo-fill__color" src="asset/3.png" alt="" aria-hidden="true"></span>
       </a>
       <div class="footer-bottom">
         <span>© <span id="year">2026</span> SEA FOUNDATION · Sheyi Emmanuel Adebayor</span>
@@ -471,7 +547,7 @@
     <button class="ai-chat-backdrop" type="button" data-chat-backdrop aria-label="Fermer l’assistant" hidden></button>
     <section class="ai-chat-panel" id="ai-chat-panel" aria-labelledby="ai-chat-title" role="dialog" aria-modal="true" hidden>
       <div class="ai-chat-brand-panel">
-        <img src="asset/logo1.png" alt="Logo SEA Foundation">
+        <span class="sea-logo-fill" role="img" aria-label="Logo SEA Foundation"><img class="sea-logo-fill__base" src="asset/1.png" alt="" aria-hidden="true"><img class="sea-logo-fill__color" src="asset/3.png" alt="" aria-hidden="true"></span>
         <span class="ai-chat-brand-kicker">SEA FOUNDATION · TOGO</span>
         <h2>Un avenir à construire ensemble.</h2>
         <p>Un assistant pour vous orienter vers nos programmes, nos actions et les possibilités d’engagement.</p>
@@ -517,6 +593,6 @@
       </a>
     </nav>
   </aside>
-  <script defer src="script.js?v=20261104-26"></script>
+  <script defer src="script.js?v=20261105-05"></script>
 </body>
 </html>

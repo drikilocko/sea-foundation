@@ -74,6 +74,11 @@
       "Informations et ressources relatives au plan stratégique 2024–2028 de SEA Foundation.": "Information and resources about SEA Foundation's 2024–2028 strategic plan.",
       "Rejoindre": "Get involved",
       "Nous contacter": "Contact us",
+      "Le mot du président": "A message from the president",
+      "ans au cœur de nos actions": "year olds at the heart of our work",
+      "secteurs prioritaires": "priority areas",
+      "pour le site du projet agricole": "for the agricultural project site",
+      "plan stratégique": "strategic plan",
       "Accueil": "Home",
       "À Propos": "About",
       "Présentation": "Overview",
@@ -101,6 +106,13 @@
       "Votre engagement peut faire la différence.": "Your commitment can make a difference.",
       "SEA Action": "SEA Action",
       "Votre chemin vers un changement concret.": "Your path to meaningful change.",
+      "Les dernières actualités": "The latest news",
+      "Formation · Innov’ert": "Training · Innov’ert",
+      "Former les jeunes aux nouvelles pratiques agricoles": "Training young people in new agricultural practices",
+      "Atelier · Innov’ert": "Workshop · Innov’ert",
+      "Valoriser les huiles usagées grâce à un atelier dédié": "Repurposing used oils through a dedicated workshop",
+      "Conférence": "Conference",
+      "Échanger autour des enjeux de gouvernance migratoire": "Discussing migration governance challenges",
       "Agir pour la jeunesse": "Taking action for young people",
       "Santé · éducation · entrepreneuriat": "Health · education · entrepreneurship",
       "Qui sommes-nous ?": "Who are we?",
@@ -609,7 +621,7 @@
 
     document.querySelectorAll("#primary-navigation, .site-page-nav").forEach((navigation) => {
       const placement = navigation.id === "primary-navigation"
-        ? document.querySelector(".oja-topbar")
+        ? document.querySelector(".sea-topbar")
         : navigation.closest(".site-page-top");
       if (!placement) return;
       const languageButton = document.createElement("button");
@@ -732,41 +744,161 @@
       cookieBanner.focus({ preventScroll: true });
     });
 
-    if (!motionPreference.matches && currentScript instanceof HTMLScriptElement) {
+    if (currentScript instanceof HTMLScriptElement) {
       const preloader = document.createElement("div");
-      preloader.className = "site-preloader";
+      preloader.className = "site-preloader is-loading";
       preloader.setAttribute("aria-hidden", "true");
 
       const loadingLine = document.createElement("span");
       loadingLine.className = "site-preloader__line";
-      const logo = document.createElement("img");
+      const logo = document.createElement("span");
       logo.className = "site-preloader__logo";
-      logo.src = new URL("asset/logo1.png", currentScript.src).href;
-      logo.alt = "";
-      preloader.append(loadingLine, logo);
+      logo.setAttribute("role", "img");
+      logo.setAttribute("aria-label", "SEA Foundation");
+      const whiteLogo = document.createElement("img");
+      whiteLogo.className = "site-preloader__logo-base";
+      whiteLogo.src = new URL("asset/1.png", currentScript.src).href;
+      whiteLogo.alt = "";
+      const colorLogo = document.createElement("img");
+      colorLogo.className = "site-preloader__logo-color";
+      colorLogo.src = new URL("asset/3.png", currentScript.src).href;
+      colorLogo.alt = "";
+      logo.append(whiteLogo, colorLogo);
+
+      const errorPanel = document.createElement("div");
+      errorPanel.className = "site-preloader__error";
+      errorPanel.hidden = true;
+      errorPanel.setAttribute("role", "alert");
+      const errorTitle = document.createElement("h1");
+      errorTitle.textContent = "Connexion impossible";
+      const errorMessage = document.createElement("p");
+      errorMessage.textContent = "Les premières images du site n’ont pas pu être chargées. Vérifiez votre connexion, puis actualisez la page.";
+      const retryButton = document.createElement("button");
+      retryButton.className = "site-preloader__retry";
+      retryButton.type = "button";
+      retryButton.textContent = "Actualiser";
+      retryButton.addEventListener("click", () => window.location.reload());
+      errorPanel.append(errorTitle, errorMessage, retryButton);
+
+      preloader.append(loadingLine, logo, errorPanel);
       document.body.prepend(preloader);
+      const previousOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
 
-      window.setTimeout(() => {
-        preloader.classList.add("is-logo-visible");
-        window.setTimeout(() => {
-          preloader.classList.add("is-opening");
-          let preloaderRemoved = false;
-          const removePreloader = () => {
-            if (preloaderRemoved) return;
-            preloaderRemoved = true;
-            document.body.style.removeProperty("overflow");
-            lenisInstance?.start();
-            preloader.remove();
-          };
-          preloader.addEventListener("transitionend", (event) => {
-            if (event.target === preloader && event.propertyName === "transform") {
-              removePreloader();
+      const collectFirstScreenImages = () => {
+        const imageUrls = new Set([whiteLogo.src, colorLogo.src]);
+        const sections = document.querySelectorAll(".sea-hero-wrap, #fondation");
+        const backgroundUrlPattern = /url\((?:"([^"]+)"|'([^']+)'|([^)]*))\)/g;
+
+        sections.forEach((section) => {
+          const elements = [section, ...section.querySelectorAll("*")];
+          elements.forEach((element) => {
+            if (element instanceof HTMLImageElement) {
+              const isHiddenSlide = element.closest("[aria-hidden='true']");
+              if (!isHiddenSlide && (element.currentSrc || element.src)) {
+                imageUrls.add(element.currentSrc || element.src);
+              }
             }
+
+            ["", "::before", "::after"].forEach((pseudoElement) => {
+              const backgroundImage = window.getComputedStyle(element, pseudoElement).backgroundImage;
+              for (const match of backgroundImage.matchAll(backgroundUrlPattern)) {
+                const url = match[1] || match[2] || match[3];
+                if (url) imageUrls.add(new URL(url.trim(), document.baseURI).href);
+              }
+            });
           });
-          window.setTimeout(removePreloader, 1300);
-        }, 3000);
-      }, 1200);
+        });
+
+        return Array.from(imageUrls);
+      };
+
+      const loadImage = (src) => new Promise((resolve, reject) => {
+        const image = new Image();
+        const timeout = window.setTimeout(() => {
+          reject(new Error(`Timed out loading ${src}`));
+        }, 12000);
+        const fail = () => {
+          window.clearTimeout(timeout);
+          reject(new Error(`Could not load ${src}`));
+        };
+        image.onerror = fail;
+        image.onload = () => {
+          if (!image.naturalWidth) {
+            fail();
+            return;
+          }
+          const decode = typeof image.decode === "function"
+            ? Promise.resolve().then(() => image.decode())
+            : Promise.resolve();
+          decode.then(() => {
+            window.clearTimeout(timeout);
+            resolve();
+          }, fail);
+        };
+        image.src = src;
+        if (image.complete && image.naturalWidth) image.onload();
+      });
+
+      const openSite = () => {
+        preloader.classList.add("is-opening");
+        let preloaderRemoved = false;
+        const removePreloader = () => {
+          if (preloaderRemoved) return;
+          preloaderRemoved = true;
+          document.body.style.overflow = previousOverflow;
+          lenisInstance?.start();
+          preloader.remove();
+        };
+        preloader.addEventListener("transitionend", (event) => {
+          if (event.target === preloader && event.propertyName === "transform") {
+            removePreloader();
+          }
+        });
+        window.setTimeout(removePreloader, motionPreference.matches ? 100 : 1300);
+      };
+
+      Promise.all(collectFirstScreenImages().map(loadImage)).then(() => {
+        preloader.classList.remove("is-loading");
+        preloader.classList.add("is-logo-visible");
+        if (motionPreference.matches) {
+          preloader.classList.add("is-logo-colored");
+          window.setTimeout(openSite, 100);
+          return;
+        }
+        window.setTimeout(() => preloader.classList.add("is-logo-colored"), 420);
+        window.setTimeout(openSite, 2050);
+      }).catch((error) => {
+        console.error("The first two sections could not be loaded.", error);
+        preloader.classList.remove("is-loading");
+        preloader.classList.add("has-error");
+        preloader.removeAttribute("aria-hidden");
+        loadingLine.hidden = true;
+        logo.hidden = true;
+        errorPanel.hidden = false;
+        retryButton.focus({ preventScroll: true });
+      });
+    }
+
+    const headerLogos = document.querySelectorAll(".sea-brand-wrap .sea-logo, .site-page-brand .sea-logo-fill");
+    headerLogos.forEach((logo) => {
+      const fillLogo = () => logo.classList.add("is-logo-filled");
+      logo.addEventListener("pointerenter", fillLogo, { once: true });
+      logo.closest("a")?.addEventListener("focus", fillLogo, { once: true });
+    });
+
+    const logosOnView = document.querySelectorAll(".footer .brand-mark, .footer-logo .sea-logo-fill, .brand-showcase .sea-logo-fill");
+    if ("IntersectionObserver" in window) {
+      const logoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-logo-filled");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.15 });
+      logosOnView.forEach((logo) => logoObserver.observe(logo));
+    } else {
+      logosOnView.forEach((logo) => logo.classList.add("is-logo-filled"));
     }
 
     const chatPanel = document.querySelector("#ai-chat-panel");
@@ -968,9 +1100,9 @@
       updateKindnessReveal();
     }
 
-    const responsiveMenuButton = document.querySelector(".oja-menu-toggle");
+    const responsiveMenuButton = document.querySelector(".sea-menu-toggle");
     const primaryNavigation = document.querySelector("#primary-navigation");
-    const responsiveHeader = document.querySelector(".oja-header-panel");
+    const responsiveHeader = document.querySelector(".sea-header-panel");
 
     if (responsiveMenuButton && primaryNavigation) {
       let previousMenuBodyOverflow = "";
@@ -979,7 +1111,7 @@
         responsiveMenuButton.setAttribute("aria-label", "Ouvrir le menu");
         primaryNavigation.classList.remove("is-open");
         responsiveHeader?.classList.remove("is-menu-open");
-        responsiveHeader?.querySelectorAll(".oja-nav-group[open]").forEach((group) => {
+        responsiveHeader?.querySelectorAll(".sea-nav-group[open]").forEach((group) => {
           group.removeAttribute("open");
         });
         document.body.style.overflow = previousMenuBodyOverflow;
@@ -1060,12 +1192,11 @@
     const navLinks = document.querySelector(".nav-links");
     const yearNode = document.querySelector("#year");
     const scrollProgress = document.querySelector(".scroll-progress");
-    const commitmentSection = document.querySelector("#engagements");
     const heroSection = document.querySelector("#accueil");
-    const headerPanel = document.querySelector(".oja-header-panel");
+    const headerPanel = document.querySelector(".sea-header-panel");
 
     if (heroSection && headerPanel) {
-      const headerWrap = headerPanel.closest(".oja-hero-wrap");
+      const headerWrap = headerPanel.closest(".sea-hero-wrap");
       const headerPanelSpace = headerWrap
         ? heroSection.getBoundingClientRect().top - headerWrap.getBoundingClientRect().top
         : headerPanel.offsetHeight;
@@ -1191,6 +1322,42 @@
       });
     });
 
+    const newsSlider = document.querySelector("[data-news-slider]");
+    if (newsSlider) {
+      const newsSlides = Array.from(newsSlider.querySelectorAll("[data-news-slide]"));
+      const newsDots = Array.from(newsSlider.querySelectorAll("[data-news-go]"));
+      let activeNewsIndex = newsSlides.findIndex((slide) => slide.classList.contains("is-active"));
+      if (activeNewsIndex < 0) activeNewsIndex = 0;
+
+      const showNewsSlide = (index) => {
+        activeNewsIndex = (index + newsSlides.length) % newsSlides.length;
+        newsSlides.forEach((slide, slideIndex) => {
+          const isActive = slideIndex === activeNewsIndex;
+          slide.classList.toggle("is-active", isActive);
+          slide.setAttribute("aria-hidden", String(!isActive));
+        });
+        newsDots.forEach((dot, dotIndex) => {
+          if (dotIndex === activeNewsIndex) {
+            dot.setAttribute("aria-current", "true");
+          } else {
+            dot.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      newsSlider.querySelector("[data-news-previous]")?.addEventListener("click", () => {
+        showNewsSlide(activeNewsIndex - 1);
+      });
+      newsSlider.querySelector("[data-news-next]")?.addEventListener("click", () => {
+        showNewsSlide(activeNewsIndex + 1);
+      });
+      newsDots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          showNewsSlide(Number(dot.dataset.newsGo));
+        });
+      });
+    }
+
     const priorityTrack = document.querySelector("#priority-track");
     if (priorityTrack) {
       const priorityCards = Array.from(priorityTrack.querySelectorAll(".priority-card"));
@@ -1236,21 +1403,6 @@
           : 0;
         scrollProgress.style.setProperty("--scroll-progress", `${progress * 100}%`);
 
-        if (commitmentSection) {
-          const rampStart = commitmentSection.getBoundingClientRect().top
-            + window.scrollY
-            - window.innerHeight * 0.35;
-          const rampEnd = scrollableHeight * 0.77;
-          const rampLength = Math.max(rampEnd - rampStart, 1);
-          const warmProgress = Math.min(
-            Math.max((window.scrollY - rampStart) / rampLength, 0),
-            1
-          );
-          document.documentElement.style.setProperty(
-            "--warm-background-progress",
-            `${warmProgress * 100}%`
-          );
-        }
       };
 
       onScroll(updateScrollProgress);
