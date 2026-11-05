@@ -624,6 +624,45 @@
         ? document.querySelector(".sea-topbar")
         : navigation.closest(".site-page-top");
       if (!placement) return;
+      if (navigation.id !== "primary-navigation") {
+        navigation.id = "site-page-navigation";
+        const menuButton = document.createElement("button");
+        menuButton.className = "site-page-menu-toggle";
+        menuButton.type = "button";
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-controls", navigation.id);
+        menuButton.setAttribute("aria-label", "Ouvrir le menu");
+        menuButton.innerHTML = "<span></span><span></span>";
+        menuButton.addEventListener("click", () => {
+          const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+          menuButton.setAttribute("aria-expanded", String(!isOpen));
+          menuButton.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
+          navigation.classList.toggle("is-open", !isOpen);
+        });
+        navigation.addEventListener("click", (event) => {
+          if (event.target instanceof Element && event.target.closest("a")) {
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Ouvrir le menu");
+            navigation.classList.remove("is-open");
+          }
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Ouvrir le menu");
+            navigation.classList.remove("is-open");
+            menuButton.focus();
+          }
+        });
+        window.matchMedia("(min-width: 981px)").addEventListener("change", (event) => {
+          if (event.matches) {
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Ouvrir le menu");
+            navigation.classList.remove("is-open");
+          }
+        });
+        placement.insertBefore(menuButton, navigation);
+      }
       const languageButton = document.createElement("button");
       languageButton.className = "site-language-toggle";
       languageButton.type = "button";
@@ -745,8 +784,16 @@
     });
 
     if (currentScript instanceof HTMLScriptElement) {
+      const preloaderVisitKey = "sea-foundation-preloader-visited";
+      let isRepeatVisit = false;
+      try {
+        isRepeatVisit = window.sessionStorage.getItem(preloaderVisitKey) === "true";
+      } catch (error) {
+        console.error("Impossible de lire l’état du préchargeur:", error);
+      }
+
       const preloader = document.createElement("div");
-      preloader.className = "site-preloader is-loading";
+      preloader.className = `site-preloader is-loading${isRepeatVisit ? " is-visited" : ""}`;
       preloader.setAttribute("aria-hidden", "true");
       const preloaderStartedAt = performance.now();
       const preloaderLineDuration = 3000;
@@ -857,10 +904,16 @@
             removePreloader();
           }
         });
-        window.setTimeout(removePreloader, motionPreference.matches ? 100 : 1600);
+        window.setTimeout(removePreloader, isRepeatVisit ? 500 : motionPreference.matches ? 100 : 1600);
       };
 
       Promise.all(collectFirstScreenImages().map(loadImage)).then(() => {
+        try {
+          window.sessionStorage.setItem(preloaderVisitKey, "true");
+        } catch (error) {
+          console.error("Impossible d’enregistrer l’état du préchargeur:", error);
+        }
+
         const showLogo = () => {
           preloader.classList.remove("is-loading");
           preloader.classList.add("is-logo-visible", "is-logo-colored");
@@ -868,10 +921,15 @@
             window.setTimeout(openSite, 100);
             return;
           }
-          window.setTimeout(openSite, 3000);
+          window.setTimeout(openSite, isRepeatVisit ? 550 : 3000);
         };
 
         if (motionPreference.matches) {
+          showLogo();
+          return;
+        }
+
+        if (isRepeatVisit) {
           showLogo();
           return;
         }
