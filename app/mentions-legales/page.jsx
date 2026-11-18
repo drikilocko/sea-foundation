@@ -1,0 +1,22 @@
+import LegalNoticeContent from "@/components/pages/LegalNoticeContent";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+
+const page = {
+  path: "/mentions-legales/",
+  title: "Mentions légales — SEA Foundation",
+  description: "Mentions légales du site de SEA Foundation.",
+  image: "/assets/images/accueil/hero-equipe-sea.jpg",
+};
+
+export const metadata = buildMetadata(page);
+export const viewport = { themeColor: "#f7f6f1" };
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd(page)} />
+      <LegalNoticeContent />
+    </>
+  );
+}

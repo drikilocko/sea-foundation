@@ -1,0 +1,76 @@
+.hero { padding: 0; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.about, .context, .priorities, .axes, .vision, .approach-section, .testimonials, .partners, .faq, .contact {
+  padding: 82px 0;
+}
+
+.about {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(36px, 6vh, 72px);
+  padding: clamp(56px, 9vh, 96px) max(14px, calc((100% - 1192px) / 2)) clamp(72px, 11vh, 120px);
+  background:
+    linear-gradient(180deg, #081f1c 0%, rgba(8, 31, 28, .4) 30%, rgba(8, 31, 28, .5) 76%, #081f1c 100%),
+    linear-gradient(90deg, rgba(8, 31, 28, .84), rgba(8, 31, 28, .34)),
+    url("/assets/images/accueil/fond-jeunes-football.jpg") center 48% / cover no-repeat,
+    #1d4a40;
+  background-blend-mode: normal, normal, luminosity;
+}
+
+.about-grid { width: min(1192px, 100%); margin-inline: auto; }
+.about .eyebrow, .about .section-heading, .about .about-text p, .about .about-text p strong { color: white; }
+.about .eyebrow::before { background: #f0a064; }
+.about .about-link { color: #f6dd9d; }
+.about .about-vision {
+  width: min(1192px, 100%);
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 82px);
+  margin-inline: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.about .about-vision .vision-copy { max-width: 650px; }
+.about .about-vision .section-heading { max-width: 600px; font-size: clamp(36px, 4.5vw, 56px); }
+.about .about-vision .vision-copy p { max-width: 590px; font-size: 16px; line-height: 1.85; }
+.about .about-vision .eyebrow,
+.about .about-vision .section-heading,
+.about .about-vision .vision-copy p { color: white; }
+.about .about-vision .vision-copy em { color: #f6dd9d; }
+.about .about-vision .vision-stat-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: none;
+  margin: 0;
+}
+.about .about-vision .vision-stat {
+  min-height: 145px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  background: transparent;
+  box-shadow: none;
+}
+.about .about-vision .vision-stat strong,
+.about .about-vision .vision-stat span { color: white; }
+
+.priorities {
+  margin-top: 0;
+  padding: 82px 0 110px;
+  background: var(--paper);
+}

@@ -18,7 +18,8 @@ Faire de SEA Foundation le premier résultat sur son nom, puis la référence su
 - `sitemap.xml` avec les 14 pages publiques, et `robots.txt` qui le déclare.
 - Une URL canonique, des balises Open Graph et Twitter sur chaque page.
 - Données structurées : organisation et site sur l'accueil, fil d'Ariane sur les autres pages.
-- `.htaccess` (HTTPS, compression, cache, sécurité, fichiers privés bloqués) et `vercel.json` (cache et sécurité).
+- `next.config.mjs` : en-têtes de sécurité, cache des images et redirection des anciennes adresses `.html`.
+- Pages générées à l'avance par Next.js : Google reçoit tout le contenu dans le HTML.
 - Images rangées par page, avec des noms de fichiers descriptifs.
 
 ## 3. Architecture du site
@@ -103,6 +104,6 @@ Ces mots-clés sont des hypothèses de départ. Il faut les confirmer avec les r
 ## 8. Règles à chaque nouvelle page
 
 - Un seul `h1`, un titre de 60 caractères maximum, une description de 155 caractères maximum.
-- Une balise canonique, des balises Open Graph et une entrée dans `sitemap.xml`.
-- Des images dans `assets/images/<page>/`, en minuscules, avec des tirets et sans espaces.
+- Des métadonnées créées avec `buildMetadata`, et la route ajoutée dans `lib/site.js` pour apparaître dans le sitemap.
+- Des images dans `public/assets/images/<page>/`, en minuscules, avec des tirets et sans espaces.
 - Au moins deux liens internes vers des pages utiles.

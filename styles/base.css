@@ -1,0 +1,68 @@
+:root {
+  color-scheme: light;
+  --paper: #f7f6f1;
+  --ink: #20231c;
+  --muted: #72736a;
+  --green: #58744d;
+  --green-dark: #23342b;
+  --nav-teal: #226371;
+  --nav-accent: #f27b38;
+  --lime: #d7ed83;
+  --line: #e8e7de;
+  --white: #fffefa;
+  --dots-dark: radial-gradient(circle, rgba(32, 35, 28, .34) 1.25px, transparent 1.5px);
+  --dots-light: radial-gradient(circle, rgba(255, 255, 255, .34) 1.25px, transparent 1.5px);
+  --serif: Georgia, "Times New Roman", serif;
+  font-family: var(--font-dm-sans), sans-serif;
+  scroll-behavior: auto;
+  scroll-padding-top: 88px;
+  overscroll-behavior-y: none;
+  overflow-x: clip;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+:root::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+html.lenis, html.lenis body { height: auto; }
+html.lenis.lenis-smooth { scroll-behavior: auto !important; }
+html.lenis.lenis-stopped { overflow: hidden; }
+body {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  margin: 0;
+  overscroll-behavior-y: none;
+  overflow-x: clip;
+  background-color: var(--paper);
+  background-image: var(--dots-dark), linear-gradient(180deg, var(--paper) 0%, var(--paper) 76%, #f8e9dc 100%);
+  background-repeat: repeat, no-repeat;
+  background-size: 36px 36px, 100% 100%;
+  background-position: 10px 6px, center;
+  background-attachment: scroll;
+  color: var(--ink);
+}
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: none;
+  background: linear-gradient(115deg, rgba(7, 28, 38, .68), rgba(7, 28, 38, .3)), url("/assets/images/contact/jeune-crepuscule.jpg") center / cover no-repeat;
+  content: "";
+  pointer-events: none;
+}
+body.closing-background-active::before { display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+.wrap { width: min(1192px, calc(100% - 64px)); margin-inline: auto; }
+.eyebrow { display: flex; align-items: center; gap: 9px; color: var(--green); font-size: 11px; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+.eyebrow::before { width: 7px; height: 7px; border-radius: 50%; background: #e9b64d; content: ""; }
+.section-heading { max-width: 660px; margin: 15px 0 0; font-family: var(--font-manrope), sans-serif; font-size: clamp(32px, 4vw, 48px); line-height: 1.08; letter-spacing: -.055em; font-weight: 650; }
+.section-lead { max-width: 470px; margin-top: 15px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+body.has-reveal .reveal-item { opacity: 0; transform: translateY(28px); transition: opacity .72s ease, transform .72s cubic-bezier(.22,1,.36,1); transition-delay: var(--reveal-delay, 0ms); }
+body.has-reveal .reveal-item.is-revealed { opacity: 1; transform: translateY(0); }
+.button { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; gap: 22px; padding: 0 19px; border: 0; border-radius: 999px; background: var(--ink); color: white; font-size: 12px; font-weight: 650; transition: background .2s, transform .2s; }
+.button:hover { background: var(--green); transform: translateY(-2px); }
+.button-light { background: var(--white); color: var(--ink); }
+.button-light:hover { background: var(--lime); color: var(--ink); }
+.arrow { font-size: 18px; line-height: 1; }

@@ -1,12 +1,25 @@
 {
   "name": "sea-foundation-site",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "SEA Foundation website with a secure Gemini AI assistant server",
+  "description": "Site de SEA Foundation avec assistant IA, construit avec Next.js",
   "scripts": {
-    "start": "node server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
   },
   "engines": {
-    "node": ">=18.18"
+    "node": ">=20.9"
+  },
+  "dependencies": {
+    "lenis": "1.3.11",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.6"
   }
 }
