@@ -1,20 +1,67 @@
-Options -Indexes
+# SEA Foundation - configuration Apache
+# Vercel ignore ce fichier : son équivalent est dans vercel.json.
 
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
 ErrorDocument 404 /404.html
 
+# Types de fichiers
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType application/xml .xml
+  AddCharset UTF-8 .html .css .js .xml .txt
+</IfModule>
+
+# Sécurité et redirections
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteRule ^(?:\.env(?:\..*)?|\.git(?:/.*)?|server\.js|package\.json|vercel\.json|\.htaccess)(?:/|$) - [F,L,NC]
 
+  # Fichiers privés et documents internes
+  RewriteRule ^(?:\.env(?:\..*)?|\.git(?:/.*)?|\.qodo(?:/.*)?|server\.js|package\.json|vercel\.json|\.htaccess|\.gitignore|\.vercelignore|README\.md|txt|docs(?:/.*)?|assets/images/archive(?:/.*)?)(?:/|$) - [F,L,NC]
+
+  # HTTPS obligatoire
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
+  # Page introuvable
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ - [R=404,L]
 </IfModule>
 
-<FilesMatch "^(\.env(\..*)?|\.git|server\.js|package\.json|vercel\.json|\.htaccess)$">
+<FilesMatch "^(\.env(\..*)?|\.git.*|\.vercelignore|server\.js|package\.json|vercel\.json|\.htaccess|README\.md|txt)$">
   Require all denied
 </FilesMatch>
+
+# En-têtes de sécurité
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Cache navigateur
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/xml "access plus 1 day"
+  ExpiresByType text/plain "access plus 1 day"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>

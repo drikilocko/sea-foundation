@@ -6,3 +6,5 @@
 .qodo/
 node_modules/
 txt
+assets/images/archive/
+docs/

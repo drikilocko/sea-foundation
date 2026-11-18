@@ -47,7 +47,7 @@
     }
 
     const englishCopy = new Map(Object.entries({
-      "SEA Foundation — Le potentiel de la jeunesse, notre avenir": "SEA Foundation — The potential of youth is our future",
+      "SEA Foundation | Fondation Sheyi Emmanuel Adebayor au Togo": "SEA Foundation | Sheyi Emmanuel Adebayor Foundation in Togo",
       "Actions — SEA Foundation": "Our work — SEA Foundation",
       "À Propos — SEA Foundation": "About — SEA Foundation",
       "Articles — SEA Foundation": "Articles — SEA Foundation",
@@ -150,6 +150,7 @@
       "Découvrir notre vision": "Discover our vision",
       "Pourquoi agir ?": "Why take action?",
       "Le potentiel est immense. Les obstacles aussi.": "The potential is immense. So are the challenges.",
+      "Face au chômage, au sous-emploi et aux difficultés d’accès aux soins, la Fondation relie santé, éducation, sport et insertion économique.": "In response to unemployment, underemployment and barriers to healthcare, the Foundation connects health, education, sport and economic inclusion.",
       "Au Togo, chômage, sous-emploi, difficultés d’accès aux soins, addictions et discriminations fragilisent les jeunes, en ville comme en milieu rural.": "In Togo, unemployment, underemployment, barriers to healthcare, addiction and discrimination affect young people in both urban and rural areas.",
       "La réponse de la Fondation :": "The Foundation's response:",
       "rapprocher les opportunités en reliant santé, éducation, sport et insertion économique avec les communautés et les dispositifs nationaux.": "bring opportunities closer by connecting health, education, sport and economic inclusion with communities and national programmes.",
@@ -805,7 +806,7 @@
         console.error("Impossible de lire l’état du préchargeur:", error);
       }
 
-      const preloader = document.createElement("div");
+      const preloader = document.querySelector(".site-preloader") ?? document.createElement("div");
       preloader.className = `site-preloader is-loading${isRepeatVisit ? " is-visited" : ""}`;
       preloader.setAttribute("aria-hidden", "true");
       const preloaderStartedAt = performance.now();
@@ -819,11 +820,11 @@
       logo.setAttribute("aria-label", "SEA Foundation");
       const whiteLogo = document.createElement("img");
       whiteLogo.className = "site-preloader__logo-base";
-      whiteLogo.src = new URL("asset/1.png", currentScript.src).href;
+      whiteLogo.src = new URL("assets/images/marque/logo-sea-blanc.png", currentScript.src).href;
       whiteLogo.alt = "";
       const colorLogo = document.createElement("img");
       colorLogo.className = "site-preloader__logo-color";
-      colorLogo.src = new URL("asset/3.png", currentScript.src).href;
+      colorLogo.src = new URL("assets/images/marque/logo-sea-couleur.png", currentScript.src).href;
       colorLogo.alt = "";
       logo.append(whiteLogo, colorLogo);
 
@@ -847,19 +848,19 @@
       const previousOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
 
-      const collectFirstScreenImages = () => {
-        const imageUrls = new Set([whiteLogo.src, colorLogo.src]);
-        const sections = document.querySelectorAll(".sea-hero-wrap, #fondation");
+      const articleSelector = "[data-news-slide], #actualites article, .site-page-main article";
+      const collectImageUrls = (selector, ignoredSelector) => {
+        const imageUrls = new Set();
+        const sections = document.querySelectorAll(selector);
         const backgroundUrlPattern = /url\((?:"([^"]+)"|'([^']+)'|([^)]*))\)/g;
 
         sections.forEach((section) => {
           const elements = [section, ...section.querySelectorAll("*")];
           elements.forEach((element) => {
-            if (element instanceof HTMLImageElement) {
-              const isHiddenSlide = element.closest("[aria-hidden='true']");
-              if (!isHiddenSlide && (element.currentSrc || element.src)) {
-                imageUrls.add(element.currentSrc || element.src);
-              }
+            if (ignoredSelector && element.closest(ignoredSelector)) return;
+
+            if (element instanceof HTMLImageElement && (element.currentSrc || element.src)) {
+              imageUrls.add(element.currentSrc || element.src);
             }
 
             ["", "::before", "::after"].forEach((pseudoElement) => {
@@ -872,8 +873,16 @@
           });
         });
 
-        return Array.from(imageUrls);
+        return imageUrls;
       };
+
+      const criticalImages = new Set([
+        whiteLogo.src,
+        colorLogo.src,
+        ...collectImageUrls(".sea-hero-wrap, #fondation, .site-page-header", articleSelector),
+      ]);
+      const articleImages = Array.from(collectImageUrls(articleSelector))
+        .filter((src) => !criticalImages.has(src));
 
       const loadImage = (src) => new Promise((resolve, reject) => {
         const image = new Image();
@@ -920,7 +929,15 @@
         window.setTimeout(removePreloader, isRepeatVisit ? 500 : motionPreference.matches ? 100 : 1600);
       };
 
-      Promise.all(collectFirstScreenImages().map(loadImage)).then(() => {
+      // Une image d’article manquante ne doit pas bloquer l’accès au site.
+      const loadArticleImage = (src) => loadImage(src).catch((error) => {
+        console.warn("Image d’article non préchargée:", error);
+      });
+
+      Promise.all([
+        ...Array.from(criticalImages, loadImage),
+        ...articleImages.map(loadArticleImage),
+      ]).then(() => {
         try {
           window.sessionStorage.setItem(preloaderVisitKey, "true");
         } catch (error) {
@@ -1353,7 +1370,7 @@
       });
     }
 
-    const revealTargets = document.querySelectorAll('main [class*="-card"]:not(.partner-card)');
+    const revealTargets = document.querySelectorAll('main [class*="-card"]:not(.partner-card):not(.priority-card)');
 
     if (!motionPreference.matches && revealTargets.length) {
       if ("IntersectionObserver" in window) {
@@ -1564,23 +1581,53 @@
       const priorityCards = Array.from(priorityTrack.querySelectorAll(".priority-card"));
       const desktopLayout = window.matchMedia("(min-width: 741px)");
 
+      const getOpenCardWidth = () => {
+        const probe = document.createElement("div");
+        probe.style.cssText = "position:absolute;visibility:hidden;width:var(--priority-open-width)";
+        priorityTrack.append(probe);
+        const width = probe.offsetWidth;
+        probe.remove();
+        return width;
+      };
+
+      // Calcule la position finale pour défiler pendant l’ouverture, et non après.
+      const revealOpeningCard = (card) => {
+        const trackStyles = window.getComputedStyle(priorityTrack);
+        const gap = parseFloat(trackStyles.columnGap) || 0;
+        const paddingLeft = parseFloat(trackStyles.paddingLeft) || 0;
+        const paddingRight = parseFloat(trackStyles.paddingRight) || 0;
+        const closedWidth = parseFloat(window.getComputedStyle(card).minWidth) || 0;
+        const openWidth = getOpenCardWidth();
+        const closedCount = priorityCards.length - 1;
+        const cardLeft = paddingLeft + priorityCards.indexOf(card) * (closedWidth + gap);
+        const cardRight = cardLeft + openWidth;
+        const contentWidth = paddingLeft + paddingRight + openWidth + closedCount * (closedWidth + gap);
+        const maxScroll = Math.max(0, contentWidth - priorityTrack.clientWidth);
+        let target = priorityTrack.scrollLeft;
+        if (cardLeft < target) target = cardLeft;
+        else if (cardRight > target + priorityTrack.clientWidth) target = cardRight - priorityTrack.clientWidth;
+        priorityTrack.scrollTo({ left: Math.min(target, maxScroll), behavior: "smooth" });
+      };
+
       const activatePriority = (card) => {
-        if (!desktopLayout.matches) return;
+        if (card.classList.contains("priority-card--active")) return;
         priorityCards.forEach((priorityCard) => {
           const isActive = priorityCard === card;
           priorityCard.classList.toggle("priority-card--active", isActive);
           priorityCard.setAttribute("aria-expanded", String(isActive));
         });
 
-        requestAnimationFrame(() => {
-          const trackBounds = priorityTrack.getBoundingClientRect();
-          const cardBounds = card.getBoundingClientRect();
-          if (cardBounds.left < trackBounds.left) {
-            priorityTrack.scrollBy({ left: cardBounds.left - trackBounds.left, behavior: "smooth" });
-          } else if (cardBounds.right > trackBounds.right) {
-            priorityTrack.scrollBy({ left: cardBounds.right - trackBounds.right, behavior: "smooth" });
+        if (desktopLayout.matches) {
+          revealOpeningCard(card);
+          return;
+        }
+
+        window.setTimeout(() => {
+          const bounds = card.getBoundingClientRect();
+          if (bounds.top < 80 || bounds.bottom > window.innerHeight) {
+            card.scrollIntoView({ behavior: motionPreference.matches ? "auto" : "smooth", block: "start" });
           }
-        });
+        }, 720);
       };
 
       priorityCards.forEach((card) => {

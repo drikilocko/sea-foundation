@@ -314,9 +314,11 @@ function serveStaticFile(request, response, pathname) {
     ".json": "application/json; charset=utf-8",
     ".png": "image/png",
     ".svg": "image/svg+xml",
+    ".txt": "text/plain; charset=utf-8",
     ".webp": "image/webp",
     ".woff": "font/woff",
     ".woff2": "font/woff2",
+    ".xml": "application/xml; charset=utf-8",
   };
   const contentType = extensions[path.extname(filePath).toLowerCase()] || "application/octet-stream";
   response.writeHead(200, {

@@ -34,3 +34,27 @@ Open `http://127.0.0.1:4173/`. The `.env` file is excluded from Git and Vercel u
 `404.html` is the custom not-found page used by Vercel and the local server. `.htaccess` provides an Apache 404 document, disables directory listings, redirects HTTP to HTTPS, and blocks access to private configuration files. Vercel does not read `.htaccess`; its routing and headers are configured in `vercel.json`.
 
 Apache-only static hosting does not run the Gemini API. Use Vercel (or another Node.js host) to keep `/api/chat` working.
+
+## Project structure
+
+```text
+assets/images/
+  marque/        SEA Foundation logos
+  partenaires/   Partner logos
+  accueil/       Homepage images
+  a-propos/      About page
+  actions/       Actions page
+  articles/      Articles page
+  contact/       Contact page
+  documents/     Documents page
+  evenements/    Events and news pages
+  projet/        Agricultural incubation project
+  archive/       Unused images, excluded from deployment
+docs/SEO-PLAN.md SEO plan and roadmap
+sitemap.xml      Public pages submitted to search engines
+robots.txt       Crawler rules
+```
+
+An image shared by several pages stays in the folder of the page where it is the main visual. File names use lowercase letters and hyphens.
+
+When a page is added, also add it to `sitemap.xml`.
