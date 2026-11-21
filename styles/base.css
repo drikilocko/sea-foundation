@@ -47,7 +47,7 @@ body::before {
   inset: 0;
   z-index: -1;
   display: none;
-  background: linear-gradient(115deg, rgba(7, 28, 38, .68), rgba(7, 28, 38, .3)), url("/assets/images/contact/jeune-crepuscule.jpg") center / cover no-repeat;
+  background: linear-gradient(115deg, rgba(7, 28, 38, .68), rgba(7, 28, 38, .3)), url("/assets/images/contact/jeune-crepuscule.jpg") 82% 22% / cover no-repeat;
   content: "";
   pointer-events: none;
 }

@@ -58,7 +58,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/contact/jeune-crepuscule.jpg" alt="" loading="lazy" />
+            <img src="/assets/images/contact/jeune-crepuscule.jpg" alt="" loading="lazy" style={{ objectPosition: "82% 22%" }} />
             <div className="approach-item__copy">
               <span>04</span>
               <h3>{t("Communiquer sur des faits")}</h3>

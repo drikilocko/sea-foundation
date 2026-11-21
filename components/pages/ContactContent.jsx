@@ -8,7 +8,7 @@ export default function ContactContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/contact/jeune-crepuscule.jpg">
+      <PageHeader cover="/assets/images/contact/jeune-crepuscule.jpg" coverPosition="82% 22%">
         <span className="eyebrow">{t("Partenaires · Communautés · Jeunesse")}</span>
         <h1>{t("Échangeons autour de la jeunesse.")}</h1>
         <p>

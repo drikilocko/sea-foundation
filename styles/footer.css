@@ -1,4 +1,4 @@
-.footer { padding: 54px 0 24px; background: linear-gradient(115deg, rgba(7, 28, 38, .68), rgba(7, 28, 38, .3)), url("/assets/images/contact/jeune-crepuscule.jpg") center / cover no-repeat; color: white; }
+.footer { padding: 54px 0 24px; background: linear-gradient(115deg, rgba(7, 28, 38, .68), rgba(7, 28, 38, .3)), url("/assets/images/contact/jeune-crepuscule.jpg") 82% 22% / cover no-repeat; color: white; }
 body.closing-background-active .footer { background: transparent; }
 .footer-inner { display: block; max-width: 1440px; }
 .footer-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; }
@@ -19,5 +19,5 @@ body.closing-background-active .footer { background: transparent; }
 .footer .brand-name { color: white; }
 .footer .brand-name span { color: rgba(255, 255, 255, .72); }
 .footer .footer-links, .footer .footer-copy { color: rgba(255, 255, 255, .82); }
-.footer .footer-links { flex-wrap: wrap; gap: 12px 18px; }
+.footer .footer-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin: 22px 0 18px; }
 .footer .footer-links a { color: white; }

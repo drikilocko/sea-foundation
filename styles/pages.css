@@ -9,7 +9,7 @@
 .home-hub-card--contact { background: var(--dots-light) 10px 6px / 36px 36px, #102d50; }
 .home-hub-card--contact strong, .home-hub-card--contact small { color: white; }
 
-.site-page-header { position: relative; overflow: hidden; padding: 20px 24px 44px; background: linear-gradient(110deg, rgba(4, 19, 23, .82), rgba(4, 19, 23, .48)), var(--page-cover, url("/assets/images/actions/tournoi-remise-trophee.webp")) center 48% / cover no-repeat; }
+.site-page-header { position: relative; overflow: hidden; padding: 20px 24px 44px; background: linear-gradient(110deg, rgba(4, 19, 23, .82), rgba(4, 19, 23, .48)), var(--page-cover, url("/assets/images/actions/tournoi-remise-trophee.webp")) var(--page-cover-position, center 48%) / cover no-repeat; }
 .site-page-header__inner { position: relative; z-index: 1; width: min(1280px, 100%); margin-inline: auto; }
 .site-page-top { display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 10px 0 18px; border-bottom: 1px solid rgba(255, 255, 255, .22); }
 .site-page-brand { display: inline-flex; align-items: center; gap: 0; flex: 0 0 auto; color: white; font-family: var(--font-manrope), sans-serif; font-size: 13px; font-weight: 800; }

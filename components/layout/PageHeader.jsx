@@ -9,7 +9,7 @@ import LanguageToggle from "@/components/ui/LanguageToggle";
 import SeaLogo from "@/components/ui/SeaLogo";
 import { COMPACT_NAVIGATION, MAIN_NAVIGATION, PAGE_LABELS } from "@/lib/site";
 
-export default function PageHeader({ cover, compact = false, children }) {
+export default function PageHeader({ cover, compact = false, children, coverPosition }) {
   const { t } = useLanguage();
   const pathname = usePathname();
   const { lockScroll, unlockScroll } = useSmoothScroll();
@@ -38,7 +38,14 @@ export default function PageHeader({ cover, compact = false, children }) {
   return (
     <header
       className={`site-page-header${isMenuOpen ? " is-menu-open" : ""}`}
-      style={cover ? { "--page-cover": `url('${cover}')` } : undefined}
+      style={
+        cover
+          ? {
+              "--page-cover": `url('${cover}')`,
+              ...(coverPosition && { "--page-cover-position": coverPosition }),
+            }
+          : undefined
+      }
     >
       <div className="site-page-header__inner">
         <div className="site-page-top">
