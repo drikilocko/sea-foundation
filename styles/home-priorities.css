@@ -67,9 +67,10 @@
 }
 
 .context-panel {
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  /* Une seule colonne : « Pourquoi agir ? » se place sous le texte de présentation. */
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
-  gap: clamp(36px, 7vh, 72px) clamp(32px, 6vw, 88px);
+  gap: clamp(26px, 4vh, 40px) clamp(32px, 6vw, 88px);
 }
 
 .context-heading {
@@ -105,13 +106,14 @@
 .about .about-text p { margin-top: 14px; font-size: 14px; line-height: 1.75; }
 .about .about-text .about-link { margin-top: 16px; }
 .about .context-summary {
-  grid-column: 2;
-  grid-row: 1;
-  align-self: end;
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  max-width: 680px;
   margin: 0;
-  padding: 0 0 4px 28px;
-  border-top: 0;
-  border-left: 1px solid rgba(255, 255, 255, .26);
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, .26);
+  border-left: 0;
 }
 .about .context-summary .eyebrow { margin-bottom: 10px; }
 .about .context-summary .section-heading { max-width: 420px; margin: 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.2; letter-spacing: -.03em; }
@@ -119,7 +121,7 @@
 
 .context-facts {
   grid-column: 1 / -1;
-  grid-row: 2;
+  grid-row: 3;
   align-self: stretch;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -143,7 +145,7 @@
 .context-fact .context-fact-title { color: #d7ed83; font-size: 10px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
 .context-fact strong { color: #d7ed83; font-family: var(--font-manrope), sans-serif; font-size: clamp(24px, 2.5vw, 36px); line-height: 1.05; letter-spacing: -.06em; }
 .context-fact > span:last-child { color: rgba(255, 255, 255, .8); font-size: 12px; line-height: 1.55; }
-.context-source { grid-column: 1 / -1; grid-row: 3; margin: 0; padding: 2px 4px 0; color: rgba(255, 255, 255, .86); font-size: 10px; line-height: 1.6; text-shadow: 0 1px 5px rgba(0, 0, 0, .6); }
+.context-source { grid-column: 1 / -1; grid-row: 4; margin: 0; padding: 2px 4px 0; color: rgba(255, 255, 255, .86); font-size: 10px; line-height: 1.6; text-shadow: 0 1px 5px rgba(0, 0, 0, .6); }
 
 .context-response {
   grid-column: 1 / -1;
@@ -191,10 +193,11 @@
   padding: 4px 2px 16px;
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  scroll-behavior: smooth;
   scrollbar-width: none;
   --priority-open-width: clamp(360px, 42vw, 520px);
-  --priority-ease: cubic-bezier(.22, 1, .36, 1);
+  /* Mêmes valeurs que PRIORITY_EASE et PRIORITY_DURATION dans lib/motion.js. */
+  --priority-ease: cubic-bezier(.16, 1, .3, 1);
+  --priority-duration: .9s;
 }
 .priority-grid::-webkit-scrollbar { display: none; }
 .priority-controls .slider-button { transition: background .2s ease, transform .2s ease; }
@@ -219,9 +222,17 @@
   color: white;
   cursor: pointer;
   isolation: isolate;
-  transition: flex-basis .7s var(--priority-ease), min-height .7s var(--priority-ease), transform .25s ease, box-shadow .25s ease;
+  transition: flex-basis var(--priority-duration) var(--priority-ease), min-height var(--priority-duration) var(--priority-ease), transform .35s var(--priority-ease), box-shadow .35s ease;
 }
 .priority-card--active { flex-basis: var(--priority-open-width); }
+.priority-card:not(.priority-card--active) { contain: paint; }
+/* Retour de la vue immersive : la carte s’ouvre sans animation, derrière le voile. */
+.priority-grid.is-instant .priority-card,
+.priority-grid.is-instant .priority-card * { transition: none !important; animation: none !important; }
+.priority-card.is-story-source { visibility: hidden; }
+.priority-grid.is-animating .priority-icon,
+.priority-grid.is-animating .priority-more { -webkit-backdrop-filter: none; backdrop-filter: none; }
+.priority-grid.is-animating .priority-card { will-change: flex-basis; }
 .priority-card:hover { transform: translateY(-4px); box-shadow: 0 18px 38px rgba(3, 25, 65, .25); }
 .priority-card:focus-visible { outline: 3px solid #f0a064; outline-offset: 3px; }
 .priority-topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -229,12 +240,12 @@
 .priority-icon { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255, 255, 255, .5); border-radius: 50%; background: rgba(8, 40, 75, .32); color: white; backdrop-filter: blur(8px); }
 .priority-icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .priority-copy { max-width: 100%; }
-.priority-card h3 { margin: 0; font-family: var(--font-manrope), sans-serif; font-size: clamp(18px, 1.45vw, 21px); line-height: 1.08; letter-spacing: -.05em; transition: font-size .7s var(--priority-ease); }
-.priority-card p { display: -webkit-box; max-height: calc(3 * 1.65em); margin: 10px 0 0; padding-right: 36px; overflow: hidden; color: rgba(255, 255, 255, .88); font-size: 12px; line-height: 1.65; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; transition: max-height .7s var(--priority-ease); animation: priority-text-close .7s ease both; }
+.priority-card h3 { margin: 0; font-family: var(--font-manrope), sans-serif; font-size: clamp(18px, 1.45vw, 21px); line-height: 1.08; letter-spacing: -.05em; transition: font-size var(--priority-duration) var(--priority-ease); }
+.priority-card p { display: -webkit-box; max-height: calc(3 * 1.65em); margin: 10px 0 0; padding-right: 36px; overflow: hidden; color: rgba(255, 255, 255, .88); font-size: 12px; line-height: 1.65; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; transition: max-height var(--priority-duration) var(--priority-ease); animation: priority-text-close .6s ease both; }
 .priority-card--active h3 { font-size: clamp(28px, 3vw, 40px); }
-.priority-card--active p { display: block; max-width: 340px; max-height: 8em; padding-right: 0; font-size: 14px; -webkit-line-clamp: unset; line-clamp: unset; animation: priority-text-open .7s ease both; }
-.priority-actions { display: flex; flex-wrap: wrap; gap: 9px; max-height: 0; margin-top: 0; padding-top: 2px; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height .7s var(--priority-ease), margin-top .7s var(--priority-ease), opacity .25s ease, visibility 0s linear .25s; }
-.priority-card--active .priority-actions { max-height: 104px; margin-top: 18px; opacity: 1; visibility: visible; transition: max-height .7s var(--priority-ease), margin-top .7s var(--priority-ease), opacity .4s ease .28s, visibility 0s; }
+.priority-card--active p { display: block; max-width: 340px; max-height: 8em; padding-right: 0; font-size: 14px; -webkit-line-clamp: unset; line-clamp: unset; animation: priority-text-open var(--priority-duration) var(--priority-ease) both; }
+.priority-actions { display: flex; flex-wrap: wrap; gap: 9px; max-height: 0; margin-top: 0; padding-top: 2px; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height var(--priority-duration) var(--priority-ease), margin-top var(--priority-duration) var(--priority-ease), opacity .25s ease, visibility 0s linear .25s; }
+.priority-card--active .priority-actions { max-height: 104px; margin-top: 18px; opacity: 1; visibility: visible; transition: max-height var(--priority-duration) var(--priority-ease), margin-top var(--priority-duration) var(--priority-ease), opacity .5s ease .3s, visibility 0s; }
 @keyframes priority-text-open { 0%, 35% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: none; } }
 @keyframes priority-text-close { 0%, 35% { opacity: 0; } 100% { opacity: 1; } }
 .priority-action { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 39px; padding: 0 15px; border-radius: 999px; font-size: 11px; font-weight: 750; white-space: nowrap; transition: transform .2s ease, background .2s ease; }

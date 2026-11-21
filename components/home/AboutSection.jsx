@@ -7,6 +7,9 @@ export default function AboutSection() {
   return (
     <>
       <section className="about wrap" id="fondation">
+        <div className="fixed-photo" aria-hidden="true">
+          <div className="fixed-photo__img" />
+        </div>
         <div className="about-grid context-panel">
           <div className="about-text">
             <span className="eyebrow">{t("Qui sommes-nous ?")}</span>

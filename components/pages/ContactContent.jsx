@@ -99,7 +99,7 @@ export default function ContactContent() {
               className="page-card page-card--photo contact-location-card"
               style={{
                 "--project-card-image":
-                  "url('/assets/images/a-propos/equipe-fondation-terrain.jpg')",
+                  "url('/assets/images/accueil/portrait-president.webp')",
               }}
             >
               <span className="contact-method-icon" aria-hidden="true">

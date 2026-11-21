@@ -7,7 +7,7 @@ const page = {
   title: "Documents — SEA Foundation",
   description:
     "Informations et ressources relatives au plan stratégique 2024–2028 de SEA Foundation.",
-  image: "/assets/images/documents/equipe-eleves-uniformes.jpg",
+  image: "/assets/images/accueil/fond-jeunes-football.jpg",
 };
 
 export const metadata = buildMetadata(page);

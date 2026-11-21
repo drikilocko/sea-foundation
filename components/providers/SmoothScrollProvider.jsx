@@ -1,20 +1,20 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef } from "react";
+import { canUseSmoothScroll } from "@/lib/motion";
 
-const SmoothScrollContext = createContext({ lockScroll: () => {}, unlockScroll: () => {} });
+const SmoothScrollContext = createContext({
+  lockScroll: () => {},
+  unlockScroll: () => {},
+  scrollToY: () => {},
+});
 
 export function SmoothScrollProvider({ children }) {
   const lenisRef = useRef(null);
   const lockCountRef = useRef(0);
 
   useEffect(() => {
-    const canSmoothScroll =
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
-      !window.matchMedia("(pointer: coarse)").matches &&
-      navigator.hardwareConcurrency > 4 &&
-      !navigator.connection?.saveData;
-    if (!canSmoothScroll) return undefined;
+    if (!canUseSmoothScroll()) return undefined;
 
     let cancelled = false;
     import("lenis")
@@ -54,7 +54,19 @@ export function SmoothScrollProvider({ children }) {
     lenisRef.current?.start();
   }, []);
 
-  const value = useMemo(() => ({ lockScroll, unlockScroll }), [lockScroll, unlockScroll]);
+  // Défile la page avec Lenis quand il est actif, sinon avec le défilement natif.
+  const scrollToY = useCallback((top, { immediate = false } = {}) => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(top, { immediate, force: true });
+      return;
+    }
+    window.scrollTo({ top, behavior: immediate ? "instant" : "smooth" });
+  }, []);
+
+  const value = useMemo(
+    () => ({ lockScroll, unlockScroll, scrollToY }),
+    [lockScroll, unlockScroll, scrollToY],
+  );
 
   return <SmoothScrollContext.Provider value={value}>{children}</SmoothScrollContext.Provider>;
 }

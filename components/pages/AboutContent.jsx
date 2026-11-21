@@ -9,7 +9,7 @@ export default function AboutContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/a-propos/equipe-fondation-terrain.jpg">
+      <PageHeader cover="/assets/images/accueil/tournoi-salut-officiels.webp">
         <span className="eyebrow">{t("Qui sommes-nous ?")}</span>
         <h1>{t("Une fondation engagée pour la jeunesse togolaise.")}</h1>
         <p>
@@ -55,7 +55,7 @@ export default function AboutContent() {
                 className="page-card page-card--photo"
                 style={{
                   "--project-card-image":
-                    "url('/assets/images/a-propos/equipe-fondation-terrain.jpg')",
+                    "url('/assets/images/articles/president-tournoi-tribune.webp')",
                 }}
               >
                 <span>{t("15–35 ans")}</span>

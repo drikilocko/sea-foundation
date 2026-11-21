@@ -1,5 +1,11 @@
 // Traductions anglaises, indexées par le texte français affiché sur le site.
 export const englishCopy = {
+  "Entrepreneuriat": "Entrepreneurship",
+  "Retour aux priorités": "Back to priorities",
+  "Priorité précédente": "Previous priority",
+  "Priorité suivante": "Next priority",
+  "Ce que prévoit le plan": "What the plan sets out",
+  "Voir le plan d’action": "See the action plan",
   "SEA Foundation | Fondation Sheyi Emmanuel Adebayor au Togo":
     "SEA Foundation | Sheyi Emmanuel Adebayor Foundation in Togo",
   "Actions — SEA Foundation": "Our work — SEA Foundation",
@@ -65,7 +71,8 @@ export const englishCopy = {
   Documents: "Resources",
   Contact: "Contact",
   "Des jeunes, par les jeunes, pour les jeunes.": "By young people, for young people.",
-  "L’Afrique de demain": "Tomorrow's Africa",
+  "L’Afrique": "Tomorrow's",
+  "de demain": "Africa",
   "commence avec nous.": "starts with us.",
   "S’engager avec SEA": "Get involved with SEA",
   "Votre engagement peut faire la différence.": "Your commitment can make a difference.",

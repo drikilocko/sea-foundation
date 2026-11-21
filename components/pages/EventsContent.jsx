@@ -32,7 +32,7 @@ export default function EventsContent() {
             <div className="event-grid">
               <article className="event-card">
                 <img
-                  src="/assets/images/a-propos/equipe-fondation-terrain.jpg"
+                  src="/assets/images/actions/tournoi-remise-trophee.webp"
                   alt="Équipe de la Fondation SEA réunie sur le terrain"
                   loading="lazy"
                 />

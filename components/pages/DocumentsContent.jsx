@@ -9,7 +9,7 @@ export default function DocumentsContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/documents/equipe-eleves-uniformes.jpg">
+      <PageHeader cover="/assets/images/accueil/fond-jeunes-football.jpg">
         <span className="eyebrow">{t("Ressources")}</span>
         <h1>{t("Documents de référence")}</h1>
         <p>{t("Repères et informations relatifs au plan stratégique de SEA Foundation.")}</p>

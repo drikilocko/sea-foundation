@@ -15,7 +15,7 @@
   .sea-topbar .site-language-toggle { order: 1; margin-left: auto; }
   .sea-topbar .sea-menu-toggle { order: 2; margin-left: 0; }
   .sea-header-links { display: none; }
-  .sea-nav { display: flex; width: 100%; flex: 0 0 auto; flex-direction: column; align-items: flex-start; gap: 0; max-height: 0; overflow: hidden; padding: 0 6px; text-align: left; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: max-height .48s cubic-bezier(.22,1,.36,1), opacity .24s ease, transform .32s ease, padding .32s ease, visibility .32s; }
+  .sea-nav { display: flex; width: 100%; flex: 0 0 auto; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; max-height: 0; overflow: hidden; padding: 0 6px; text-align: left; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: max-height .48s cubic-bezier(.22,1,.36,1), opacity .24s ease, transform .32s ease, padding .32s ease, visibility .32s; }
   .sea-nav.is-open { max-height: calc(100dvh - 110px); overflow-y: auto; padding: 12px 6px 16px; opacity: 1; visibility: visible; transform: translateY(0); }
   .sea-nav a, .sea-nav-group > summary { min-height: 48px; display: flex; align-items: center; padding: 0 14px; border-radius: 10px; font-size: 18px; }
   .sea-nav > a, .sea-nav-group { width: 100%; justify-content: flex-start; text-align: left; }
@@ -197,7 +197,8 @@
   .brand-name { font-size: 10px; }
   .brand-name span { font-size: 7px; }
   .hero-panel { min-height: 463px; padding: 29px 21px; border-radius: 12px; background-position: 61% center; }
-  .hero h1 { max-width: 390px; font-size: clamp(39px, 11vw, 54px); }
+  /* La taille en vw sert de secours aux navigateurs qui ne connaissent pas cqi. */
+  .hero h1 { max-width: 390px; font-size: clamp(30px, 8.9vw, 54px); font-size: clamp(30px, 10.2cqi, 54px); }
   .hero-copy { max-width: 320px; font-size: 12px; }
   .hero-caption { right: 14px; bottom: 13px; font-size: 8px; }
   .hero-footer-copy { max-width: 235px; line-height: 1.6; }

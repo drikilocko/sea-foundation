@@ -11,12 +11,12 @@ export default function HeroSection() {
       <section className="hero sea-hero" id="accueil">
         <div className="sea-main wrap">
           <div className="sea-copy">
-            <div className="sea-kicker">{t("Des jeunes, par les jeunes, pour les jeunes.")}</div>
             <h1 className="sea-headline">
-              <span className="light">{t("L’Afrique de demain")}</span>
-              <br />
-              {t("commence avec nous.")}
+              <span className="sea-headline__line light">{t("L’Afrique")}</span>{" "}
+              <span className="sea-headline__line light">{t("de demain")}</span>{" "}
+              <span className="sea-headline__line">{t("commence avec nous.")}</span>
             </h1>
+            <div className="sea-kicker">{t("Des jeunes, par les jeunes, pour les jeunes.")}</div>
             <Link className="button sea-hero-cta" href="/inscription/">
               {t("S’engager avec SEA")}{" "}
               <span className="arrow" aria-hidden="true">

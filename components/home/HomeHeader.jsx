@@ -156,6 +156,9 @@ export default function HomeHeader() {
 
   return (
     <header className={`topbar sea-hero-wrap${scrollNav !== "static" ? " has-fixed-nav" : ""}`}>
+      <div className="fixed-photo" aria-hidden="true">
+        <div className="fixed-photo__img" />
+      </div>
       <div ref={panelRef} className={panelClasses}>
         <div className="sea-topbar">
           <div className="sea-brand-wrap">

@@ -22,7 +22,7 @@ export default function RegistrationContent() {
           <section
             className="page-callout page-callout--photo"
             style={{
-              "--callout-image": "url('/assets/images/a-propos/equipe-fondation-terrain.jpg')",
+              "--callout-image": "url('/assets/images/accueil/fond-jeunes-football.jpg')",
             }}
           >
             <h2>{t("Manifestez votre intérêt auprès de la Fondation.")}</h2>

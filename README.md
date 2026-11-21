@@ -50,11 +50,9 @@ public/assets/images/
   marque/            SEA Foundation logos
   partenaires/       Partner logos
   accueil/           Homepage images
-  a-propos/          About page
   actions/           Actions page
   articles/          Articles page
   contact/           Contact page
-  documents/         Documents page
   evenements/        Events and news pages
   projet/            Agricultural incubation project
 styles/              Stylesheets, imported in order by styles/index.css

@@ -34,7 +34,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/documents/equipe-eleves-uniformes.jpg" alt="" loading="lazy" />
+            <img src="/assets/images/articles/rencontre-officielle.webp" alt="" loading="lazy" />
             <div className="approach-item__copy">
               <span>02</span>
               <h3>{t("Renforcer les systèmes sociaux")}</h3>

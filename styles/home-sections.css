@@ -119,7 +119,7 @@
   padding: 48px 0;
   background:
     linear-gradient(110deg, rgba(4, 17, 42, .78), rgba(4, 17, 42, .48)),
-    url("/assets/images/documents/equipe-eleves-uniformes.jpg") center 42% / cover no-repeat;
+    url("/assets/images/evenements/conference-prise-de-parole.webp") center 42% / cover no-repeat;
 }
 .vision-panel { width: min(1192px, calc(100% - 64px)); grid-template-columns: 1fr; gap: 24px; margin-inline: auto; padding: 0; border: 0; border-radius: 0; background: transparent; }
 .vision-copy { max-width: 780px; }
