@@ -32,7 +32,7 @@
   position: relative;
   overflow: visible;
   margin-top: 0;
-  background: linear-gradient(180deg, rgba(7, 13, 16, .20), rgba(7, 13, 16, .52)), url("/assets/images/accueil/hero-equipe-sea.jpg") center / cover no-repeat;
+  background: linear-gradient(180deg, rgba(7, 13, 16, .20), rgba(7, 13, 16, .52)), url("/assets/images/accueil/hero-tournoi-accueil-joueurs.webp") center 30% / cover no-repeat;
 }
 .sea-hero-wrap.has-fixed-nav { padding-top: var(--header-panel-space, 0px); }
 .sea-hero-wrap::before { position: absolute; inset: 0; z-index: 0; background: linear-gradient(90deg, rgba(4, 19, 23, 0.80) 0%, rgba(4, 19, 23, 0.48) 32%, rgba(4, 19, 23, 0.14) 100%); content: ""; pointer-events: none; }

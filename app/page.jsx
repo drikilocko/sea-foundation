@@ -7,7 +7,7 @@ const page = {
   title: "SEA Foundation | Fondation Sheyi Emmanuel Adebayor au Togo",
   description:
     "SEA Foundation agit pour une jeunesse togolaise en bonne santé, qui entreprend et participe activement au développement du Togo.",
-  image: "/assets/images/accueil/hero-equipe-sea.jpg",
+  image: "/assets/images/accueil/hero-tournoi-accueil-joueurs.webp",
 };
 
 export const metadata = buildMetadata(page);

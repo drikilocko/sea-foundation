@@ -22,7 +22,7 @@ export default function ApproachSection() {
         </header>
         <div className="approach-grid">
           <article className="approach-item">
-            <img src="/assets/images/accueil/hero-equipe-sea.jpg" alt="" loading="lazy" />
+            <img src="/assets/images/accueil/tournoi-salut-officiels.webp" alt="" loading="lazy" />
             <div className="approach-item__copy">
               <span>01</span>
               <h3>{t("Faire participer les jeunes")}</h3>
@@ -70,7 +70,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/documents/equipe-eleves-uniformes.jpg" alt="" loading="lazy" />
+            <img src="/assets/images/articles/president-tournoi-tribune.webp" alt="" loading="lazy" />
             <div className="approach-item__copy">
               <span>05</span>
               <h3>{t("Anticiper les risques")}</h3>
@@ -82,7 +82,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/contact/jeune-crepuscule.jpg" alt="" loading="lazy" />
+            <img src="/assets/images/actions/tournoi-remise-trophee.webp" alt="" loading="lazy" />
             <div className="approach-item__copy">
               <span>06</span>
               <h3>{t("Rendre compte des résultats")}</h3>

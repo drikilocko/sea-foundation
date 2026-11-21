@@ -39,7 +39,7 @@ export default function ArticlesContent() {
             <article
               className="page-card page-card--photo"
               style={{
-                "--project-card-image": "url('/assets/images/accueil/hero-equipe-sea.jpg')",
+                "--project-card-image": "url('/assets/images/articles/president-tournoi-tribune.webp')",
               }}
             >
               <span>{t("Dossier · Éducation & sport")}</span>

@@ -6,7 +6,7 @@ const page = {
   path: "/conditions-utilisation/",
   title: "Conditions d’utilisation — SEA Foundation",
   description: "Conditions d’utilisation du site de SEA Foundation.",
-  image: "/assets/images/accueil/hero-equipe-sea.jpg",
+  image: "/assets/images/actions/tournoi-remise-trophee.webp",
 };
 
 export const metadata = buildMetadata(page);

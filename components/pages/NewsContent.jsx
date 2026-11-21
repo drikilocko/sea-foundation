@@ -58,7 +58,7 @@ export default function NewsContent() {
               </article>
               <article
                 className="news-card"
-                style={{ "--news-card-image": "url('/assets/images/accueil/hero-equipe-sea.jpg')" }}
+                style={{ "--news-card-image": "url('/assets/images/accueil/tournoi-salut-officiels.webp')" }}
               >
                 <span className="news-card-index">02</span>
                 <span className="news-card-label">{t("Éducation & sport")}</span>

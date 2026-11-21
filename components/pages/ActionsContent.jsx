@@ -40,7 +40,7 @@ export default function ActionsContent() {
               <article
                 className="page-card page-card--photo"
                 style={{
-                  "--project-card-image": "url('/assets/images/accueil/hero-equipe-sea.jpg')",
+                  "--project-card-image": "url('/assets/images/actions/tournoi-remise-trophee.webp')",
                 }}
               >
                 <span>{t("02 · Éducation")}</span>

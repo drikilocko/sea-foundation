@@ -65,7 +65,7 @@ export default function AboutContent() {
               <article
                 className="page-card page-card--photo"
                 style={{
-                  "--project-card-image": "url('/assets/images/accueil/hero-equipe-sea.jpg')",
+                  "--project-card-image": "url('/assets/images/accueil/mosaique-actions-terrain.webp')",
                 }}
               >
                 <span>{t("03 secteurs")}</span>

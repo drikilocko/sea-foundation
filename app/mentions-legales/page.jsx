@@ -6,7 +6,7 @@ const page = {
   path: "/mentions-legales/",
   title: "Mentions légales — SEA Foundation",
   description: "Mentions légales du site de SEA Foundation.",
-  image: "/assets/images/accueil/hero-equipe-sea.jpg",
+  image: "/assets/images/actions/tournoi-remise-trophee.webp",
 };
 
 export const metadata = buildMetadata(page);
