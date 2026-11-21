@@ -19,7 +19,7 @@ export default function TermsContent() {
             <h2>{t("Objet du site")}</h2>
             <p>
               {t(
-                "Ce site présente la Fondation Sheyi Emmanuel Adebayor, ses orientations, ses actions et des informations relatives à son plan stratégique. Les contenus sont fournis à titre informatif et ne remplacent pas les communications officielles de la Fondation.",
+                "Ce site présente la Fondation Sheyi Emmanuel Adebayor, ses orientations et ses actions. Les contenus sont fournis à titre informatif et ne remplacent pas les communications officielles de la Fondation.",
               )}
             </p>
           </section>

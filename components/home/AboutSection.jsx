@@ -20,7 +20,7 @@ export default function AboutSection() {
               {t("La Fondation Sheyi Emmanuel Adebayor promeut")}{" "}
               <strong>{t("l’éducation, la santé et l’entrepreneuriat des jeunes au Togo.")}</strong>{" "}
               {t(
-                "Le plan s’appuie sur l’engagement de son président et porte la vision d’une jeunesse en bonne santé, entreprenante et actrice du développement.",
+                "La Fondation s’appuie sur l’engagement de son président et porte la vision d’une jeunesse en bonne santé, entreprenante et actrice du développement.",
               )}
             </p>
             <a className="about-link" href="#vision">
@@ -43,7 +43,7 @@ export default function AboutSection() {
               )}
             </p>
           </div>
-          <div className="context-facts" aria-label="Repères cités dans le plan stratégique">
+          <div className="context-facts" aria-label="Repères sur la jeunesse au Togo">
             <div className="context-fact">
               <strong>{t("15–35 ans")}</strong>
               <span>{t("Tranche d’âge au cœur des actions de SEA Foundation.")}</span>
@@ -51,14 +51,14 @@ export default function AboutSection() {
             <div className="context-fact">
               <strong>8 095 498</strong>
               <span>
-                {t("Habitants recensés au RGPH-5 de novembre 2022, selon le plan stratégique.")}
+                {t("Habitants recensés au RGPH-5 de novembre 2022.")}
               </span>
             </div>
             <div className="context-fact">
               <strong>6,8 % / 26 %</strong>
               <span>
                 {t(
-                  "Chômage et sous-emploi des jeunes de 15 à 34 ans, chiffres rapportés dans le plan.",
+                  "Chômage et sous-emploi des jeunes de 15 à 34 ans.",
                 )}
               </span>
             </div>
@@ -66,7 +66,7 @@ export default function AboutSection() {
               <strong>53 % / 47 %</strong>
               <span>
                 {t(
-                  "Répartition entre zones rurales et urbaines selon les données citées dans le plan.",
+                  "Répartition de la population entre zones rurales et urbaines.",
                 )}
               </span>
             </div>

@@ -28,7 +28,6 @@ export default function HomeFooter() {
             </nav>
             <div className="footer-column">
               <h2>{t("Nous contacter")}</h2>
-              <a href="tel:+22870162121">+228 70 16 21 21</a>{" "}
               <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>{" "}
               <span>{t("Adidogomé · Togo")}</span>
             </div>

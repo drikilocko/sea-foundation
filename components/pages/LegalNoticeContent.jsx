@@ -26,8 +26,7 @@ export default function LegalNoticeContent() {
             </p>
             <p>
               <strong>{t("Contact :")}</strong>{" "}
-              <a href="mailto:info@fondationsea.com">info@fondationsea.com</a> ·{" "}
-              <a href="tel:+22870162121">+228 70 16 21 21</a>.
+              <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>.
             </p>
             <p>
               {t(

@@ -28,7 +28,7 @@ export default function RegistrationContent() {
             <h2>{t("Manifestez votre intérêt auprès de la Fondation.")}</h2>
             <p>
               {t(
-                "Cette page ne dispose pas encore d’un formulaire d’inscription ou d’un portail de compte. Pour éviter de recueillir vos données sans dispositif sécurisé, contactez directement l’équipe SEA par courriel ou téléphone.",
+                "Cette page ne dispose pas encore d’un formulaire d’inscription ou d’un portail de compte. Pour éviter de recueillir vos données sans dispositif sécurisé, contactez directement l’équipe SEA par courriel.",
               )}
             </p>
             <a

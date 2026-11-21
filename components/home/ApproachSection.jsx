@@ -58,7 +58,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/contact/jeune-crepuscule.jpg" alt="" loading="lazy" style={{ objectPosition: "82% 22%" }} />
+            <img src="/assets/images/evenements/conference-prise-de-parole.webp" alt="" loading="lazy" />
             <div className="approach-item__copy">
               <span>04</span>
               <h3>{t("Communiquer sur des faits")}</h3>
@@ -70,13 +70,13 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/articles/president-tournoi-tribune.webp" alt="" loading="lazy" />
+            <img src="/assets/images/actions/sante-vaccination.jpg" alt="" loading="lazy" />
             <div className="approach-item__copy">
               <span>05</span>
               <h3>{t("Anticiper les risques")}</h3>
               <p>
                 {t(
-                  "Identifier dans les plans annuels les risques qui peuvent freiner les activités et prévoir des mesures d’atténuation.",
+                  "Identifier chaque année les risques qui peuvent freiner les activités et prévoir des mesures d’atténuation.",
                 )}
               </p>
             </div>

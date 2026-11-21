@@ -26,7 +26,7 @@ export default function AboutContent() {
             </h2>
             <p>
               {t(
-                "La Fondation met la jeunesse au cœur de sa vision. Son plan stratégique 2024–2028 entend améliorer les conditions de vie des jeunes grâce à des approches innovantes en santé, éducation et entrepreneuriat.",
+                "La Fondation met la jeunesse au cœur de sa vision. De 2024 à 2028, elle entend améliorer les conditions de vie des jeunes grâce à des approches innovantes en santé, éducation et entrepreneuriat.",
               )}
             </p>
           </section>
@@ -34,7 +34,7 @@ export default function AboutContent() {
             <h2 className="page-section-heading">{t("Une ambition commune")}</h2>
             <p className="page-copy">
               {t(
-                "À l’horizon 2028, la Fondation veut contribuer aux objectifs de développement du Togo en matière de santé, d’éducation et de création d’emplois. Le plan accorde une attention particulière aux jeunes de 15 à 35 ans.",
+                "À l’horizon 2028, la Fondation veut contribuer aux objectifs de développement du Togo en matière de santé, d’éducation et de création d’emplois, avec une attention particulière aux jeunes de 15 à 35 ans.",
               )}
             </p>
             <div className="page-card-grid">
@@ -46,7 +46,7 @@ export default function AboutContent() {
                 }}
               >
                 <span>2024—2028</span>
-                <h3>{t("Un plan sur cinq ans")}</h3>
+                <h3>{t("Cinq ans d’engagement")}</h3>
                 <p>
                   {t("Une vision stratégique déclinée en priorités et en axes d’intervention.")}
                 </p>
@@ -80,7 +80,7 @@ export default function AboutContent() {
             <h2 className="page-section-heading">{t("Pourquoi agir ?")}</h2>
             <p className="page-copy">
               {t(
-                "Le plan stratégique part d’un constat : au Togo, les jeunes font face au chômage et au sous-emploi, aux difficultés d’accès aux soins, aux addictions et aux discriminations liées au genre ou au handicap. La Fondation souhaite rapprocher les opportunités des jeunes, en travaillant avec les communautés et en reliant santé, éducation, sport et insertion économique.",
+                "La Fondation part d’un constat : au Togo, les jeunes font face au chômage et au sous-emploi, aux difficultés d’accès aux soins, aux addictions et aux discriminations liées au genre ou au handicap. Elle souhaite rapprocher les opportunités des jeunes, en travaillant avec les communautés et en reliant santé, éducation, sport et insertion économique.",
               )}
             </p>
           </section>

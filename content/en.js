@@ -1,11 +1,14 @@
 // Traductions anglaises, indexées par le texte français affiché sur le site.
 export const englishCopy = {
+  "Organiser": "Organise",
+  "Citations de SEA Foundation": "SEA Foundation quotes",
+  "2024–2028, années d’engagement": "2024–2028, years of commitment",
   "Entrepreneuriat": "Entrepreneurship",
   "Retour aux priorités": "Back to priorities",
   "Priorité précédente": "Previous priority",
   "Priorité suivante": "Next priority",
-  "Ce que prévoit le plan": "What the plan sets out",
-  "Voir le plan d’action": "See the action plan",
+  "Nos axes d’intervention": "Our areas of work",
+  "Voir toutes nos actions": "See all our work",
   "SEA Foundation | Fondation Sheyi Emmanuel Adebayor au Togo":
     "SEA Foundation | Sheyi Emmanuel Adebayor Foundation in Togo",
   "Actions — SEA Foundation": "Our work — SEA Foundation",
@@ -20,12 +23,10 @@ export const englishCopy = {
   "Inscription — SEA Foundation": "Registration — SEA Foundation",
   "Mentions légales — SEA Foundation": "Legal notice — SEA Foundation",
   "Documents — SEA Foundation": "Resources — SEA Foundation",
-  "Les priorités et axes d’intervention du plan stratégique 2024–2028 de SEA Foundation.":
-    "The priorities and areas of work in SEA Foundation's 2024–2028 strategic plan.",
+  "Les priorités et axes d’intervention de SEA Foundation pour la jeunesse togolaise.": "SEA Foundation's priorities and areas of work for young people in Togo.",
   "Découvrez la Fondation Sheyi Emmanuel Adebayor, sa mission et sa vision pour la jeunesse togolaise.":
     "Learn about the Sheyi Emmanuel Adebayor Foundation, its mission and vision for young people in Togo.",
-  "Dossiers thématiques inspirés du plan stratégique 2024–2028 de SEA Foundation.":
-    "Feature articles based on SEA Foundation's 2024–2028 strategic plan.",
+  "Dossiers thématiques sur la santé, l’éducation et l’entrepreneuriat des jeunes au Togo.": "Thematic articles on youth health, education and entrepreneurship in Togo.",
   "Informations sur la confidentialité et les données personnelles du site de SEA Foundation.":
     "Information about privacy and personal data on the SEA Foundation website.",
   "Les actualités officielles de SEA Foundation.": "Official news from SEA Foundation.",
@@ -40,15 +41,14 @@ export const englishCopy = {
   "Contactez SEA Foundation pour manifester votre intérêt et connaître les possibilités de participation.":
     "Contact SEA Foundation to express your interest and learn how to participate.",
   "Mentions légales du site de SEA Foundation.": "Legal notice for the SEA Foundation website.",
-  "Informations et ressources relatives au plan stratégique 2024–2028 de SEA Foundation.":
-    "Information and resources about SEA Foundation's 2024–2028 strategic plan.",
+  "Informations et ressources sur les orientations et le suivi des actions de SEA Foundation.": "Information and resources on SEA Foundation's direction and how its work is monitored.",
   Rejoindre: "Get involved",
   "Nous contacter": "Contact us",
   "Le mot du président": "A message from the president",
   "ans au cœur de nos actions": "year olds at the heart of our work",
   "secteurs prioritaires": "priority areas",
   "pour le site du projet agricole": "for the agricultural project site",
-  "plan stratégique": "strategic plan",
+  "années d’engagement": "years of commitment",
   "3 secteurs prioritaires": "3 priority areas",
   "22 hectares": "22 hectares",
   Accueil: "Home",
@@ -122,8 +122,7 @@ export const englishCopy = {
   "La Fondation Sheyi Emmanuel Adebayor promeut": "The Sheyi Emmanuel Adebayor Foundation promotes",
   "l’éducation, la santé et l’entrepreneuriat des jeunes au Togo.":
     "education, health and entrepreneurship for young people in Togo.",
-  "Le plan s’appuie sur l’engagement de son président et porte la vision d’une jeunesse en bonne santé, entreprenante et actrice du développement.":
-    "The plan builds on the commitment of its president and champions a vision of healthy, enterprising young people who help shape development.",
+  "La Fondation s’appuie sur l’engagement de son président et porte la vision d’une jeunesse en bonne santé, entreprenante et actrice du développement.": "The Foundation builds on its president's commitment and carries the vision of healthy, enterprising young people who drive development.",
   "Découvrir notre vision": "Discover our vision",
   "Pourquoi agir ?": "Why take action?",
   "Le potentiel est immense. Les obstacles aussi.":
@@ -138,14 +137,9 @@ export const englishCopy = {
   "15–35 ans": "Ages 15–35",
   "Tranche d’âge au cœur des actions de SEA Foundation.":
     "The age group at the heart of SEA Foundation's work.",
-  "Habitants recensés au RGPH-5 de novembre 2022, selon le plan stratégique.":
-    "People recorded in the November 2022 fifth national census, as cited in the strategic plan.",
-  "Chômage et sous-emploi des jeunes de 15 à 34 ans, chiffres rapportés dans le plan.":
-    "Youth unemployment and underemployment rates for ages 15–34, as reported in the plan.",
-  "Répartition entre zones rurales et urbaines selon les données citées dans le plan.":
-    "Rural and urban population split, according to the data cited in the plan.",
-  "Chiffres tels qu’ils figurent dans le plan stratégique ; ils correspondent aux années et sources indiquées dans le document, et ne sont pas présentés comme des données actuelles.":
-    "Figures are reproduced from the strategic plan and reflect the years and sources cited there; they are not presented as current data.",
+  "Habitants recensés au RGPH-5 de novembre 2022.": "Inhabitants counted in the RGPH-5 census of November 2022.",
+  "Chômage et sous-emploi des jeunes de 15 à 34 ans.": "Unemployment and underemployment among young people aged 15 to 34.",
+  "Répartition de la population entre zones rurales et urbaines.": "Split of the population between rural and urban areas.",
   "Nos domaines d’action": "Our areas of work",
   Chaque: "Every",
   jeune: "young person",
@@ -163,9 +157,8 @@ export const englishCopy = {
   son: "their",
   "avenir.": "future.",
   "Nos priorités 2024–2028": "Our 2024–2028 priorities",
-  "Cinq priorités déclinées du plan stratégique.": "Five priorities drawn from the strategic plan.",
-  "Le plan retient trois secteurs prioritaires. Les cinq cartes ci-dessous distinguent ces axes et certains domaines d’intervention décrits dans le document.":
-    "The plan identifies three priority sectors. The five cards below highlight these areas and related fields of work described in the document.",
+  "Cinq priorités pour la jeunesse togolaise.": "Five priorities for young people in Togo.",
+  "La Fondation agit dans trois secteurs prioritaires. Les cinq cartes ci-dessous présentent ces axes et leurs principaux domaines d’intervention.": "The Foundation works in three priority sectors. The five cards below present these areas and their main fields of action.",
   "01 / PRENDRE SOIN": "01 / CARE",
   "Faciliter les soins primaires, une alimentation nutritive et la prévention des maladies pour les jeunes vulnérables.":
     "Improve access to primary care, nutritious food and disease prevention for vulnerable young people.",
@@ -193,10 +186,9 @@ export const englishCopy = {
   "Titre à préciser pour cet article.": "Article title to be confirmed.",
   Découvrir: "Discover",
   "Voir tous les événements": "See all events",
-  "Ce que prévoit le plan": "What the plan sets out",
+  "Nos axes d’intervention": "Our areas of work",
   "Des objectifs précis, des actions sur le terrain.": "Clear goals, action on the ground.",
-  "Les trois axes du plan 2024–2028 détaillent comment les priorités deviennent des programmes, des accompagnements et des opportunités concrètes.":
-    "The three pillars of the 2024–2028 plan show how priorities become programmes, support and tangible opportunities.",
+  "Nos trois axes d’intervention détaillent comment les priorités deviennent des programmes, des accompagnements et des opportunités concrètes.": "Our three areas of work show how priorities become programmes, support and real opportunities.",
   "Axe 01 · Santé": "Pillar 01 · Health",
   "Renforcer la résilience sanitaire des jeunes": "Strengthen young people's health and resilience",
   "Les actions prévues": "Planned actions",
@@ -208,7 +200,7 @@ export const englishCopy = {
   "Croire en une jeunesse qui": "Believe in young people who",
   "fait avancer le Togo.": "move Togo forward.",
   "Les repères de notre ambition pour la jeunesse.": "Our vision for young people.",
-  "Un plan stratégique sur cinq ans": "A five-year strategic plan",
+  "Cinq années d’engagement": "Five years of commitment",
   "La jeunesse au centre de nos actions": "Young people at the heart of our work",
   "Santé · éducation et sport · entrepreneuriat": "Health · education and sport · entrepreneurship",
   "Notre manière d’agir": "How we work",
@@ -231,8 +223,8 @@ export const englishCopy = {
   "Programme des Nations unies pour le développement": "United Nations Development Programme",
   "Agence française de développement": "French Development Agency",
   Entreprise: "Company",
-  "Comprendre le plan SEA.": "Understanding the SEA plan.",
-  "Quelle est la période couverte par le plan ?": "What period does the plan cover?",
+  "Comprendre l’action de SEA.": "Understanding SEA's work.",
+  "Sur quelle période la Fondation s’engage-t-elle ?": "Over what period is the Foundation committed?",
   "Quels sont les secteurs prioritaires de la Fondation ?":
     "What are the Foundation's priority sectors?",
   "À qui s’adressent les actions prévues ?": "Who are the planned actions for?",
@@ -282,20 +274,13 @@ export const englishCopy = {
   "Envoyer un e-mail": "Send an email",
   "Navigation principale": "Main navigation",
   "Informations légales": "Legal information",
-  "Le plan stratégique de SEA Foundation couvre cinq ans, de 2024 à 2028. Le document prévoit son évaluation au terme de la troisième année puis à la fin du cycle.":
-    "SEA Foundation's strategic plan covers five years, from 2024 to 2028. The plan is to be evaluated at the end of the third year and again at the end of the cycle.",
-  "Le document retient trois secteurs prioritaires : la santé et le bien-être, l’éducation et le sport, et l’entrepreneuriat. L’agrobusiness est notamment développé dans l’axe consacré à l’entrepreneuriat des jeunes.":
-    "The plan identifies three priority sectors: health and well-being, education and sport, and entrepreneurship. Agribusiness is covered under the youth entrepreneurship pillar.",
-  "Le plan se concentre principalement sur les jeunes, avec une attention aux 15–35 ans et aux jeunes vulnérables. Il cite notamment les jeunes filles, les jeunes issus de milieux défavorisés et les jeunes en situation de handicap.":
-    "The plan focuses primarily on young people, especially those aged 15–35 and young people in vulnerable situations. It specifically mentions girls, young people from disadvantaged backgrounds and young people with disabilities.",
-  "Le plan prévoit notamment un appui en fournitures scolaires, des programmes de bourses, le renforcement des capacités des éducateurs, des matériels didactiques et des infrastructures modernes. Il vise aussi le sport en milieu scolaire et universitaire, les compétitions, les infrastructures sportives, les soft skills et les outils informatiques.":
-    "The plan includes support with school supplies and scholarships, educator development, learning materials and modern infrastructure. It also covers school and university sports, competitions, sports facilities, soft skills and digital tools.",
-  "Le document prévoit des plans de travail annuels, un suivi semestriel, des examens annuels avec les pouvoirs publics, la consultation des bénéficiaires et des rapports annuels en accès libre. Deux évaluations du plan sont prévues : au bout de la troisième année et à la fin du cycle.":
-    "The plan provides for annual work plans, twice-yearly monitoring, annual reviews with public authorities, consultation with beneficiaries and publicly available annual reports. Two evaluations are planned: at the end of year three and at the end of the cycle.",
-  "Non. Le texte fourni ne contient pas de témoignages de bénéficiaires ni de logos de partenaires confirmés. Les citations affichées sont attribuées au plan ou au mot du président, et le carrousel présente uniquement des catégories de partenaires citées dans le document.":
-    "No. The source text contains neither beneficiary testimonials nor confirmed partner logos. The quotations are attributed to the plan or the president's message, and the carousel shows only categories of potential partners mentioned in the document.",
-  "Le document ne contient pas de témoignages de bénéficiaires. Ces cinq cartes reprennent donc des extraits et des engagements du plan, sans les attribuer à des personnes qui n’y sont pas citées.":
-    "The source document contains no beneficiary testimonials. These five cards therefore quote the plan and its commitments without attributing them to people who are not named in it.",
+  "SEA Foundation s’engage sur cinq ans, de 2024 à 2028. Une évaluation est prévue au terme de la troisième année puis à la fin du cycle.": "SEA Foundation is committed over five years, from 2024 to 2028. An evaluation is planned after the third year and at the end of the cycle.",
+  "La Fondation retient trois secteurs prioritaires : la santé et le bien-être, l’éducation et le sport, et l’entrepreneuriat. L’agrobusiness est notamment développé dans l’axe consacré à l’entrepreneuriat des jeunes.": "The Foundation focuses on three priority sectors: health and well-being, education and sport, and entrepreneurship. Agribusiness is covered under the youth entrepreneurship area.",
+  "La Fondation s’adresse principalement aux jeunes, avec une attention aux 15–35 ans et aux jeunes vulnérables, notamment les jeunes filles, les jeunes issus de milieux défavorisés et les jeunes en situation de handicap.": "The Foundation works mainly with young people, with a focus on 15 to 35-year-olds and vulnerable youth, including girls, young people from disadvantaged backgrounds and young people with disabilities.",
+  "La Fondation prévoit notamment un appui en fournitures scolaires, des programmes de bourses, le renforcement des capacités des éducateurs, des matériels didactiques et des infrastructures modernes. Elle vise aussi le sport en milieu scolaire et universitaire, les compétitions, les infrastructures sportives, les soft skills et les outils informatiques.": "The Foundation provides for school supplies, scholarship programmes, training for educators, teaching materials and modern facilities. It also supports school and university sport, competitions, sports facilities, soft skills and digital tools.",
+  "La Fondation prévoit des programmes de travail annuels, un suivi semestriel, des examens annuels avec les pouvoirs publics, la consultation des bénéficiaires et des rapports annuels en accès libre. Deux évaluations sont prévues : au bout de la troisième année et à la fin du cycle.": "The Foundation sets annual work programmes, six-monthly monitoring, annual reviews with public authorities, consultation of beneficiaries and openly available annual reports. Two evaluations are planned: after the third year and at the end of the cycle.",
+  "Non. Le site ne présente pas encore de témoignages de bénéficiaires ni de logos de partenaires confirmés. Les citations affichées expriment la vision de la Fondation ou le mot de son président, et le carrousel présente uniquement des catégories de partenaires.": "No. The site does not yet show beneficiary testimonials or confirmed partner logos. The quotes express the Foundation's vision or its president's message, and the carousel only shows categories of partners.",
+  "Ces cinq phrases résument la vision et les engagements de SEA Foundation pour la jeunesse.": "These five statements sum up SEA Foundation's vision and commitments for young people.",
   "« Les jeunes togolais en bonne santé, qui entreprennent et qui participent au développement. »":
     "“Healthy young people in Togo who build businesses and take part in development.”",
   "« Nous sommes convaincus que l’éducation est la clé de l’autonomie. »":
@@ -307,19 +292,17 @@ export const englishCopy = {
   "« Ensemble, nous pouvons bâtir un avenir meilleur pour la jeunesse togolaise. »":
     "“Together, we can build a better future for young people in Togo.”",
   "La vision de SEA Foundation": "SEA Foundation's vision",
-  "Plan stratégique 2024–2028": "2024–2028 strategic plan",
-  "Extrait du plan stratégique 2024–2028": "Excerpt from the 2024–2028 strategic plan",
+  "Président de SEA Foundation": "President of SEA Foundation",
+  "Engagement de SEA Foundation": "SEA Foundation commitment",
   Agripreneuriat: "Agripreneurship",
   Transparence: "Transparency",
-  "Mot du président, plan stratégique 2024–2028": "President's message, 2024–2028 strategic plan",
+  "Mot du président": "A word from the president",
   FAR: "FAR",
   "Logo présent dans les ressources du site": "Logo included in the website resources",
   "Les logos proviennent des ressources du site. Leur présence ici n’affirme pas l’existence d’un partenariat en cours avec SEA Foundation.":
     "These logos come from the website's resources. Their presence here does not imply an active partnership with SEA Foundation.",
-  "Les réponses ci-dessous résument les informations indiquées dans le plan stratégique 2024–2028.":
-    "The answers below summarize information from the 2024–2028 strategic plan.",
-  "Le plan de SEA Foundation compte sur le soutien, l’expertise et l’engagement de ses partenaires et des parties prenantes.":
-    "SEA Foundation's plan relies on the support, expertise and commitment of its partners and stakeholders.",
+  "Les réponses ci-dessous résument les grandes orientations de la Fondation pour 2024–2028.": "The answers below summarise the Foundation's main directions for 2024–2028.",
+  "SEA Foundation compte sur le soutien, l’expertise et l’engagement de ses partenaires et des parties prenantes.": "SEA Foundation relies on the support, expertise and commitment of its partners and stakeholders.",
   "Adidogomé · Togo": "Adidogomé · Togo",
   "Partenaires, communautés et jeunesse : faisons avancer une vision portée par les jeunes.":
     "Partners, communities and young people: let's move forward with a vision led by youth.",
@@ -327,8 +310,7 @@ export const englishCopy = {
     "Support school and university sports, competitions and facilities; use football to raise health awareness and promote excellence.",
   "Renforcer les compétences numériques et les savoir-être (soft skills) pour préparer les jeunes diplômés à l’emploi.":
     "Build digital and soft skills to prepare young graduates for employment.",
-  "Le plan relie ces interventions aux objectifs d’éducation de qualité (ODD 4) et de consolidation de la paix (ODD 16).":
-    "The plan links these activities to quality education (SDG 4) and peacebuilding (SDG 16).",
+  "Ces interventions contribuent aux objectifs d’éducation de qualité (ODD 4) et de consolidation de la paix (ODD 16).": "This work contributes to quality education (SDG 4) and peacebuilding (SDG 16).",
   "Faire de l’entrepreneuriat un levier d’intégration économique et sociale, et soutenir la création d’emplois décents.":
     "Use entrepreneurship to promote economic and social inclusion and support the creation of decent jobs.",
   "Développer l’incubation et l’insertion socioprofessionnelle des jeunes en agrobusiness.":
@@ -343,12 +325,9 @@ export const englishCopy = {
     "Support innovative youth initiatives in agriculture, digital technology, education and health.",
   "Développer des champions nationaux choisis par des processus compétitifs transparents.":
     "Develop national champions selected through transparent competitive processes.",
-  "Le plan relie cet axe à l’ODD 8 (emploi décent) et à l’ODD 1 (réduction de la pauvreté), et souligne l’équité de genre, l’inclusion du handicap et les effets positifs pour l’environnement.":
-    "The plan links this pillar to SDG 8 (decent work) and SDG 1 (poverty reduction), and emphasizes gender equity, disability inclusion and positive environmental impact.",
-  "À l’horizon 2028, la Fondation veut contribuer à améliorer les conditions de vie des jeunes grâce à des approches innovantes en santé, éducation et entrepreneuriat. Le plan entend aussi soutenir les objectifs de développement du Togo en matière de santé, d’éducation et de création d’emplois.":
-    "By 2028, the Foundation aims to improve young people's living conditions through innovative approaches to health, education and entrepreneurship. The plan also seeks to support Togo's development goals in health, education and job creation.",
-  "Horizon du plan stratégique et de sa vision pour la jeunesse":
-    "The strategic plan's horizon and vision for young people",
+  "Cet axe contribue à l’ODD 8 (emploi décent) et à l’ODD 1 (réduction de la pauvreté), avec une attention à l’équité de genre, à l’inclusion du handicap et aux effets positifs pour l’environnement.": "This area contributes to SDG 8 (decent work) and SDG 1 (poverty reduction), with attention to gender equity, disability inclusion and positive effects for the environment.",
+  "À l’horizon 2028, la Fondation veut contribuer à améliorer les conditions de vie des jeunes grâce à des approches innovantes en santé, éducation et entrepreneuriat, et soutenir les objectifs de développement du Togo en matière de santé, d’éducation et de création d’emplois.": "By 2028, the Foundation aims to help improve young people's living conditions through innovative approaches to health, education and entrepreneurship, and to support Togo's development goals in health, education and job creation.",
+  "Horizon de notre vision pour la jeunesse": "The horizon of our vision for young people",
   "La confiance se construit sur le terrain : avec les acteurs locaux, à l’écoute des jeunes et dans la durée.":
     "Trust is built on the ground: with local partners, by listening to young people and through long-term commitment.",
   "Associer les 15–35 ans comme acteurs du changement et leur donner une place dans les décisions qui les concernent.":
@@ -359,8 +338,7 @@ export const englishCopy = {
     "Make gender equality and the inclusion of young people with disabilities a fundamental priority.",
   "Utiliser les données pour le plaidoyer, sensibiliser et contribuer à la conception des politiques et des programmes.":
     "Use data for advocacy, awareness-raising and the design of policies and programmes.",
-  "Identifier dans les plans annuels les risques qui peuvent freiner les activités et prévoir des mesures d’atténuation.":
-    "Identify risks that could hinder activities in annual plans and prepare mitigation measures.",
+  "Identifier chaque année les risques qui peuvent freiner les activités et prévoir des mesures d’atténuation.": "Identify each year the risks that could slow activities down and prepare mitigation measures.",
   "Partager les rapports annuels, consulter les bénéficiaires et utiliser les évaluations pour ajuster les actions.":
     "Share annual reports, consult beneficiaries and use evaluations to adapt activities.",
   "Chaque jeune mérite une chance, un accompagnement bienveillant et la liberté de construire son avenir.":
@@ -383,8 +361,7 @@ export const englishCopy = {
     "Support families and communities while taking social inclusion, gender and climate change into account.",
   "Favoriser la santé physique et mentale dans un environnement propice au bien-être.":
     "Promote physical and mental health in an environment that supports well-being.",
-  "Le plan inscrit ces interventions en lien avec les stratégies nationales de santé et de nutrition.":
-    "The plan aligns these activities with national health and nutrition strategies.",
+  "Ces interventions s’inscrivent en lien avec les stratégies nationales de santé et de nutrition.": "This work is aligned with national health and nutrition strategies.",
   "Mettre l’éducation et le sport au service de l’autonomie, de la santé et de l’insertion professionnelle des jeunes.":
     "Use education and sport to support young people's independence, health and professional inclusion.",
   "Renforcer la formation des jeunes issus de milieux défavorisés, y compris ceux en situation de handicap.":
@@ -417,24 +394,20 @@ export const englishCopy = {
   "Sur le terrain": "On the ground",
   "Conférence · SEA Foundation": "Conference · SEA Foundation",
   "Adidogomé · info@fondationsea.com": "Adidogomé · info@fondationsea.com",
-  "Le plan couvre cinq ans et présente la vision de la Fondation, ses secteurs prioritaires, les axes d’intervention et les modalités de suivi et d’évaluation.":
-    "The five-year plan sets out the Foundation's vision, priority sectors, areas of work, and monitoring and evaluation approach.",
+  "Sur cinq ans, la Fondation précise sa vision, ses secteurs prioritaires, ses axes d’intervention et la façon dont elle suit et évalue ses actions.": "Over five years, the Foundation sets out its vision, priority sectors, areas of work and how it monitors and evaluates its actions.",
   "Les règles de consultation des informations publiées par SEA Foundation.":
     "Rules for accessing information published by SEA Foundation.",
   "Les rencontres, ateliers et initiatives qui font vivre les engagements de SEA Foundation.":
     "Meetings, workshops and initiatives that bring SEA Foundation's commitments to life.",
-  "Les textes ci-dessous sont des synthèses thématiques du plan stratégique, et non des témoignages ni des articles d’actualité datés.":
-    "The texts below are thematic summaries of the strategic plan, not testimonials or dated news articles.",
+  "Les textes ci-dessous sont des synthèses thématiques, et non des témoignages ni des articles d’actualité datés.": "The texts below are thematic summaries, not testimonials or dated news articles.",
   "Les actualités institutionnelles datées seront publiées dès leur communication officielle.":
     "Dated institutional news will be published once officially announced.",
-  "En attendant, découvrez quatre repères issus du plan stratégique 2024–2028, ou consultez les":
-    "In the meantime, explore four highlights from the 2024–2028 strategic plan, or browse",
+  "En attendant, découvrez quatre repères de notre action, ou consultez les": "In the meantime, discover four highlights of our work, or see the",
   "événements déjà présentés": "previously featured events",
-  "À suivre dans le plan SEA": "From the SEA plan",
+  "À suivre chez SEA": "Coming up at SEA",
   "Rapprocher les jeunes des soins et de la prévention.":
     "Bringing young people closer to healthcare and prevention.",
-  "Le plan prévoit de renforcer l’accès aux soins primaires ainsi que la prévention et le bien-être physique et mental.":
-    "The plan aims to improve access to primary care, prevention, and physical and mental well-being.",
+  "La Fondation veut renforcer l’accès aux soins primaires ainsi que la prévention et le bien-être physique et mental.": "The Foundation aims to strengthen access to primary care, prevention, and physical and mental well-being.",
   "Découvrir l’axe santé": "Explore the health pillar",
   "Faire de l’apprentissage un tremplin.": "Making learning a springboard.",
   "Bourses, soutien éducatif et sport scolaire contribuent à l’autonomie et à l’insertion des jeunes.":
@@ -447,19 +420,16 @@ export const englishCopy = {
   "Suivi & transparence": "Monitoring & transparency",
   "Partager les résultats et apprendre du terrain.":
     "Sharing results and learning from experience.",
-  "Le plan prévoit un suivi régulier, la consultation des bénéficiaires et des rapports annuels en accès libre.":
-    "The plan provides for regular monitoring, consultation with beneficiaries and openly available annual reports.",
+  "La Fondation prévoit un suivi régulier, la consultation des bénéficiaires et des rapports annuels en accès libre.": "The Foundation provides for regular monitoring, consultation of beneficiaries and openly available annual reports.",
   "Voir les documents": "View resources",
-  "Voir les actions du plan": "Explore the plan's activities",
+  "Voir nos actions": "See our work",
   "Comprendre les enjeux": "Understanding the issues",
   "Articles & dossiers": "Articles & features",
-  "Des repères thématiques tirés du plan stratégique de SEA Foundation 2024–2028.":
-    "Thematic insights from SEA Foundation's 2024–2028 strategic plan.",
+  "Des repères thématiques sur les enjeux de la jeunesse togolaise.": "Thematic insights into the challenges facing young people in Togo.",
   "Dossier · Santé et bien-être": "Feature · Health and well-being",
   "Rapprocher les jeunes des soins et de la prévention":
     "Bringing young people closer to healthcare and prevention",
-  "Le plan place la santé des jeunes au centre de son action. Il prévoit de soutenir l’accès aux soins primaires, la nutrition et la prévention, en tenant compte des vulnérabilités et des réalités des milieux de vie.":
-    "The plan puts young people's health at the centre of its work. It aims to support access to primary care, nutrition and prevention while taking vulnerabilities and living conditions into account.",
+  "La Fondation place la santé des jeunes au centre de son action. Elle veut soutenir l’accès aux soins primaires, la nutrition et la prévention, en tenant compte des vulnérabilités et des réalités des milieux de vie.": "The Foundation puts young people's health at the centre of its work. It aims to support access to primary care, nutrition and prevention, taking into account vulnerabilities and living conditions.",
   "Dossier · Éducation & sport": "Feature · Education & sport",
   "La formation, les bourses, le renforcement des capacités des éducateurs et le sport scolaire doivent contribuer à l’autonomie, au bien-être et à la préparation des jeunes à la vie professionnelle.":
     "Training, scholarships, educator development and school sports are intended to foster independence, well-being and preparation for working life.",
@@ -469,24 +439,19 @@ export const englishCopy = {
   "La Fondation souhaite développer l’incubation et l’insertion socioprofessionnelle, en particulier dans l’agrobusiness, et soutenir des initiatives innovantes dans plusieurs secteurs porteurs.":
     "The Foundation aims to develop incubation and professional inclusion, particularly in agribusiness, and support innovative initiatives across several promising sectors.",
   "Consulter les axes d’intervention": "Explore the areas of work",
-  "Les objectifs et les actions prévues sont détaillés dans la rubrique dédiée au plan stratégique.":
-    "Objectives and planned activities are detailed in the strategic plan section.",
+  "Les objectifs et les actions prévues sont détaillés dans la rubrique consacrée à nos actions.": "Objectives and planned actions are detailed in the section on our work.",
   "Des priorités, des actions sur le terrain.": "Priorities translated into action.",
-  "Le plan de SEA Foundation organise ses interventions autour de trois secteurs prioritaires et de principes transversaux.":
-    "SEA Foundation's plan organizes its work around three priority sectors and cross-cutting principles.",
+  "SEA Foundation organise ses interventions autour de trois secteurs prioritaires et de principes transversaux.": "SEA Foundation organises its work around three priority sectors and cross-cutting principles.",
   "01 · Santé": "01 · Health",
   "02 · Éducation": "02 · Education",
   "03 · Entrepreneuriat": "03 · Entrepreneurship",
   "Entrepreneuriat & agrobusiness": "Entrepreneurship & agribusiness",
   "Une mise en œuvre inclusive": "An inclusive approach",
   "Suivre les actions et partager les résultats.": "Monitoring activities and sharing results.",
-  "Le plan prévoit des plans de travail annuels, un suivi régulier avec les partenaires, la consultation des bénéficiaires et des évaluations du cycle.":
-    "The plan provides for annual work plans, regular monitoring with partners, consultation with beneficiaries and end-of-cycle evaluations.",
-  "La Fondation met la jeunesse au cœur de sa vision. Son plan stratégique 2024–2028 entend améliorer les conditions de vie des jeunes grâce à des approches innovantes en santé, éducation et entrepreneuriat.":
-    "The Foundation puts young people at the heart of its vision. Its 2024–2028 strategic plan aims to improve their living conditions through innovative approaches to health, education and entrepreneurship.",
-  "À l’horizon 2028, la Fondation veut contribuer aux objectifs de développement du Togo en matière de santé, d’éducation et de création d’emplois. Le plan accorde une attention particulière aux jeunes de 15 à 35 ans.":
-    "By 2028, the Foundation aims to contribute to Togo's development goals in health, education and job creation. The plan pays particular attention to young people aged 15–35.",
-  "Un plan sur cinq ans": "A five-year plan",
+  "La Fondation prévoit des programmes de travail annuels, un suivi régulier avec les partenaires, la consultation des bénéficiaires et des évaluations du cycle.": "The Foundation sets annual work programmes, regular monitoring with partners, consultation of beneficiaries and evaluations of the cycle.",
+  "La Fondation met la jeunesse au cœur de sa vision. De 2024 à 2028, elle entend améliorer les conditions de vie des jeunes grâce à des approches innovantes en santé, éducation et entrepreneuriat.": "The Foundation puts young people at the heart of its vision. From 2024 to 2028, it aims to improve their living conditions through innovative approaches to health, education and entrepreneurship.",
+  "À l’horizon 2028, la Fondation veut contribuer aux objectifs de développement du Togo en matière de santé, d’éducation et de création d’emplois, avec une attention particulière aux jeunes de 15 à 35 ans.": "By 2028, the Foundation aims to contribute to Togo's development goals in health, education and job creation, with particular attention to young people aged 15 to 35.",
+  "Cinq ans d’engagement": "Five years of commitment",
   "Une vision stratégique déclinée en priorités et en axes d’intervention.":
     "A strategic vision translated into priorities and areas of work.",
   "La jeunesse au centre": "Young people at the centre",
@@ -496,10 +461,8 @@ export const englishCopy = {
   "Santé, éducation et entrepreneuriat": "Health, education and entrepreneurship",
   "Trois secteurs prioritaires pour rapprocher les opportunités des jeunes.":
     "Three priority sectors to bring opportunities closer to young people.",
-  "Le plan stratégique part d’un constat : au Togo, les jeunes font face au chômage et au sous-emploi, aux difficultés d’accès aux soins, aux addictions et aux discriminations liées au genre ou au handicap. La Fondation souhaite rapprocher les opportunités des jeunes, en travaillant avec les communautés et en reliant santé, éducation, sport et insertion économique.":
-    "The strategic plan starts from the reality that young people in Togo face unemployment and underemployment, barriers to healthcare, addiction, and discrimination related to gender or disability. The Foundation aims to bring opportunities closer by working with communities and connecting health, education, sport and economic inclusion.",
-  "Pour toute demande d’information, de partenariat ou de participation aux actions, vous pouvez joindre la Fondation par courriel ou par téléphone.":
-    "For information, partnership enquiries or to take part in our work, contact the Foundation by email or phone.",
+  "La Fondation part d’un constat : au Togo, les jeunes font face au chômage et au sous-emploi, aux difficultés d’accès aux soins, aux addictions et aux discriminations liées au genre ou au handicap. Elle souhaite rapprocher les opportunités des jeunes, en travaillant avec les communautés et en reliant santé, éducation, sport et insertion économique.": "The Foundation starts from a clear finding: in Togo, young people face unemployment and underemployment, difficult access to healthcare, addiction and discrimination based on gender or disability. It wants to bring opportunities closer to young people by working with communities and linking health, education, sport and economic inclusion.",
+  "Pour toute demande d’information, de partenariat ou de participation aux actions, vous pouvez joindre la Fondation par courriel.": "For any request for information, partnership or participation, you can reach the Foundation by email.",
   Courriel: "Email",
   "Écrivez-nous": "Email us",
   "Envoyer un courriel": "Send an email",
@@ -510,29 +473,23 @@ export const englishCopy = {
   "Au Togo": "In Togo",
   Ressources: "Resources",
   "Documents de référence": "Reference documents",
-  "Repères et informations relatifs au plan stratégique de SEA Foundation.":
-    "Highlights and information about SEA Foundation's strategic plan.",
-  "Plan stratégique · 2024–2028": "Strategic plan · 2024–2028",
-  "Le plan stratégique de SEA Foundation": "SEA Foundation's strategic plan",
-  "Le fichier PDF officiel n’est pas présent parmi les ressources disponibles sur ce site. Pour demander le document, contactez directement la Fondation.":
-    "The official PDF is not among the resources currently available on this website. To request a copy, please contact the Foundation directly.",
+  "Repères et informations sur les orientations et le suivi des actions de SEA Foundation.": "Key information on SEA Foundation's direction and how its work is monitored.",
+  "Orientations · 2024–2028": "Direction · 2024–2028",
+  "Les orientations de SEA Foundation": "SEA Foundation's direction",
+  "Le document officiel n’est pas encore disponible en téléchargement sur ce site. Pour le recevoir, contactez directement la Fondation.": "The official document is not yet available for download on this site. To receive it, contact the Foundation directly.",
   "Demander le document": "Request the document",
-  "Consulter les axes en ligne": "View the plan online",
+  "Consulter les axes en ligne": "View our areas of work online",
   "Repères de mise en œuvre": "Implementation milestones",
-  Planifier: "Plan",
-  "Décliner le plan quinquennal en plans de travail annuels.":
-    "Translate the five-year plan into annual work plans.",
+  "Organiser les actions en programmes de travail annuels.": "Organise activities into annual work programmes.",
   Suivre: "Monitor",
   "Organiser des examens réguliers avec les pouvoirs publics, les partenaires et les bénéficiaires.":
     "Hold regular reviews with public authorities, partners and beneficiaries.",
   Évaluer: "Evaluate",
-  "Évaluer le plan au terme de la troisième année puis à la fin du cycle.":
-    "Evaluate the plan at the end of the third year and again at the end of the cycle.",
+  "Évaluer les actions au terme de la troisième année puis à la fin du cycle.": "Evaluate the work after the third year and at the end of the cycle.",
   "Vous souhaitez participer aux actions de la Fondation ou recevoir des informations ? Écrivez-nous pour connaître les modalités disponibles.":
     "Would you like to take part in the Foundation's work or receive information? Contact us to learn about the options available.",
   "Manifestez votre intérêt auprès de la Fondation.": "Register your interest with the Foundation.",
-  "Cette page ne dispose pas encore d’un formulaire d’inscription ou d’un portail de compte. Pour éviter de recueillir vos données sans dispositif sécurisé, contactez directement l’équipe SEA par courriel ou téléphone.":
-    "This page does not yet have a registration form or account portal. To avoid collecting your information without a secure system, please contact the SEA team directly by email or phone.",
+  "Cette page ne dispose pas encore d’un formulaire d’inscription ou d’un portail de compte. Pour éviter de recueillir vos données sans dispositif sécurisé, contactez directement l’équipe SEA par courriel.": "This page does not yet have a registration form or account portal. To avoid collecting your data without a secure system, contact the SEA team directly by email.",
   "Écrire à la Fondation": "Write to the Foundation",
   "Comment prendre contact ?": "How to get in touch",
   "Présentez votre demande": "Tell us what you need",
@@ -546,8 +503,7 @@ export const englishCopy = {
     "Official announcements and confirmed information will be published in the News section.",
   "Règles d’accès au site": "Website access rules",
   "Objet du site": "Purpose of the website",
-  "Ce site présente la Fondation Sheyi Emmanuel Adebayor, ses orientations, ses actions et des informations relatives à son plan stratégique. Les contenus sont fournis à titre informatif et ne remplacent pas les communications officielles de la Fondation.":
-    "This website presents the Sheyi Emmanuel Adebayor Foundation, its direction, activities and information about its strategic plan. Content is provided for information and does not replace official communications from the Foundation.",
+  "Ce site présente la Fondation Sheyi Emmanuel Adebayor, ses orientations et ses actions. Les contenus sont fournis à titre informatif et ne remplacent pas les communications officielles de la Fondation.": "This site presents the Sheyi Emmanuel Adebayor Foundation, its direction and its work. The content is provided for information only and does not replace the Foundation's official communications.",
   "Accès et disponibilité": "Access and availability",
   "La Fondation s’efforce de maintenir le site accessible et les informations à jour, sans garantir une disponibilité continue ni l’absence d’erreurs. Certaines informations peuvent évoluer ou être corrigées.":
     "The Foundation works to keep the website accessible and its information current, but cannot guarantee uninterrupted availability or error-free content. Some information may change or be corrected.",

@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 const page = {
   path: "/articles/",
   title: "Articles — SEA Foundation",
-  description: "Dossiers thématiques inspirés du plan stratégique 2024–2028 de SEA Foundation.",
+  description: "Dossiers thématiques sur la santé, l’éducation et l’entrepreneuriat des jeunes au Togo.",
   image: "/assets/images/articles/rencontre-officielle.webp",
 };
 

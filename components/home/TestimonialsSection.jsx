@@ -15,7 +15,7 @@ export default function TestimonialsSection() {
           </div>
           <p className="section-note">
             {t(
-              "Le document ne contient pas de témoignages de bénéficiaires. Ces cinq cartes reprennent donc des extraits et des engagements du plan, sans les attribuer à des personnes qui n’y sont pas citées.",
+              "Ces cinq phrases résument la vision et les engagements de SEA Foundation pour la jeunesse.",
             )}
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
             </div>
             <footer>
               <strong>{t("La vision de SEA Foundation")}</strong>
-              {t("Plan stratégique 2024–2028")}
+              SEA Foundation
             </footer>
           </article>
           <article className="quote-card">
@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
             </div>
             <footer>
               <strong>{t("Éducation")}</strong>
-              {t("Extrait du plan stratégique 2024–2028")}
+              {t("Engagement de SEA Foundation")}
             </footer>
           </article>
           <article className="quote-card">
@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
             </div>
             <footer>
               <strong>{t("Agripreneuriat")}</strong>
-              {t("Extrait du plan stratégique 2024–2028")}
+              {t("Engagement de SEA Foundation")}
             </footer>
           </article>
           <article className="quote-card">
@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
             </div>
             <footer>
               <strong>{t("Transparence")}</strong>
-              {t("Extrait du plan stratégique 2024–2028")}
+              {t("Engagement de SEA Foundation")}
             </footer>
           </article>
           <article className="quote-card">
@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
             </div>
             <footer>
               <strong>Emmanuel Sheyi Adebayor</strong>
-              {t("Mot du président, plan stratégique 2024–2028")}
+              {t("Mot du président")}
             </footer>
           </article>
         </QuotesCarousel>

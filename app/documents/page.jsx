@@ -6,7 +6,7 @@ const page = {
   path: "/documents/",
   title: "Documents — SEA Foundation",
   description:
-    "Informations et ressources relatives au plan stratégique 2024–2028 de SEA Foundation.",
+    "Informations et ressources sur les orientations et le suivi des actions de SEA Foundation.",
   image: "/assets/images/accueil/fond-jeunes-football.jpg",
 };
 

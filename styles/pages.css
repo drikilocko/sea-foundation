@@ -49,7 +49,7 @@
 .contact-callout__eyebrow { margin-bottom: 12px; color: #d7ed83; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .contact-callout h2 { max-width: 700px; font-size: clamp(30px, 4vw, 48px); }
 .contact-callout p { max-width: 620px; font-size: 15px; }
-.contact-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(260px, 1.15fr); gap: 16px; }
+.contact-method-grid { grid-template-columns: minmax(0, 1fr) minmax(260px, 1.15fr); gap: 16px; }
 .contact-method-card { min-height: 258px; display: flex; flex-direction: column; align-items: flex-start; padding: 26px; }
 .contact-method-card > span:not(.contact-method-icon) { margin: 18px 0 10px; }
 .contact-method-icon { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(16, 45, 80, .1); border-radius: 14px; background: #edf3e6; color: #245c45; }

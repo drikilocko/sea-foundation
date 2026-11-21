@@ -26,12 +26,12 @@ export default function NewsContent() {
             </strong>
             <br />
             {t(
-              "En attendant, découvrez quatre repères issus du plan stratégique 2024–2028, ou consultez les",
+              "En attendant, découvrez quatre repères de notre action, ou consultez les",
             )}{" "}
             <Link href="/evenements/">{t("événements déjà présentés")}</Link>.
           </div>
           <section>
-            <h2 className="page-section-heading">{t("À suivre dans le plan SEA")}</h2>
+            <h2 className="page-section-heading">{t("À suivre chez SEA")}</h2>
             <div className="news-grid">
               <article
                 className="news-card"
@@ -44,7 +44,7 @@ export default function NewsContent() {
                 <h3>{t("Rapprocher les jeunes des soins et de la prévention.")}</h3>
                 <p>
                   {t(
-                    "Le plan prévoit de renforcer l’accès aux soins primaires ainsi que la prévention et le bien-être physique et mental.",
+                    "La Fondation veut renforcer l’accès aux soins primaires ainsi que la prévention et le bien-être physique et mental.",
                   )}
                 </p>
                 <Link href="/actions/">
@@ -111,7 +111,7 @@ export default function NewsContent() {
                 <h3>{t("Partager les résultats et apprendre du terrain.")}</h3>
                 <p>
                   {t(
-                    "Le plan prévoit un suivi régulier, la consultation des bénéficiaires et des rapports annuels en accès libre.",
+                    "La Fondation prévoit un suivi régulier, la consultation des bénéficiaires et des rapports annuels en accès libre.",
                   )}
                 </p>
                 <Link href="/documents/">
@@ -126,7 +126,7 @@ export default function NewsContent() {
             </div>
             <div className="news-more-wrap">
               <Link className="button news-more" href="/actions/">
-                {t("Voir les actions du plan")}{" "}
+                {t("Voir nos actions")}{" "}
                 <span className="arrow" aria-hidden="true">
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M7 17 17 7M8 7h9v9" />

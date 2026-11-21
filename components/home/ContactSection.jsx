@@ -13,7 +13,7 @@ export default function ContactSection() {
             <h2 className="section-heading">{t("Soutenez une vision portée par la jeunesse.")}</h2>
             <p className="section-lead">
               {t(
-                "Le plan de SEA Foundation compte sur le soutien, l’expertise et l’engagement de ses partenaires et des parties prenantes.",
+                "SEA Foundation compte sur le soutien, l’expertise et l’engagement de ses partenaires et des parties prenantes.",
               )}
             </p>
           </div>
@@ -27,7 +27,6 @@ export default function ContactSection() {
               </span>
             </a>
             <div className="contact-details">
-              <a href="tel:+22870162121">+228 70 16 21 21</a>{" "}
               <span>{t("Adidogomé · info@fondationsea.com")}</span>
             </div>
           </div>

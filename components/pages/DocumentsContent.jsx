@@ -12,7 +12,7 @@ export default function DocumentsContent() {
       <PageHeader cover="/assets/images/accueil/fond-jeunes-football.jpg">
         <span className="eyebrow">{t("Ressources")}</span>
         <h1>{t("Documents de référence")}</h1>
-        <p>{t("Repères et informations relatifs au plan stratégique de SEA Foundation.")}</p>
+        <p>{t("Repères et informations sur les orientations et le suivi des actions de SEA Foundation.")}</p>
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content">
@@ -22,22 +22,22 @@ export default function DocumentsContent() {
               "--project-card-image": "url('/assets/images/articles/rencontre-officielle.webp')",
             }}
           >
-            <span>{t("Plan stratégique · 2024–2028")}</span>
-            <h2 className="page-section-heading">{t("Le plan stratégique de SEA Foundation")}</h2>
+            <span>{t("Orientations · 2024–2028")}</span>
+            <h2 className="page-section-heading">{t("Les orientations de SEA Foundation")}</h2>
             <p className="page-copy">
               {t(
-                "Le plan couvre cinq ans et présente la vision de la Fondation, ses secteurs prioritaires, les axes d’intervention et les modalités de suivi et d’évaluation.",
+                "Sur cinq ans, la Fondation précise sa vision, ses secteurs prioritaires, ses axes d’intervention et la façon dont elle suit et évalue ses actions.",
               )}
             </p>
             <div className="page-notice">
               {t(
-                "Le fichier PDF officiel n’est pas présent parmi les ressources disponibles sur ce site. Pour demander le document, contactez directement la Fondation.",
+                "Le document officiel n’est pas encore disponible en téléchargement sur ce site. Pour le recevoir, contactez directement la Fondation.",
               )}
             </div>
             <div className="page-link-list">
               <a
                 className="button"
-                href="mailto:info@fondationsea.com?subject=Demande%20du%20plan%20strat%C3%A9gique%20SEA"
+                href="mailto:info@fondationsea.com?subject=Demande%20de%20document%20SEA%20Foundation"
               >
                 {t("Demander le document")}{" "}
                 <span className="arrow">
@@ -60,8 +60,8 @@ export default function DocumentsContent() {
             <h2 className="page-section-heading">{t("Repères de mise en œuvre")}</h2>
             <div className="page-card-grid">
               <article className="page-card">
-                <h3>{t("Planifier")}</h3>
-                <p>{t("Décliner le plan quinquennal en plans de travail annuels.")}</p>
+                <h3>{t("Organiser")}</h3>
+                <p>{t("Organiser les actions en programmes de travail annuels.")}</p>
               </article>
               <article className="page-card">
                 <h3>{t("Suivre")}</h3>
@@ -73,7 +73,7 @@ export default function DocumentsContent() {
               </article>
               <article className="page-card">
                 <h3>{t("Évaluer")}</h3>
-                <p>{t("Évaluer le plan au terme de la troisième année puis à la fin du cycle.")}</p>
+                <p>{t("Évaluer les actions au terme de la troisième année puis à la fin du cycle.")}</p>
               </article>
             </div>
           </section>

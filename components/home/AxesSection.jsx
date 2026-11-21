@@ -9,14 +9,14 @@ export default function AxesSection() {
       <section className="axes wrap" id="axes">
         <div className="axes-intro">
           <div>
-            <span className="eyebrow">{t("Ce que prévoit le plan")}</span>
+            <span className="eyebrow">{t("Nos axes d’intervention")}</span>
             <h2 className="section-heading">
               {t("Des objectifs précis, des actions sur le terrain.")}
             </h2>
           </div>
           <p className="section-lead">
             {t(
-              "Les trois axes du plan 2024–2028 détaillent comment les priorités deviennent des programmes, des accompagnements et des opportunités concrètes.",
+              "Nos trois axes d’intervention détaillent comment les priorités deviennent des programmes, des accompagnements et des opportunités concrètes.",
             )}
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function AxesSection() {
             </ul>
             <p className="axis-audience">
               {t(
-                "Le plan inscrit ces interventions en lien avec les stratégies nationales de santé et de nutrition.",
+                "Ces interventions s’inscrivent en lien avec les stratégies nationales de santé et de nutrition.",
               )}
             </p>
           </article>
@@ -114,7 +114,7 @@ export default function AxesSection() {
             </ul>
             <p className="axis-audience">
               {t(
-                "Le plan relie ces interventions aux objectifs d’éducation de qualité (ODD 4) et de consolidation de la paix (ODD 16).",
+                "Ces interventions contribuent aux objectifs d’éducation de qualité (ODD 4) et de consolidation de la paix (ODD 16).",
               )}
             </p>
           </article>
@@ -168,7 +168,7 @@ export default function AxesSection() {
             </ul>
             <p className="axis-audience">
               {t(
-                "Le plan relie cet axe à l’ODD 8 (emploi décent) et à l’ODD 1 (réduction de la pauvreté), et souligne l’équité de genre, l’inclusion du handicap et les effets positifs pour l’environnement.",
+                "Cet axe contribue à l’ODD 8 (emploi décent) et à l’ODD 1 (réduction de la pauvreté), avec une attention à l’équité de genre, à l’inclusion du handicap et aux effets positifs pour l’environnement.",
               )}
             </p>
           </article>

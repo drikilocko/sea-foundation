@@ -12,13 +12,13 @@ export default function ArticlesContent() {
       <PageHeader cover="/assets/images/articles/rencontre-officielle.webp">
         <span className="eyebrow">{t("Comprendre les enjeux")}</span>
         <h1>{t("Articles & dossiers")}</h1>
-        <p>{t("Des repères thématiques tirés du plan stratégique de SEA Foundation 2024–2028.")}</p>
+        <p>{t("Des repères thématiques sur les enjeux de la jeunesse togolaise.")}</p>
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content">
           <div className="page-notice">
             {t(
-              "Les textes ci-dessous sont des synthèses thématiques du plan stratégique, et non des témoignages ni des articles d’actualité datés.",
+              "Les textes ci-dessous sont des synthèses thématiques, et non des témoignages ni des articles d’actualité datés.",
             )}
           </div>
           <section className="page-card-grid">
@@ -32,7 +32,7 @@ export default function ArticlesContent() {
               <h2>{t("Rapprocher les jeunes des soins et de la prévention")}</h2>
               <p>
                 {t(
-                  "Le plan place la santé des jeunes au centre de son action. Il prévoit de soutenir l’accès aux soins primaires, la nutrition et la prévention, en tenant compte des vulnérabilités et des réalités des milieux de vie.",
+                  "La Fondation place la santé des jeunes au centre de son action. Elle veut soutenir l’accès aux soins primaires, la nutrition et la prévention, en tenant compte des vulnérabilités et des réalités des milieux de vie.",
                 )}
               </p>
             </article>
@@ -69,7 +69,7 @@ export default function ArticlesContent() {
             <h2>{t("Consulter les axes d’intervention")}</h2>
             <p>
               {t(
-                "Les objectifs et les actions prévues sont détaillés dans la rubrique dédiée au plan stratégique.",
+                "Les objectifs et les actions prévues sont détaillés dans la rubrique consacrée à nos actions.",
               )}
             </p>
             <Link className="button button-light" href="/actions/">

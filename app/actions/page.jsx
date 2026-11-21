@@ -6,7 +6,7 @@ const page = {
   path: "/actions/",
   title: "Actions — SEA Foundation",
   description:
-    "Les priorités et axes d’intervention du plan stratégique 2024–2028 de SEA Foundation.",
+    "Les priorités et axes d’intervention de SEA Foundation pour la jeunesse togolaise.",
   image: "/assets/images/projet/elevage-agropastoral.webp",
 };
 

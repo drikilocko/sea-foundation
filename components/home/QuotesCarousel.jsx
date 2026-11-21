@@ -40,7 +40,7 @@ export default function QuotesCarousel({ children }) {
         className="quote-grid"
         id="quotes-track"
         role="region"
-        aria-label={t("Citations du plan stratégique")}
+        aria-label={t("Citations de SEA Foundation")}
         ref={trackRef}
         onScroll={updateControls}
       >

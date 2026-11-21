@@ -10,7 +10,7 @@ Faire de SEA Foundation le premier résultat sur son nom, puis la référence su
 | Public | Ce qu'il cherche | Page d'arrivée |
 | --- | --- | --- |
 | Jeunes de 15 à 35 ans | Formation, incubation, comment participer | `/inscription/`, `/projet/` |
-| Partenaires et bailleurs | Mission, plan stratégique, crédibilité | `/a-propos/`, `/documents/` |
+| Partenaires et bailleurs | Mission, orientations, crédibilité | `/a-propos/`, `/documents/` |
 | Grand public et presse | Actualités, événements, contact | `/actualites/`, `/evenements/`, `/contact/` |
 
 ## 2. Déjà en place
@@ -33,7 +33,7 @@ Faire de SEA Foundation le premier résultat sur son nom, puis la référence su
 ├── /actualites/          Hub des nouvelles
 │   ├── /articles/        Dossiers thématiques
 │   └── /evenements/      Agenda et comptes rendus
-├── /documents/           Plan stratégique et ressources
+├── /documents/           Orientations et ressources
 ├── /contact/             Coordonnées
 └── Pages légales         /mentions-legales/, /confidentialite/, /cookies/, /conditions-utilisation/
 ```
@@ -45,13 +45,13 @@ Règle : chaque page doit être accessible en trois clics maximum depuis l'accue
 | Page | Mot-clé principal | Mots-clés secondaires | Intention |
 | --- | --- | --- | --- |
 | `/` | SEA Foundation | Fondation Sheyi Emmanuel Adebayor, fondation jeunesse Togo | Marque |
-| `/a-propos/` | Fondation Sheyi Emmanuel Adebayor | mission, vision, plan stratégique 2024-2028 | Information |
+| `/a-propos/` | Fondation Sheyi Emmanuel Adebayor | mission, vision, jeunesse togolaise | Information |
 | `/actions/` | actions pour la jeunesse au Togo | santé des jeunes, éducation, entrepreneuriat | Information |
 | `/projet/` | incubation agricole Togo | agrobusiness jeunes, insertion socioprofessionnelle | Information, conversion |
 | `/inscription/` | s'engager fondation Togo | bénévolat jeunes Togo, participer aux actions | Conversion |
 | `/articles/` | jeunesse togolaise enjeux | chômage des jeunes Togo, santé des jeunes | Information |
 | `/evenements/` | événements jeunesse Togo | formation agricole, atelier, conférence | Information |
-| `/documents/` | plan stratégique SEA Foundation | rapports, ressources | Information |
+| `/documents/` | documents SEA Foundation | rapports, ressources | Information |
 | `/contact/` | contacter SEA Foundation | partenariat fondation Togo | Navigation |
 
 Ces mots-clés sont des hypothèses de départ. Il faut les confirmer avec les requêtes réelles de la Search Console après 4 à 8 semaines.

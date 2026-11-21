@@ -92,7 +92,7 @@ function ChevronIcon({ direction }) {
 }
 
 // Vue immersive d’une priorité : l’image de la carte s’agrandit au centre de l’écran,
-// le reste de la page s’efface (sauf la navigation) et le détail du plan apparaît dessous.
+// le reste de la page s’efface (sauf la navigation) et le détail de la priorité apparaît dessous.
 export default function PriorityStory({ initialIndex, getSourceCard, prepareReturn, onClosed }) {
   const { t } = useLanguage();
   const { lockScroll, unlockScroll } = useSmoothScroll();
@@ -364,7 +364,7 @@ export default function PriorityStory({ initialIndex, getSourceCard, prepareRetu
             </p>
             <div className="priority-story__plan">
               <span className="priority-story__label story-rise" style={{ "--i": 3 }}>
-                {t("Ce que prévoit le plan")}
+                {t("Nos axes d’intervention")}
               </span>
               <ol className="priority-story__points">
                 {priority.points.map((point, pointIndex) => (
@@ -386,7 +386,7 @@ export default function PriorityStory({ initialIndex, getSourceCard, prepareRetu
                 <ArrowIcon />
               </Link>
               <Link className="priority-story__link" href="/actions/">
-                {t("Voir le plan d’action")}
+                {t("Voir toutes nos actions")}
                 <ArrowIcon />
               </Link>
             </div>

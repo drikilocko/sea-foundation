@@ -10,11 +10,11 @@ export default function ActionsContent() {
   return (
     <>
       <PageHeader cover="/assets/images/projet/elevage-agropastoral.webp">
-        <span className="eyebrow">{t("Plan stratégique 2024–2028")}</span>
+        <span className="eyebrow">{t("Président de SEA Foundation")}</span>
         <h1>{t("Des priorités, des actions sur le terrain.")}</h1>
         <p>
           {t(
-            "Le plan de SEA Foundation organise ses interventions autour de trois secteurs prioritaires et de principes transversaux.",
+            "SEA Foundation organise ses interventions autour de trois secteurs prioritaires et de principes transversaux.",
           )}
         </p>
       </PageHeader>
@@ -106,7 +106,7 @@ export default function ActionsContent() {
                 <h3>{t("Anticiper les risques")}</h3>
                 <p>
                   {t(
-                    "Identifier dans les plans annuels les risques qui peuvent freiner les activités et prévoir des mesures d’atténuation.",
+                    "Identifier chaque année les risques qui peuvent freiner les activités et prévoir des mesures d’atténuation.",
                   )}
                 </p>
               </article>
@@ -139,7 +139,7 @@ export default function ActionsContent() {
             <h2>{t("Suivre les actions et partager les résultats.")}</h2>
             <p>
               {t(
-                "Le plan prévoit des plans de travail annuels, un suivi régulier avec les partenaires, la consultation des bénéficiaires et des évaluations du cycle.",
+                "La Fondation prévoit des programmes de travail annuels, un suivi régulier avec les partenaires, la consultation des bénéficiaires et des évaluations du cycle.",
               )}
             </p>
             <Link className="button button-light" href="/documents/">

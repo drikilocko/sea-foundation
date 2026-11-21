@@ -15,12 +15,12 @@ export default function PrioritiesSection() {
             <div>
               <span className="eyebrow">{t("Nos priorités 2024–2028")}</span>
               <h2 className="section-heading">
-                {t("Cinq priorités déclinées du plan stratégique.")}
+                {t("Cinq priorités pour la jeunesse togolaise.")}
               </h2>
             </div>
             <p className="section-lead">
               {t(
-                "Le plan retient trois secteurs prioritaires. Les cinq cartes ci-dessous distinguent ces axes et certains domaines d’intervention décrits dans le document.",
+                "La Fondation agit dans trois secteurs prioritaires. Les cinq cartes ci-dessous présentent ces axes et leurs principaux domaines d’intervention.",
               )}
             </p>
           </div>

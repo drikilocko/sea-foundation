@@ -1,7 +1,6 @@
 "use client";
 
 import CountUp from "@/components/ui/CountUp";
-import SeaLogo from "@/components/ui/SeaLogo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function BrandShowcaseSection() {
@@ -10,7 +9,6 @@ export default function BrandShowcaseSection() {
     <>
       <section className="brand-showcase" aria-label="SEA Foundation en chiffres">
         <div className="brand-showcase__inner">
-          <SeaLogo className="brand-showcase__logo" label="SEA Foundation" fillOn="view" />
           <div className="brand-stats" aria-label="Repères de SEA Foundation">
             <div className="brand-stat">
               <strong aria-label={t("15–35 ans")}>
@@ -37,14 +35,14 @@ export default function BrandShowcaseSection() {
               <span>{t("pour le site du projet agricole")}</span>
             </div>
             <div className="brand-stat">
-              <strong aria-label={t("Plan stratégique 2024–2028")}>
+              <strong aria-label={t("2024–2028, années d’engagement")}>
                 <span aria-hidden="true">
                   <CountUp to={2024} />
                   –
                   <CountUp to={2028} from={2024} />
                 </span>
               </strong>
-              <span>{t("plan stratégique")}</span>
+              <span>{t("années d’engagement")}</span>
             </div>
           </div>
           <figure className="president-message">
@@ -64,7 +62,7 @@ export default function BrandShowcaseSection() {
               <cite>
                 Emmanuel Sheyi Adebayor
                 <br />
-                {t("Plan stratégique 2024–2028")}
+                {t("Président de SEA Foundation")}
               </cite>
             </figcaption>
           </figure>

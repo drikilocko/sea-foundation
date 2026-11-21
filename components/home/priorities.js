@@ -1,5 +1,5 @@
-// Les cinq priorités de l’accueil. Les textes détaillés reprennent ceux du plan stratégique
-// déjà publiés sur le site (axes d’intervention et page Actions).
+// Les cinq priorités de l’accueil. Les textes détaillés reprennent ceux déjà publiés
+// sur le site (axes d’intervention et page Actions).
 export const PRIORITIES = [
   {
     id: "priority-sante",
@@ -16,7 +16,7 @@ export const PRIORITIES = [
       "Prévenir les maladies et la malnutrition, et contribuer à éviter les décès évitables, y compris ceux liés au VIH.",
       "Soutenir les familles et les communautés ; prendre en compte l’inclusion sociale, le genre et le changement climatique.",
     ],
-    note: "Le plan inscrit ces interventions en lien avec les stratégies nationales de santé et de nutrition.",
+    note: "Ces interventions s’inscrivent en lien avec les stratégies nationales de santé et de nutrition.",
   },
   {
     id: "priority-education",
@@ -34,7 +34,7 @@ export const PRIORITIES = [
       "Soutenir le sport scolaire et universitaire, les compétitions et les infrastructures ; utiliser le football pour la sensibilisation à la santé et la promotion de l’excellence.",
       "Renforcer les compétences numériques et les savoir-être (soft skills) pour préparer les jeunes diplômés à l’emploi.",
     ],
-    note: "Le plan relie ces interventions aux objectifs d’éducation de qualité (ODD 4) et de consolidation de la paix (ODD 16).",
+    note: "Ces interventions contribuent aux objectifs d’éducation de qualité (ODD 4) et de consolidation de la paix (ODD 16).",
   },
   {
     id: "priority-entrepreneuriat",
@@ -50,7 +50,7 @@ export const PRIORITIES = [
       "Soutenir les initiatives innovantes des jeunes dans l’agriculture, le numérique, l’éducation et la santé.",
       "Développer des champions nationaux choisis par des processus compétitifs transparents.",
     ],
-    note: "Le plan relie cet axe à l’ODD 8 (emploi décent) et à l’ODD 1 (réduction de la pauvreté), et souligne l’équité de genre, l’inclusion du handicap et les effets positifs pour l’environnement.",
+    note: "Cet axe contribue à l’ODD 8 (emploi décent) et à l’ODD 1 (réduction de la pauvreté), avec une attention à l’équité de genre, à l’inclusion du handicap et aux effets positifs pour l’environnement.",
   },
   {
     id: "priority-agrobusiness",
@@ -82,6 +82,6 @@ export const PRIORITIES = [
       "Agir auprès des individus et des communautés, notamment par la communication et la lutte contre les normes sociales préjudiciables.",
       "Partager les rapports annuels, consulter les bénéficiaires et utiliser les évaluations pour ajuster les actions.",
     ],
-    note: "Le plan prévoit des plans de travail annuels, un suivi régulier avec les partenaires, la consultation des bénéficiaires et des évaluations du cycle.",
+    note: "La Fondation prévoit des programmes de travail annuels, un suivi régulier avec les partenaires, la consultation des bénéficiaires et des évaluations du cycle.",
   },
 ];
