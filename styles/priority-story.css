@@ -54,7 +54,22 @@ html.is-priority-story-open .scroll-progress { visibility: hidden; opacity: 0; t
 }
 .priority-story__inner { width: min(1120px, 100%); margin: 0 auto; }
 
-.priority-story__bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: clamp(14px, 2.4vh, 22px); animation: story-rise .8s var(--story-ease) .3s both; }
+.priority-story__bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: clamp(14px, 2.4vh, 22px); position: sticky; top: calc(var(--story-sticky, var(--story-top, 0px)) - var(--story-top, 0px) - clamp(14px, 2.6vh, 26px) + 10px); z-index: 5; animation: story-rise .8s var(--story-ease) .3s both; }
+/* Fond dégradé derrière la barre collée, visible seulement après le début du défilement. */
+.priority-story__bar::before {
+  position: absolute;
+  z-index: -1;
+  top: calc(-1 * (var(--story-sticky, var(--story-top, 0px)) + 10px));
+  right: calc(50% - 50vw);
+  bottom: -30px;
+  left: calc(50% - 50vw);
+  background: linear-gradient(180deg, #06140f 0%, #06140f calc(100% - 30px), rgba(6, 20, 15, 0) 100%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.priority-story.is-scrolled .priority-story__bar::before { opacity: 1; }
 .priority-story__back {
   display: inline-flex;
   align-items: center;

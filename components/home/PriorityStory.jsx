@@ -167,6 +167,27 @@ export default function PriorityStory({ initialIndex, getSourceCard, prepareRetu
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // La barre « Retour / flèches » reste collée en haut ; un fond apparaît dès qu’on défile.
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    const root = rootRef.current;
+    if (!scroller || !root) return undefined;
+    const panel = document.querySelector(".sea-header-panel");
+    const update = () => {
+      root.classList.toggle("is-scrolled", scroller.scrollTop > 8);
+      // Bas réel du menu, qui peut changer de hauteur après l’ouverture.
+      const navBottom = panel ? Math.max(0, panel.getBoundingClientRect().bottom) : 0;
+      root.style.setProperty("--story-sticky", `${Math.round(navBottom)}px`);
+    };
+    scroller.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+    return () => {
+      scroller.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   // Défilement fluide à l’intérieur de la vue, comme sur le reste du site.
   useEffect(() => {
     if (!canUseSmoothScroll()) return undefined;
