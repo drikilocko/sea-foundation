@@ -29,11 +29,19 @@ export default function VisionSection() {
             </div>
             <div className="vision-stat-grid" aria-label="Repères de notre ambition">
               <div className="vision-stat">
-                <strong>2024—28</strong>
+                <strong className="vision-stat-range">
+                  <span>2024</span>
+                  <i aria-hidden="true">–</i>
+                  <span>2028</span>
+                </strong>
                 <span>{t("Cinq années d’engagement")}</span>
               </div>
               <div className="vision-stat">
-                <strong>15–35</strong>
+                <strong className="vision-stat-range">
+                  <span>15</span>
+                  <i aria-hidden="true">–</i>
+                  <span>35</span>
+                </strong>
                 <span>{t("La jeunesse au centre de nos actions")}</span>
               </div>
               <div className="vision-stat">

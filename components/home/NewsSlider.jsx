@@ -8,7 +8,7 @@ const SLIDES = [
   {
     image: "/assets/images/projet/formation-jeunes-terrain.webp",
     category: "Formation · Innov’ert",
-    title: "Former les jeunes aux nouvelles pratiques agricoles",
+    title: "Former les jeunes : agriculture, santé, éducation, sport et entrepreneuriat",
     date: "2026-05-04",
     dateLabel: "4 mai 2026",
   },

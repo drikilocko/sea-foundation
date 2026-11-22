@@ -111,7 +111,7 @@
 .vision-section { padding-top: 64px; }
 .vision-heading { margin-bottom: 24px; }
 .vision-heading .section-heading { max-width: 760px; margin: 12px 0 0; color: var(--ink); font-size: clamp(32px, 4vw, 48px); }
-.vision-heading .section-heading em { color: var(--green-dark); font-style: normal; font-family: var(--serif); }
+.vision-heading .section-heading em { color: var(--green-dark); font-style: normal; font-family: inherit; font-weight: inherit; }
 .vision {
   width: 100%;
   max-width: none;
@@ -143,7 +143,9 @@
   backdrop-filter: blur(14px) saturate(135%);
 }
 .vision-stat strong { color: white; font-family: var(--font-manrope), sans-serif; font-size: clamp(25px, 3vw, 42px); letter-spacing: -.06em; line-height: 1; }
-.vision-stat span { color: rgba(255, 255, 255, .84); font-size: 12px; line-height: 1.6; }
+.vision-stat > span { color: rgba(255, 255, 255, .84); font-size: 12px; line-height: 1.6; }
+.vision-stat-range { display: flex; flex-wrap: wrap; align-items: baseline; gap: .18em; }
+.vision-stat-range i { color: rgba(255, 255, 255, .55); font-style: normal; font-weight: 400; }
 
 .approach-section.wrap { width: min(1192px, calc(100% - 64px)); background: transparent; }
 .approach-hero {

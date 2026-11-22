@@ -24,7 +24,7 @@ export default function NewsSection() {
               <span>{t("Formation")}</span>
               <span>Innov’ert</span>
             </div>
-            <h3>{t("Former les jeunes aux nouvelles pratiques agricoles")}</h3>
+            <h3>{t("Former les jeunes : agriculture, santé, éducation, sport et entrepreneuriat")}</h3>
             <p className="news-feature-date">{t("4 mai 2026")}</p>
             <Link className="news-feature-link" href="/evenements/">
               {t("Découvrir")}{" "}

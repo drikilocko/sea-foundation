@@ -80,6 +80,8 @@ export const englishCopy = {
   "Votre chemin vers un changement concret.": "Your path to meaningful change.",
   "Les dernières actualités": "The latest news",
   "Formation · Innov’ert": "Training · Innov'ert",
+  "Former les jeunes : agriculture, santé, éducation, sport et entrepreneuriat":
+    "Training young people: agriculture, health, education, sport and entrepreneurship",
   "Former les jeunes aux nouvelles pratiques agricoles":
     "Training young people in new agricultural practices",
   "Atelier · Innov’ert": "Workshop · Innov'ert",
