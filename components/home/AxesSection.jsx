@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function AxesSection() {
@@ -7,6 +8,7 @@ export default function AxesSection() {
   return (
     <>
       <section className="axes wrap" id="axes">
+        <LogoWatermark />
         <div className="axes-intro">
           <div>
             <span className="eyebrow">{t("Nos axes d’intervention")}</span>

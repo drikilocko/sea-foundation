@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import Link from "next/link";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
@@ -16,6 +17,7 @@ export default function ArticlesContent() {
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content">
+          <LogoWatermark />
           <div className="page-notice">
             {t(
               "Les textes ci-dessous sont des synthèses thématiques, et non des témoignages ni des articles d’actualité datés.",

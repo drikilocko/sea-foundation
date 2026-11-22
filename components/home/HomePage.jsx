@@ -2,7 +2,6 @@ import ChatWidget from "@/components/chat/ChatWidget";
 import ClosingBackground from "@/components/home/ClosingBackground";
 import HomeFooter from "@/components/home/HomeFooter";
 import HomeHeader from "@/components/home/HomeHeader";
-import ScrollProgress from "@/components/home/ScrollProgress";
 import AboutSection from "@/components/home/AboutSection";
 import PrioritiesSection from "@/components/home/PrioritiesSection";
 import ImpactSection from "@/components/home/ImpactSection";
@@ -35,7 +34,6 @@ export default function HomePage() {
         <ContactSection />
       </main>
       <HomeFooter />
-      <ScrollProgress />
       <ChatWidget />
       <ClosingBackground />
     </>

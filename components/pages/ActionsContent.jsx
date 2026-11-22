@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import Link from "next/link";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
@@ -20,6 +21,7 @@ export default function ActionsContent() {
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content">
+          <LogoWatermark />
           <section>
             <h2 className="page-section-heading">{t("Nos priorités")}</h2>
             <div className="page-card-grid">

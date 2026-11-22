@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import KindnessStatement from "@/components/home/KindnessStatement";
 import PriorityCards from "@/components/home/PriorityCards";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -9,6 +10,7 @@ export default function PrioritiesSection() {
   return (
     <>
       <section className="priorities" id="priorites">
+        <LogoWatermark />
         <div className="wrap">
           <KindnessStatement />
           <div className="priorities-top">

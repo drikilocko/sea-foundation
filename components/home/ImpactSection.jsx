@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import Link from "next/link";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
@@ -8,6 +9,7 @@ export default function ImpactSection() {
   return (
     <>
       <section className="impact-section" aria-labelledby="impact-title">
+        <LogoWatermark />
         <div className="wrap impact-section__inner">
           <div className="impact-visual">
             <img

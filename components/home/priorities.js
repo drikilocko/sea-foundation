@@ -38,7 +38,7 @@ export const PRIORITIES = [
   },
   {
     id: "priority-entrepreneuriat",
-    image: "/assets/images/projet/formation-jeunes-terrain.webp",
+    image: "/assets/images/articles/rencontre-officielle.webp",
     number: "03 / ENTREPRENDRE",
     title: "Entrepreneuriat",
     description:

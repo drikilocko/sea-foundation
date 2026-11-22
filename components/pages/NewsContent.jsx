@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import Link from "next/link";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
@@ -18,6 +19,7 @@ export default function NewsContent() {
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content actualites-content">
+          <LogoWatermark />
           <div className="page-notice">
             <strong>
               {t(

@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -15,6 +16,7 @@ export default function TermsContent() {
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content legal-document">
+          <LogoWatermark />
           <section>
             <h2>{t("Objet du site")}</h2>
             <p>

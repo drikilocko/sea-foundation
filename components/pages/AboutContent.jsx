@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import Link from "next/link";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
@@ -20,6 +21,7 @@ export default function AboutContent() {
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content">
+          <LogoWatermark />
           <section className="page-callout">
             <h2>
               {t("Une jeunesse en bonne santé, qui entreprend et participe au développement.")}

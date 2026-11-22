@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function VisionSection() {
@@ -7,6 +8,7 @@ export default function VisionSection() {
   return (
     <>
       <section className="vision-section" id="vision">
+        <LogoWatermark />
         <div className="vision-heading wrap">
           <span className="eyebrow">{t("Une ambition commune")}</span>
           <h2 className="section-heading">

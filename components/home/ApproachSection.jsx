@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function ApproachSection() {
@@ -7,6 +8,7 @@ export default function ApproachSection() {
   return (
     <>
       <section className="approach-section wrap" id="engagements">
+        <LogoWatermark />
         <header className="approach-hero" id="mise-en-oeuvre">
           <div className="approach-hero__copy">
             <span className="eyebrow">{t("Notre manière d’agir")}</span>
@@ -46,7 +48,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/accueil/fond-jeunes-football.jpg" alt="" loading="lazy" />
+            <img src="/assets/images/projet/formation-jeunes-terrain.webp" alt="" loading="lazy" />
             <div className="approach-item__copy">
               <span>03</span>
               <h3>{t("Promouvoir l’équité et l’inclusion")}</h3>

@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -19,6 +20,7 @@ export default function RegistrationContent() {
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content">
+          <LogoWatermark />
           <section
             className="page-callout page-callout--photo"
             style={{

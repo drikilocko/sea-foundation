@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import CountUp from "@/components/ui/CountUp";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
@@ -8,6 +9,7 @@ export default function BrandShowcaseSection() {
   return (
     <>
       <section className="brand-showcase" aria-label="SEA Foundation en chiffres">
+        <LogoWatermark />
         <div className="brand-showcase__inner">
           <div className="brand-stats" aria-label="Repères de SEA Foundation">
             <div className="brand-stat">

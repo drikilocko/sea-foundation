@@ -102,7 +102,6 @@
   .sea-topbar { gap: 12px; }
   .sea-brand-wrap { width: auto; }
   .sea-logo { width: 104px; height: 82px; }
-  .scroll-progress { right: 8px; height: 30vh; }
   .axes-grid, .faq-grid { grid-template-columns: 1fr; }
   .testimonials.wrap { padding: 60px 14px; }
   .testimonials-actions { align-items: flex-start; }

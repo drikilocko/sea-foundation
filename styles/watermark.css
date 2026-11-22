@@ -1,0 +1,43 @@
+/* Emblème SEA gris, fixe au bord droit de l'écran, visible uniquement sur les fonds clairs.
+   Chaque section claire contient une fenêtre (.logo-watermark) découpée par clip-path ;
+   l'image à l'intérieur est en position fixe : toutes les fenêtres montrent donc le même
+   logo au même endroit. Il reste immobile au défilement et ne se répète pas. */
+.priorities,
+.impact-section,
+.axes,
+.vision-section,
+.approach-section,
+.brand-showcase,
+.page-content {
+  position: relative;
+  isolation: isolate;
+}
+
+.logo-watermark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* Toute la largeur de l'écran, même pour les sections centrées plus étroites. */
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  z-index: -1;
+  clip-path: inset(0);
+  pointer-events: none;
+}
+
+.logo-watermark__img {
+  --visible: 40vw; /* largeur visible du logo : 40 % de l'écran */
+  position: fixed;
+  --zoom: 210svh; /* très grand zoom : le logo dépasse largement l'écran en haut et en bas */
+  top: 50%;
+  right: 0;
+  height: var(--zoom);
+  aspect-ratio: 894 / 903;
+  background: url("/assets/images/marque/embleme-sea-gris.svg") left center / contain no-repeat;
+  opacity: .22;
+  transform: translate(max(0px, calc(100% - var(--visible))), -50%) translateZ(0);
+}
+
+@media (max-width: 760px) {
+  .logo-watermark__img { opacity: .14; }
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import CookieSettingsLink from "@/components/layout/CookieSettingsLink";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
@@ -16,6 +17,7 @@ export default function CookiesContent() {
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content legal-document">
+          <LogoWatermark />
           <section>
             <h2>{t("Fonctionnement actuel du site")}</h2>
             <p>

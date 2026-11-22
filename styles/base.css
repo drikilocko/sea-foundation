@@ -66,3 +66,33 @@ body.has-reveal .reveal-item.is-revealed { opacity: 1; transform: translateY(0);
 .button-light { background: var(--white); color: var(--ink); }
 .button-light:hover { background: var(--lime); color: var(--ink); }
 .arrow { font-size: 18px; line-height: 1; }
+
+/* Barre de défilement fine sur toute la hauteur de l'écran (components/home/ScrollProgress.jsx). */
+.scroll-progress {
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(120, 124, 120, .16);
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.scroll-progress.is-hidden { opacity: 0; }
+.scroll-progress__thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: var(--thumb-size, 0px);
+  border-radius: 999px;
+  background: #58744d;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .35);
+  transform: translateY(var(--thumb-offset, 0px));
+  will-change: transform;
+}
+@media (max-width: 760px) {
+  .scroll-progress { width: 3px; }
+}

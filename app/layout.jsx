@@ -2,6 +2,7 @@ import { Barlow_Condensed, DM_Sans, Manrope } from "next/font/google";
 import CookieConsent from "@/components/layout/CookieConsent";
 import Preloader from "@/components/layout/Preloader";
 import RevealOnScroll from "@/components/layout/RevealOnScroll";
+import ScrollProgress from "@/components/home/ScrollProgress";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { LOGO_COLOR, SITE_URL } from "@/lib/site";
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
             {children}
             <CookieConsent />
             <RevealOnScroll />
+            <ScrollProgress />
           </LanguageProvider>
         </SmoothScrollProvider>
       </body>

@@ -1,5 +1,6 @@
 "use client";
 
+import LogoWatermark from "@/components/ui/LogoWatermark";
 import Link from "next/link";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
@@ -20,6 +21,7 @@ export default function EventsContent() {
       </PageHeader>
       <main className="site-page-main">
         <div className="page-content">
+          <LogoWatermark />
           <div className="page-notice">
             {t(
               "Retrouvez ici les événements datés présentés par SEA Foundation. Cette sélection reprend les informations déjà publiées sur le site.",
