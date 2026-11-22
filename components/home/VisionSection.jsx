@@ -1,6 +1,7 @@
 "use client";
 
 import LogoWatermark from "@/components/ui/LogoWatermark";
+import CountUp from "@/components/ui/CountUp";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function VisionSection() {
@@ -30,26 +31,26 @@ export default function VisionSection() {
             <div className="vision-stat-grid" aria-label="Repères de notre ambition">
               <div className="vision-stat">
                 <strong className="vision-stat-range">
-                  <span>2024</span>
+                  <CountUp from={2000} to={2024} />
                   <i aria-hidden="true">–</i>
-                  <span>2028</span>
+                  <CountUp from={2000} to={2028} delay={350} />
                 </strong>
                 <span>{t("Cinq années d’engagement")}</span>
               </div>
               <div className="vision-stat">
                 <strong className="vision-stat-range">
-                  <span>15</span>
+                  <CountUp to={15} delay={150} />
                   <i aria-hidden="true">–</i>
-                  <span>35</span>
+                  <CountUp to={35} delay={500} />
                 </strong>
                 <span>{t("La jeunesse au centre de nos actions")}</span>
               </div>
               <div className="vision-stat">
-                <strong>03</strong>
+                <strong><CountUp to={3} pad={2} delay={300} /></strong>
                 <span>{t("Santé · éducation et sport · entrepreneuriat")}</span>
               </div>
               <div className="vision-stat">
-                <strong>2028</strong>
+                <strong><CountUp from={2000} to={2028} delay={450} /></strong>
                 <span>{t("Horizon de notre vision pour la jeunesse")}</span>
               </div>
             </div>
