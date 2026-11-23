@@ -4,37 +4,37 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const PARTNERS = [
   {
-    logo: "ministere-agriculture.png",
+    logo: "ministere-agriculture.webp",
     alt: "Logo du ministère togolais de l’Agriculture",
     name: "Ministère de l’Agriculture",
     caption: "Élevage et Développement rural",
   },
   {
-    logo: "infa-tove.png",
+    logo: "infa-tove.webp",
     alt: "Logo de l’Institut national de formation agricole de Tové",
     name: "INFA de Tové",
     caption: "Formation agricole",
   },
   {
-    logo: "iastm.png",
+    logo: "iastm.webp",
     alt: "Logo de l’IASTM",
     name: "IASTM",
     caption: "Enseignement supérieur et formation",
   },
   {
-    logo: "pnud.png",
+    logo: "pnud.webp",
     alt: "Logo du Programme des Nations unies pour le développement",
     name: "PNUD",
     caption: "Programme des Nations unies pour le développement",
   },
   {
-    logo: "afd.png",
+    logo: "afd.webp",
     alt: "Logo de l’Agence française de développement",
     name: "AFD",
     caption: "Agence française de développement",
   },
-  { logo: "far.png", alt: "Logo FAR", name: "FAR", caption: "Logo présent dans les ressources du site" },
-  { logo: "aklo-group.png", alt: "Logo d’Aklo Group", name: "Aklo Group", caption: "Entreprise" },
+  { logo: "far.webp", alt: "Logo FAR", name: "FAR", caption: "Logo présent dans les ressources du site" },
+  { logo: "aklo-group.webp", alt: "Logo d’Aklo Group", name: "Aklo Group", caption: "Entreprise" },
 ];
 
 function PartnerGroup({ decorative = false }) {
