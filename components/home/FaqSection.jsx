@@ -18,7 +18,7 @@ export default function FaqSection() {
             </p>
           </div>
           <div className="faq-list">
-            <details>
+            <details name="faq">
               <summary>{t("Sur quelle période la Fondation s’engage-t-elle ?")}</summary>
               <div className="faq-answer">
                 <p>
@@ -28,7 +28,7 @@ export default function FaqSection() {
                 </p>
               </div>
             </details>
-            <details>
+            <details name="faq">
               <summary>{t("Quels sont les secteurs prioritaires de la Fondation ?")}</summary>
               <div className="faq-answer">
                 <p>
@@ -38,7 +38,7 @@ export default function FaqSection() {
                 </p>
               </div>
             </details>
-            <details>
+            <details name="faq">
               <summary>{t("À qui s’adressent les actions prévues ?")}</summary>
               <div className="faq-answer">
                 <p>
@@ -48,7 +48,7 @@ export default function FaqSection() {
                 </p>
               </div>
             </details>
-            <details>
+            <details name="faq">
               <summary>{t("Quelles actions sont prévues pour l’éducation et le sport ?")}</summary>
               <div className="faq-answer">
                 <p>
@@ -58,7 +58,7 @@ export default function FaqSection() {
                 </p>
               </div>
             </details>
-            <details>
+            <details name="faq">
               <summary>{t("Comment les activités doivent-elles être suivies ?")}</summary>
               <div className="faq-answer">
                 <p>
@@ -68,7 +68,7 @@ export default function FaqSection() {
                 </p>
               </div>
             </details>
-            <details>
+            <details name="faq">
               <summary>
                 {t(
                   "La page présente-t-elle des témoignages de bénéficiaires ou des logos officiels ?",
