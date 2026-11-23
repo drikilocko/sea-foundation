@@ -71,13 +71,13 @@ export default function FaqSection() {
             <details name="faq">
               <summary>
                 {t(
-                  "La page présente-t-elle des témoignages de bénéficiaires ou des logos officiels ?",
+                  "Comment soutenir la Fondation ou devenir partenaire ?",
                 )}
               </summary>
               <div className="faq-answer">
                 <p>
                   {t(
-                    "Non. Le site ne présente pas encore de témoignages de bénéficiaires ni de logos de partenaires confirmés. Les citations affichées expriment la vision de la Fondation ou le mot de son président, et le carrousel présente uniquement des catégories de partenaires.",
+                    "Institutions, entreprises, organisations et communautés peuvent proposer un partenariat, soutenir une action ou participer aux activités en écrivant à info@fondationsea.org. La Fondation privilégie les partenariats avec les acteurs du territoire pour rapprocher les opportunités des jeunes.",
                   )}
                 </p>
               </div>

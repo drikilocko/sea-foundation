@@ -233,8 +233,7 @@ export const englishCopy = {
   "Quelles actions sont prévues pour l’éducation et le sport ?":
     "What actions are planned for education and sport?",
   "Comment les activités doivent-elles être suivies ?": "How will activities be monitored?",
-  "La page présente-t-elle des témoignages de bénéficiaires ou des logos officiels ?":
-    "Does this page show beneficiary testimonials or official partner logos?",
+  "Comment soutenir la Fondation ou devenir partenaire ?": "How can I support the Foundation or become a partner?",
   "Partenaires · Communautés · Jeunesse": "Partners · Communities · Youth",
   "Soutenez une vision portée par la jeunesse.": "Support a vision led by young people.",
   "Nous écrire": "Write to us",
@@ -283,7 +282,8 @@ export const englishCopy = {
   "La Fondation s’adresse principalement aux jeunes, avec une attention aux 15–35 ans et aux jeunes vulnérables, notamment les jeunes filles, les jeunes issus de milieux défavorisés et les jeunes en situation de handicap.": "The Foundation works mainly with young people, with a focus on 15 to 35-year-olds and vulnerable youth, including girls, young people from disadvantaged backgrounds and young people with disabilities.",
   "La Fondation prévoit notamment un appui en fournitures scolaires, des programmes de bourses, le renforcement des capacités des éducateurs, des matériels didactiques et des infrastructures modernes. Elle vise aussi le sport en milieu scolaire et universitaire, les compétitions, les infrastructures sportives, les soft skills et les outils informatiques.": "The Foundation provides for school supplies, scholarship programmes, training for educators, teaching materials and modern facilities. It also supports school and university sport, competitions, sports facilities, soft skills and digital tools.",
   "La Fondation prévoit des programmes de travail annuels, un suivi semestriel, des examens annuels avec les pouvoirs publics, la consultation des bénéficiaires et des rapports annuels en accès libre. Deux évaluations sont prévues : au bout de la troisième année et à la fin du cycle.": "The Foundation sets annual work programmes, six-monthly monitoring, annual reviews with public authorities, consultation of beneficiaries and openly available annual reports. Two evaluations are planned: after the third year and at the end of the cycle.",
-  "Non. Le site ne présente pas encore de témoignages de bénéficiaires ni de logos de partenaires confirmés. Les citations affichées expriment la vision de la Fondation ou le mot de son président, et le carrousel présente uniquement des catégories de partenaires.": "No. The site does not yet show beneficiary testimonials or confirmed partner logos. The quotes express the Foundation's vision or its president's message, and the carousel only shows categories of partners.",
+  "Institutions, entreprises, organisations et communautés peuvent proposer un partenariat, soutenir une action ou participer aux activités en écrivant à info@fondationsea.org. La Fondation privilégie les partenariats avec les acteurs du territoire pour rapprocher les opportunités des jeunes.":
+    "Institutions, companies, organisations and communities can propose a partnership, support an action or take part in activities by writing to info@fondationsea.org. The Foundation favours partnerships with local stakeholders to bring opportunities closer to young people.",
   "Ces cinq phrases résument la vision et les engagements de SEA Foundation pour la jeunesse.": "These five statements sum up SEA Foundation's vision and commitments for young people.",
   "« Les jeunes togolais en bonne santé, qui entreprennent et qui participent au développement. »":
     "“Healthy young people in Togo who build businesses and take part in development.”",
