@@ -76,7 +76,7 @@ body.has-reveal .reveal-item.is-revealed { opacity: 1; transform: translateY(0);
   width: 4px;
   height: 100vh;
   height: 100dvh;
-  background: rgba(120, 124, 120, .16);
+  background: linear-gradient(rgba(120, 124, 120, .16), rgba(120, 124, 120, .16));
   pointer-events: none;
   transition: opacity .3s ease;
 }

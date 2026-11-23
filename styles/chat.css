@@ -1,3 +1,5 @@
+/* Les éléments fixés en bas de l’écran peignent leur fond en dégradé : Safari (iOS 26) teinte
+   sa barre d’outils avec la couleur de fond de ces éléments, et ignore les dégradés. */
 .ai-chat { position: fixed; inset: 0; z-index: 1000; display: block; pointer-events: none; font-family: var(--font-dm-sans), sans-serif; }
 .ai-chat-backdrop { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; border: 0; background: rgba(6,19,17,.68); -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px); pointer-events: auto; animation: chat-backdrop-in .25s ease both; }
 .ai-chat-panel { position: fixed; top: 50%; left: 50%; z-index: 1; width: min(980px, calc(100vw - 48px)); height: min(700px, calc(100dvh - 48px)); max-height: calc(100dvh - 48px); display: grid; grid-template-columns: minmax(250px, .78fr) minmax(0, 1.22fr); overflow: hidden; border: 1px solid rgba(255,255,255,.52); border-radius: 24px; background: #f7f8f3; box-shadow: 0 32px 100px rgba(0,0,0,.34); transform: translate(-50%,-48%) scale(.98); pointer-events: auto; animation: chat-modal-in .42s cubic-bezier(.22,1,.36,1) both; }
@@ -25,8 +27,8 @@
 @media (prefers-reduced-motion: reduce) { .ai-chat-backdrop, .ai-chat-panel { animation: none; } }
 .ai-social-links { position: fixed; right: 196px; bottom: 28px; display: flex; align-items: center; gap: 8px; pointer-events: auto; }
 .ai-chat-launcher { position: fixed; right: 24px; bottom: 24px; pointer-events: auto; }
-.ai-social-links a { width: 46px; height: 46px; display: grid; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255,255,255,.19); border-radius: 50%; background: rgba(23,60,54,.96); box-shadow: 0 8px 24px rgba(3,25,65,.2); color: white; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
-.ai-social-links a:hover { transform: translateY(-3px); border-color: #d7ed83; background: #285748; }
+.ai-social-links a { width: 46px; height: 46px; display: grid; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255,255,255,.19); border-radius: 50%; background: linear-gradient(rgba(23,60,54,.96), rgba(23,60,54,.96)); box-shadow: 0 8px 24px rgba(3,25,65,.2); color: white; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+.ai-social-links a:hover { transform: translateY(-3px); border-color: #d7ed83; background: linear-gradient(#285748, #285748); }
 .ai-social-links svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .ai-social-links a:first-child svg { fill: currentColor; stroke: none; }
 .ai-social-links .icon-dot { fill: currentColor; stroke: none; }
@@ -57,8 +59,8 @@
 .ai-chat-form button svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ai-chat-form button:disabled { opacity: .55; cursor: wait; }
 .ai-chat-disclaimer { margin: 0; padding: 0 18px 13px; color: var(--muted); font-size: 9px; line-height: 1.4; }
-.ai-chat-launcher { min-height: 54px; display: inline-flex; align-items: center; gap: 10px; padding: 0 18px 0 12px; border: 0; border-radius: 999px; background: #173c36; box-shadow: 0 8px 24px rgba(3, 25, 65, .2); color: white; font-size: 12px; font-weight: 700; cursor: pointer; transition: transform .2s ease, background .2s ease; }
-.ai-chat-launcher:hover { transform: translateY(-2px); background: #285748; }
+.ai-chat-launcher { min-height: 54px; display: inline-flex; align-items: center; gap: 10px; padding: 0 18px 0 12px; border: 0; border-radius: 999px; background: linear-gradient(#173c36, #173c36); box-shadow: 0 8px 24px rgba(3, 25, 65, .2); color: white; font-size: 12px; font-weight: 700; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+.ai-chat-launcher:hover { transform: translateY(-2px); background: linear-gradient(#285748, #285748); }
 .ai-chat-launcher:focus-visible, .ai-chat-form button:focus-visible { outline: 3px solid #e9b64d; outline-offset: 3px; }
 .ai-chat-launcher-icon { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: #d7ed83; color: #173c36; }
 .ai-chat-launcher-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
