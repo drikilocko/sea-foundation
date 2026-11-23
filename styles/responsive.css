@@ -192,6 +192,8 @@
   .ai-chat-launcher { width: 48px; min-height: 48px; justify-content: center; padding: 0; }
   .ai-chat-launcher > span:last-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
   .ai-chat-launcher-icon { width: 30px; height: 30px; }
+  /* Icônes collées au bouton rond de l'assistant (48px, à 12px du bord), centrées sur sa hauteur. */
+  .ai-social-links { right: 68px; bottom: 19px; }
   .nav { width: calc(100% - 32px); }
   .brand-name { font-size: 10px; }
   .brand-name span { font-size: 7px; }

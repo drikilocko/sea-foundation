@@ -23,7 +23,7 @@
   .ai-social-links svg { width: 18px; height: 18px; }
   .ai-chat-launcher { min-height: 48px; gap: 6px; padding-inline: 8px 12px; font-size: 11px; }
   .ai-chat-launcher-icon { width: 30px; height: 30px; }
-  .ai-social-links { right: 180px; bottom: 16px; }
+  .ai-social-links { right: 155px; bottom: 16px; }
   .ai-chat-launcher { right: 12px; bottom: 12px; }
   .ai-chat-panel { width: min(620px, calc(100vw - 24px)); height: min(760px, calc(100dvh - 24px)); max-height: calc(100dvh - 24px); grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); border-radius: 18px; }
   .ai-chat-brand-panel { min-height: 78px; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; padding: 10px 16px; }
