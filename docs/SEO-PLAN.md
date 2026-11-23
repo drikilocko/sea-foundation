@@ -1,6 +1,6 @@
 # Plan SEO — SEA Foundation
 
-Site : https://sea-foundationafr.vercel.app
+Site : https://dev.fondationsea.org
 Dernière mise à jour : 18 novembre 2026
 
 ## 1. Objectif
@@ -73,7 +73,7 @@ Ces mots-clés sont des hypothèses de départ. Il faut les confirmer avec les r
 ### Jours 1 à 15 : fondations
 
 1. Créer la propriété dans Google Search Console et Bing Webmaster Tools.
-2. Soumettre `https://sea-foundationafr.vercel.app/sitemap.xml`.
+2. Soumettre `https://dev.fondationsea.org/sitemap.xml`.
 3. Créer ou compléter la fiche Google Business Profile de la Fondation.
 4. Corriger les liens des réseaux sociaux et compresser les images lourdes.
 
