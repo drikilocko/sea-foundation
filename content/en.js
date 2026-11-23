@@ -275,6 +275,8 @@ export const englishCopy = {
   "Contacter SEA Foundation sur WhatsApp": "Contact SEA Foundation on WhatsApp",
   "Envoyer un e-mail": "Send an email",
   "Navigation principale": "Main navigation",
+  "Fil d’Ariane": "Breadcrumb",
+  "Sur cette page": "On this page",
   "Informations légales": "Legal information",
   "SEA Foundation s’engage sur cinq ans, de 2024 à 2028. Une évaluation est prévue au terme de la troisième année puis à la fin du cycle.": "SEA Foundation is committed over five years, from 2024 to 2028. An evaluation is planned after the third year and at the end of the cycle.",
   "La Fondation retient trois secteurs prioritaires : la santé et le bien-être, l’éducation et le sport, et l’entrepreneuriat. L’agrobusiness est notamment développé dans l’axe consacré à l’entrepreneuriat des jeunes.": "The Foundation focuses on three priority sectors: health and well-being, education and sport, and entrepreneurship. Agribusiness is covered under the youth entrepreneurship area.",
@@ -592,4 +594,5 @@ export const englishCopy = {
   "Page introuvable — SEA Foundation": "Page not found — SEA Foundation",
   "Cette page n’existe pas ou a été déplacée.": "This page does not exist or has been moved.",
   "Retour à l’accueil": "Back to home",
+  "Page en construction": "Page under construction",
 };

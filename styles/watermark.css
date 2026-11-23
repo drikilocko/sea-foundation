@@ -8,7 +8,8 @@
 .vision-section,
 .approach-section,
 .brand-showcase,
-.page-content {
+.page-content,
+.construction {
   position: relative;
   isolation: isolate;
 }

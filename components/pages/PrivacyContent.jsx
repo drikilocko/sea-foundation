@@ -1,6 +1,7 @@
 "use client";
 
 import LogoWatermark from "@/components/ui/LogoWatermark";
+import PageToc from "@/components/layout/PageToc";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -19,8 +20,9 @@ export default function PrivacyContent() {
         </p>
       </PageHeader>
       <main className="site-page-main">
-        <div className="page-content legal-document">
+        <div className="page-content legal-document has-toc">
           <LogoWatermark />
+          <PageToc />
           <section>
             <h2>{t("Responsable du traitement")}</h2>
             <p>

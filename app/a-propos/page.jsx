@@ -1,4 +1,4 @@
-import AboutContent from "@/components/pages/AboutContent";
+import UnderConstruction from "@/components/pages/UnderConstruction";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
@@ -17,7 +17,7 @@ export default function Page() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd(page)} />
-      <AboutContent />
+      <UnderConstruction />
     </>
   );
 }

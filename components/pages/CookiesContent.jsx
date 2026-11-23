@@ -1,6 +1,7 @@
 "use client";
 
 import LogoWatermark from "@/components/ui/LogoWatermark";
+import PageToc from "@/components/layout/PageToc";
 import CookieSettingsLink from "@/components/layout/CookieSettingsLink";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
@@ -16,8 +17,9 @@ export default function CookiesContent() {
         <p>{t("Informations sur les cookies utilisés par le site de SEA Foundation.")}</p>
       </PageHeader>
       <main className="site-page-main">
-        <div className="page-content legal-document">
+        <div className="page-content legal-document has-toc">
           <LogoWatermark />
+          <PageToc />
           <section>
             <h2>{t("Fonctionnement actuel du site")}</h2>
             <p>

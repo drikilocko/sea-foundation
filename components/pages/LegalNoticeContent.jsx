@@ -1,6 +1,7 @@
 "use client";
 
 import LogoWatermark from "@/components/ui/LogoWatermark";
+import PageToc from "@/components/layout/PageToc";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -15,8 +16,9 @@ export default function LegalNoticeContent() {
         <p>{t("Informations relatives au site de la Fondation Sheyi Emmanuel Adebayor.")}</p>
       </PageHeader>
       <main className="site-page-main">
-        <div className="page-content legal-document">
+        <div className="page-content legal-document has-toc">
           <LogoWatermark />
+          <PageToc />
           <section>
             <h2>{t("Éditeur du site")}</h2>
             <p>

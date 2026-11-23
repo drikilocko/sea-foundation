@@ -37,7 +37,7 @@ export default function PageHeader({ cover, compact = false, children, coverPosi
 
   return (
     <header
-      className={`site-page-header${isMenuOpen ? " is-menu-open" : ""}`}
+      className={`site-page-header${cover ? "" : " site-page-header--plain"}${isMenuOpen ? " is-menu-open" : ""}`}
       style={
         cover
           ? {
@@ -82,7 +82,14 @@ export default function PageHeader({ cover, compact = false, children, coverPosi
           <LanguageToggle />
         </div>
       </div>
-      <div className="site-page-intro">{children}</div>
+      <div className="site-page-intro">
+        <nav className="site-page-breadcrumb" aria-label={t("Fil d’Ariane")}>
+          <Link href="/">{t("Accueil")}</Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{t(PAGE_LABELS[pathname] ?? "")}</span>
+        </nav>
+        {children}
+      </div>
     </header>
   );
 }

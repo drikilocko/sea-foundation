@@ -1,4 +1,5 @@
 import LogoWatermark from "@/components/ui/LogoWatermark";
+import PageToc from "@/components/layout/PageToc";
 import Link from "next/link";
 import PageFooter from "@/components/layout/PageFooter";
 import PageHeader from "@/components/layout/PageHeader";
@@ -15,8 +16,9 @@ export default function ProjectContent() {
         </p>
       </PageHeader>
       <main className="site-page-main">
-        <div className="page-content legal-document">
+        <div className="page-content legal-document has-toc">
           <LogoWatermark />
+          <PageToc />
           <section aria-labelledby="projet-apercu">
             <h2 className="page-section-heading" id="projet-apercu">
               Le projet en bref
