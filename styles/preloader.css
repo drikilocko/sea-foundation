@@ -1,4 +1,6 @@
-.site-preloader { position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; overflow: hidden; background: #0a2e26; }
+/* Fond en dégradé plutôt qu’en couleur : iOS (Safari, appli Google) teinte sa barre d’outils
+   avec la couleur de fond des éléments fixes ; ainsi la barre reste transparente. */
+.site-preloader { position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; overflow: hidden; background: linear-gradient(#0a2e26, #0a2e26); }
 .site-preloader.is-static { animation: preloader-failsafe .4s ease 10s forwards; }
 .site-preloader__line { position: absolute; left: 50%; top: calc(50% + min(clamp(75px, 11vw, 130px), 17vh) + 26px); width: min(180px, 46vw); height: 1px; overflow: hidden; background: rgba(255,255,255,.24); transform: translate(-50%, -50%); }
 .site-preloader__line::after { position: absolute; inset: 0; background: #d7ed83; content: ""; transform: scaleX(0); transform-origin: left center; }
