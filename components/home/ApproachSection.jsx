@@ -1,10 +1,45 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import LogoWatermark from "@/components/ui/LogoWatermark";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
+// Photo grise ; la couleur apparait en cercle autour du curseur.
+function RevealImage({ src }) {
+  return (
+    <span className="approach-item__media">
+      <img src={src} alt="" loading="lazy" />
+      <img src={src} alt="" loading="lazy" aria-hidden="true" />
+    </span>
+  );
+}
+
 export default function ApproachSection() {
   const { t } = useLanguage();
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return undefined;
+    const cleanups = [...grid.querySelectorAll(".approach-item")].map((item) => {
+      const media = item.querySelector(".approach-item__media");
+      const move = (event) => {
+        const rect = media.getBoundingClientRect();
+        media.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+        media.style.setProperty("--my", `${event.clientY - rect.top}px`);
+        item.classList.add("is-revealing");
+      };
+      const leave = () => item.classList.remove("is-revealing");
+      item.addEventListener("pointermove", move);
+      item.addEventListener("pointerleave", leave);
+      return () => {
+        item.removeEventListener("pointermove", move);
+        item.removeEventListener("pointerleave", leave);
+      };
+    });
+    return () => cleanups.forEach((cleanup) => cleanup());
+  }, []);
+
   return (
     <>
       <section className="approach-section wrap" id="engagements">
@@ -22,9 +57,9 @@ export default function ApproachSection() {
             </p>
           </div>
         </header>
-        <div className="approach-grid">
+        <div className="approach-grid" ref={gridRef}>
           <article className="approach-item">
-            <img src="/assets/images/accueil/tournoi-salut-officiels.webp" alt="" loading="lazy" />
+            <RevealImage src="/assets/images/accueil/tournoi-salut-officiels.webp" />
             <div className="approach-item__copy">
               <span>01</span>
               <h3>{t("Faire participer les jeunes")}</h3>
@@ -36,7 +71,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/articles/rencontre-officielle.webp" alt="" loading="lazy" />
+            <RevealImage src="/assets/images/terrain/echange-officiels-tente.webp" />
             <div className="approach-item__copy">
               <span>02</span>
               <h3>{t("Renforcer les systèmes sociaux")}</h3>
@@ -48,7 +83,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/terrain/celebration-equipe.webp" alt="" loading="lazy" />
+            <RevealImage src="/assets/images/terrain/celebration-equipe.webp" />
             <div className="approach-item__copy">
               <span>03</span>
               <h3>{t("Promouvoir l’équité et l’inclusion")}</h3>
@@ -60,7 +95,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/evenements/conference-prise-de-parole.webp" alt="" loading="lazy" />
+            <RevealImage src="/assets/images/evenements/conference-prise-de-parole.webp" />
             <div className="approach-item__copy">
               <span>04</span>
               <h3>{t("Communiquer sur des faits")}</h3>
@@ -72,7 +107,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/actions/sante-vaccination.jpg" alt="" loading="lazy" />
+            <RevealImage src="/assets/images/actions/sante-vaccination.jpg" />
             <div className="approach-item__copy">
               <span>05</span>
               <h3>{t("Anticiper les risques")}</h3>
@@ -84,7 +119,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/actions/tournoi-remise-trophee.webp" alt="" loading="lazy" />
+            <RevealImage src="/assets/images/actions/tournoi-remise-trophee.webp" />
             <div className="approach-item__copy">
               <span>06</span>
               <h3>{t("Rendre compte des résultats")}</h3>

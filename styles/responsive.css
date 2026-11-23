@@ -222,7 +222,7 @@
   .approach-hero p { font-size: 13px; }
   .approach-grid { grid-template-columns: 1fr; margin-top: 18px; }
   .approach-item { gap: 13px; padding: 16px 0; }
-  .approach-item > img { width: 39%; min-width: 108px; min-height: 164px; }
+  .approach-item__media { width: 39%; min-width: 108px; min-height: 164px; }
   .approach-item__copy > span { margin-bottom: 8px; }
   .approach-item h3 { font-size: 17px; }
   .approach-item p { font-size: 11px; }
