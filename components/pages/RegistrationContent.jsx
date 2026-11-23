@@ -35,7 +35,7 @@ export default function RegistrationContent() {
             </p>
             <a
               className="button button-light"
-              href="mailto:info@fondationsea.com?subject=Demande%20d'information%20-%20Fondation%20SEA"
+              href="mailto:info@fondationsea.org?subject=Demande%20d'information%20-%20Fondation%20SEA"
             >
               {t("Écrire à la Fondation")}{" "}
               <span className="arrow">

@@ -29,7 +29,7 @@ export default function PrivacyContent() {
               {t(
                 "La Fondation Sheyi Emmanuel Adebayor (SEA Foundation), à Adidogomé au Togo, est l’interlocuteur pour les questions relatives aux informations communiquées par l’intermédiaire du site. Vous pouvez la joindre à",
               )}{" "}
-              <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>.
+              <a href="mailto:info@fondationsea.org">info@fondationsea.org</a>.
             </p>
           </section>
           <section>
@@ -59,7 +59,7 @@ export default function PrivacyContent() {
               {t(
                 "Pour toute question ou demande concernant les informations que vous avez transmises à la Fondation, contactez-la à",
               )}{" "}
-              <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>
+              <a href="mailto:info@fondationsea.org">info@fondationsea.org</a>
               {t(". Les modalités applicables dépendent de la législation en vigueur.")}
             </p>
           </section>

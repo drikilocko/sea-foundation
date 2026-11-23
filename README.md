@@ -33,7 +33,7 @@ Les autres pages affichent pour l'instant « Page en construction » (`component
 
 1. **Interface** : `components/chat/ChatWidget.jsx` affiche le bouton de l'assistant et les liens réseaux sociaux en bas à droite, puis la fenêtre de discussion. L'historique de la conversation reste dans la page ; rien n'est enregistré.
 2. **API** : la fenêtre envoie les messages à `POST /api/chat/` (`app/api/chat/route.js`). La route vérifie la requête (taille, format, langue) puis appelle Gemini côté serveur : la clé `GEMINI_API_KEY` n'est jamais envoyée au navigateur.
-3. **Connaissances** : `lib/siteKnowledge.js` lit le texte des pages publiques du site (mis en cache une heure) et le transmet à Gemini comme seule source. Le message système interdit d'inventer un programme, une date ou un contact, et renvoie vers info@fondationsea.com en cas de doute.
+3. **Connaissances** : `lib/siteKnowledge.js` lit le texte des pages publiques du site (mis en cache une heure) et le transmet à Gemini comme seule source. Le message système interdit d'inventer un programme, une date ou un contact, et renvoie vers info@fondationsea.org en cas de doute.
 4. **Modèles** : la route essaie `gemini-3.5-flash`, puis `gemini-3.8-flash` et `gemini-flash-latest` si un modèle est surchargé ou retiré. Pour changer de modèle, modifiez `GEMINI_MODELS` dans la route.
 
 ## Run locally

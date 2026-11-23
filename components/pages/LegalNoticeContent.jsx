@@ -30,7 +30,7 @@ export default function LegalNoticeContent() {
             </p>
             <p>
               <strong>{t("Contact :")}</strong>{" "}
-              <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>.
+              <a href="mailto:info@fondationsea.org">info@fondationsea.org</a>.
             </p>
             <p>
               {t(
@@ -58,7 +58,7 @@ export default function LegalNoticeContent() {
             <h2>{t("Contact")}</h2>
             <p>
               {t("Pour toute question concernant le site ou ces mentions, écrivez à")}{" "}
-              <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>.
+              <a href="mailto:info@fondationsea.org">info@fondationsea.org</a>.
             </p>
           </section>
         </div>

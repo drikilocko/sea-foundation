@@ -60,9 +60,9 @@ export default function ContactContent() {
               <span>{t("Courriel")}</span>
               <h2>{t("Écrivez-nous")}</h2>
               <p>
-                <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>
+                <a href="mailto:info@fondationsea.org">info@fondationsea.org</a>
               </p>
-              <a className="about-link" href="mailto:info@fondationsea.com">
+              <a className="about-link" href="mailto:info@fondationsea.org">
                 {t("Envoyer un courriel")}{" "}
                 <span className="arrow">
                   <svg viewBox="0 0 24 24" aria-hidden="true">

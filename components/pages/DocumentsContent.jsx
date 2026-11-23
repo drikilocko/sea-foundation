@@ -39,7 +39,7 @@ export default function DocumentsContent() {
             <div className="page-link-list">
               <a
                 className="button"
-                href="mailto:info@fondationsea.com?subject=Demande%20de%20document%20SEA%20Foundation"
+                href="mailto:info@fondationsea.org?subject=Demande%20de%20document%20SEA%20Foundation"
               >
                 {t("Demander le document")}{" "}
                 <span className="arrow">

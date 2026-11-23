@@ -397,7 +397,7 @@ export const englishCopy = {
   "Traceurs et préférences": "Trackers and preferences",
   "Sur le terrain": "On the ground",
   "Conférence · SEA Foundation": "Conference · SEA Foundation",
-  "Adidogomé · info@fondationsea.com": "Adidogomé · info@fondationsea.com",
+  "Adidogomé · info@fondationsea.org": "Adidogomé · info@fondationsea.org",
   "Sur cinq ans, la Fondation précise sa vision, ses secteurs prioritaires, ses axes d’intervention et la façon dont elle suit et évalue ses actions.": "Over five years, the Foundation sets out its vision, priority sectors, areas of work and how it monitors and evaluates its actions.",
   "Les règles de consultation des informations publiées par SEA Foundation.":
     "Rules for accessing information published by SEA Foundation.",

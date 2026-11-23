@@ -28,7 +28,7 @@ export default function HomeFooter() {
             </nav>
             <div className="footer-column">
               <h2>{t("Nous contacter")}</h2>
-              <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>{" "}
+              <a href="mailto:info@fondationsea.org">info@fondationsea.org</a>{" "}
               <span>{t("Adidogomé · Togo")}</span>
             </div>
             <div className="footer-column footer-invitation">

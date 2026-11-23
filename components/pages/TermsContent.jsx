@@ -55,7 +55,7 @@ export default function TermsContent() {
             <h2>{t("Contact et mises à jour")}</h2>
             <p>
               {t("Pour toute question concernant le site, contactez la Fondation à")}{" "}
-              <a href="mailto:info@fondationsea.com">info@fondationsea.com</a>
+              <a href="mailto:info@fondationsea.org">info@fondationsea.org</a>
               {t(
                 ". Ces conditions peuvent être actualisées lorsque le site ou ses fonctionnalités évoluent.",
               )}

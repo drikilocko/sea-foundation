@@ -18,7 +18,7 @@ export default function ContactSection() {
             </p>
           </div>
           <div className="contact-actions">
-            <a className="button button-light" href="mailto:info@fondationsea.com">
+            <a className="button button-light" href="mailto:info@fondationsea.org">
               {t("Nous écrire")}{" "}
               <span className="arrow">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -27,7 +27,7 @@ export default function ContactSection() {
               </span>
             </a>
             <div className="contact-details">
-              <span>{t("Adidogomé · info@fondationsea.com")}</span>
+              <span>{t("Adidogomé · info@fondationsea.org")}</span>
             </div>
           </div>
         </div>

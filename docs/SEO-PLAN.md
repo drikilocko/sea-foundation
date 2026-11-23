@@ -61,7 +61,7 @@ Ces mots-clés sont des hypothèses de départ. Il faut les confirmer avec les r
 | Priorité | Problème constaté | Action | Responsable |
 | --- | --- | --- | --- |
 | Haute | Les liens Instagram et TikTok pointent vers les pages d'accueil de ces réseaux | Fournir les vraies URL des comptes, puis les ajouter au site et aux données structurées | Fondation |
-| Haute | Le site est sur une adresse `vercel.app` alors que l'e-mail utilise `fondationsea.com` | Si ce domaine est disponible, y connecter le site, puis mettre à jour les URL canoniques et le sitemap | Fondation |
+| Haute | Le site est sur une adresse `vercel.app` alors que l'e-mail utilise `fondationsea.org` | Si ce domaine est disponible, y connecter le site, puis mettre à jour les URL canoniques et le sitemap | Fondation |
 | Haute | Images encore lourdes : `mosaique-actions-terrain.webp` (660 Ko), logos SEA (400 à 500 Ko) | Compresser sous 300 Ko (photos) et 60 Ko (logos) | Développement |
 | Moyenne | 17 images de l'accueil ont un texte alternatif vide | Décrire les images porteuses de sens | Contenu |
 | Moyenne | Les articles et événements n'ont pas de page individuelle | Créer une page par article et par événement | Contenu, développement |
