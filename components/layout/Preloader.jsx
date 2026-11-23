@@ -8,10 +8,14 @@ import { LOGO_COLOR, LOGO_WHITE } from "@/lib/site";
 import { useHydrated } from "@/lib/useHydrated";
 
 const VISIT_KEY = "sea-foundation-preloader-visited";
-const LINE_DURATION = 3000;
-const IMAGE_TIMEOUT = 12000;
-const CRITICAL_SELECTOR = ".sea-hero-wrap, #fondation, .site-page-header";
-const ARTICLE_SELECTOR = "[data-news-slide], #actualites article, .site-page-main article";
+// Durées de la première visite (ms) : barre, logo en couleur, ouverture.
+const LINE_DURATION = 900;
+const LOGO_DURATION = 700;
+const OPEN_DURATION = 900;
+const IMAGE_TIMEOUT = 8000;
+// Seules les images visibles à l’ouverture retiennent le préchargeur.
+const CRITICAL_SELECTOR = ".sea-hero-wrap, .site-page-header";
+const ARTICLE_SELECTOR = "[data-news-slide]";
 const BACKGROUND_URL = /url\((?:"([^"]+)"|'([^']+)'|([^)]*))\)/g;
 
 function collectImageUrls(selector, ignoredSelector) {
@@ -110,21 +114,14 @@ export default function Preloader() {
       absolute(LOGO_COLOR),
       ...collectImageUrls(CRITICAL_SELECTOR, ARTICLE_SELECTOR),
     ]);
-    const articleImages = [...collectImageUrls(ARTICLE_SELECTOR)].filter(
-      (src) => !criticalImages.has(src),
-    );
 
-    // Une image d’article manquante ne doit pas bloquer l’accès au site.
-    const loadArticleImage = (src) =>
-      loadImage(src).catch((error) => console.warn("Image d’article non préchargée:", error));
-
-    Promise.all([...[...criticalImages].map(loadImage), ...articleImages.map(loadArticleImage)])
+    Promise.all([...criticalImages].map(loadImage))
       .then(() => {
         if (cancelled) return;
         saveVisit();
         const showLogo = () => {
           setPhase("logo");
-          later(() => setPhase("opening"), reducedMotion ? 100 : isRepeatVisit ? 550 : 3000);
+          later(() => setPhase("opening"), reducedMotion ? 100 : isRepeatVisit ? 450 : LOGO_DURATION);
         };
         if (reducedMotion || isRepeatVisit) showLogo();
         else later(showLogo, Math.max(0, LINE_DURATION - (performance.now() - startedAt)));
@@ -146,15 +143,25 @@ export default function Preloader() {
     if (phase === "done") releaseScroll();
     if (phase === "error") retryRef.current?.focus({ preventScroll: true });
     if (phase !== "opening") return undefined;
-    const delay = isRepeatVisit ? 500 : prefersReducedMotion() ? 100 : 1600;
+    const delay = isRepeatVisit ? 450 : prefersReducedMotion() ? 100 : OPEN_DURATION + 100;
     const timer = window.setTimeout(() => setPhase("done"), delay);
     return () => window.clearTimeout(timer);
   }, [phase, isRepeatVisit, releaseScroll]);
 
   if (phase === "done") return null;
 
-  // Vide au premier rendu : la règle CSS de secours s’applique si JavaScript ne démarre pas.
-  if (!isHydrated) return <div className="site-preloader" aria-hidden="true" />;
+  // Dès le HTML, le logo blanc s’affiche : l’écran n’attend pas le JavaScript pour montrer
+  // quelque chose. La règle CSS de secours retire ce voile si JavaScript ne démarre pas.
+  if (!isHydrated) {
+    return (
+      <div className="site-preloader is-static" aria-hidden="true">
+        <span className="site-preloader__line" />
+        <span className="site-preloader__logo">
+          <img className="site-preloader__logo-base" src={LOGO_WHITE} alt="" fetchPriority="high" />
+        </span>
+      </div>
+    );
+  }
 
   const classes = [
     "site-preloader",

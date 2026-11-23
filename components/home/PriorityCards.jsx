@@ -50,6 +50,22 @@ export default function PriorityCards() {
   const scrollFrameRef = useRef(0);
   const [activeId, setActiveId] = useState(PRIORITIES[0].id);
   const [storyIndex, setStoryIndex] = useState(null);
+  // Les photos (arrière-plans CSS) ne sont téléchargées qu’à l’approche de la section.
+  const [showImages, setShowImages] = useState(false);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setShowImages(true);
+        observer.disconnect();
+      },
+      { rootMargin: "800px 0px" },
+    );
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, []);
 
   const stopScrollAnimation = useCallback(() => {
     cancelAnimationFrame(scrollFrameRef.current);
@@ -161,7 +177,7 @@ export default function PriorityCards() {
               }}
               className={`priority-card${isActive ? " priority-card--active" : ""}`}
               id={id}
-              style={{ "--priority-image": `url('${image}')` }}
+              style={{ "--priority-image": showImages ? `url('${image}')` : "none" }}
               tabIndex={0}
               aria-expanded={isActive}
               onClick={(event) => {

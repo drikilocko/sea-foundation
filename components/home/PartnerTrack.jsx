@@ -48,6 +48,8 @@ function PartnerGroup({ decorative = false }) {
               src={`/assets/images/partenaires/${logo}`}
               alt={decorative ? "" : t(alt)}
               draggable={false}
+              loading="lazy"
+              decoding="async"
             />
           </span>
           <strong>{t(name)}</strong>

@@ -5,7 +5,7 @@ import RevealOnScroll from "@/components/layout/RevealOnScroll";
 import ScrollProgress from "@/components/home/ScrollProgress";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
-import { LOGO_COLOR, SITE_URL } from "@/lib/site";
+import { FAVICON, SITE_URL } from "@/lib/site";
 import "@/styles/index.css";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
@@ -18,7 +18,7 @@ const barlowCondensed = Barlow_Condensed({
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  icons: { icon: LOGO_COLOR },
+  icons: { icon: FAVICON, apple: FAVICON },
 };
 
 export default function RootLayout({ children }) {
