@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
 import SeaLogo from "@/components/ui/SeaLogo";
 
 const MAX_HISTORY = 16;
+const CLOSE_DURATION = 280;
 const FOCUSABLE = "button:not([disabled]), input:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])";
 
 function splitReply(text) {
@@ -83,9 +84,28 @@ export default function ChatWidget() {
   const nextIdRef = useRef(0);
   const wasOpenRef = useRef(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimerRef = useRef(0);
   const [messages, setMessages] = useState([]);
   const [draft, setDraft] = useState("");
   const [isSending, setIsSending] = useState(false);
+
+  // Fermeture animée : le panneau joue son animation de sortie avant d'être masqué.
+  const closeChat = useCallback(() => {
+    if (closeTimerRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsOpen(false);
+      return;
+    }
+    setIsClosing(true);
+    closeTimerRef.current = window.setTimeout(() => {
+      closeTimerRef.current = 0;
+      setIsClosing(false);
+      setIsOpen(false);
+    }, CLOSE_DURATION);
+  }, []);
+
+  useEffect(() => () => window.clearTimeout(closeTimerRef.current), []);
 
   useEffect(() => {
     if (!isOpen) {
@@ -100,7 +120,7 @@ export default function ChatWidget() {
 
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
-        setIsOpen(false);
+        closeChat();
         return;
       }
       if (event.key !== "Tab") return;
@@ -123,7 +143,7 @@ export default function ChatWidget() {
       unlockScroll();
       document.removeEventListener("keydown", onKeyDown);
     };
-  }, [isOpen, lockScroll, unlockScroll]);
+  }, [isOpen, closeChat, lockScroll, unlockScroll]);
 
   useEffect(() => {
     const list = messagesRef.current;
@@ -199,13 +219,15 @@ export default function ChatWidget() {
   };
 
   return (
-    <aside className={`ai-chat${isOpen ? " is-open" : ""}`} aria-label={t("Assistant SEA Foundation")}>
+    <aside
+      className={`ai-chat${isOpen ? " is-open" : ""}${isClosing ? " is-closing" : ""}`}
+      aria-label={t("Assistant SEA Foundation")}>
       <button
         className="ai-chat-backdrop"
         type="button"
         aria-label={t("Fermer l’assistant")}
         hidden={!isOpen}
-        onClick={() => setIsOpen(false)}
+        onClick={closeChat}
       />
       <section
         ref={panelRef}
@@ -240,7 +262,7 @@ export default function ChatWidget() {
                 className="ai-chat-icon-button"
                 type="button"
                 aria-label={t("Fermer le chatbot")}
-                onClick={() => setIsOpen(false)}
+                onClick={closeChat}
               >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="m6 6 12 12M18 6 6 18" />

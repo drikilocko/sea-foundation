@@ -15,6 +15,13 @@
 .ai-chat.is-open .ai-chat-launcher, .ai-chat.is-open .ai-social-links { visibility: hidden; pointer-events: none; }
 @keyframes chat-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes chat-modal-in { from { opacity: 0; transform: translate(-50%,-45%) scale(.97); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+/* Sortie : le panneau et le voile disparaissent avant que la fenêtre soit masquée. */
+.ai-chat.is-closing .ai-chat-backdrop { animation: chat-backdrop-out .28s ease both; }
+.ai-chat.is-closing .ai-chat-panel { animation: chat-modal-out .28s cubic-bezier(.4,0,1,1) both; }
+@keyframes chat-backdrop-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes chat-modal-out { from { opacity: 1; transform: translate(-50%,-50%) scale(1); } to { opacity: 0; transform: translate(-50%,-46%) scale(.97); } }
+.ai-chat-launcher, .ai-social-links { transition: opacity .3s ease; }
+.ai-chat.is-open .ai-chat-launcher, .ai-chat.is-open .ai-social-links { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .ai-chat-backdrop, .ai-chat-panel { animation: none; } }
 .ai-social-links { position: fixed; right: 196px; bottom: 28px; display: flex; align-items: center; gap: 8px; pointer-events: auto; }
 .ai-chat-launcher { position: fixed; right: 24px; bottom: 24px; pointer-events: auto; }

@@ -25,7 +25,12 @@
   .ai-chat-launcher-icon { width: 30px; height: 30px; }
   .ai-social-links { right: 155px; bottom: 16px; }
   .ai-chat-launcher { right: 12px; bottom: 12px; }
-  .ai-chat-panel { width: min(620px, calc(100vw - 24px)); height: min(760px, calc(100dvh - 24px)); max-height: calc(100dvh - 24px); grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); border-radius: 18px; }
+  /* Mobile : le chat occupe toute la largeur, collé en bas de l'écran (sans marge à gauche, à droite ni en bas). */
+  .ai-chat-panel { top: auto; right: 0; bottom: 0; left: 0; width: 100%; height: min(760px, calc(100dvh - 12px)); max-height: calc(100dvh - 12px); grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); border-width: 0; border-radius: 18px 18px 0 0; transform: none; animation-name: chat-sheet-in; }
+  .ai-chat.is-closing .ai-chat-panel { animation-name: chat-sheet-out; }
+  /* 16px minimum : en dessous, iOS zoome sur le champ quand on appuie pour écrire. */
+  .ai-chat-form input { font-size: 16px; }
+  .ai-chat-form { padding-bottom: max(10px, env(safe-area-inset-bottom)); }
   .ai-chat-brand-panel { min-height: 78px; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; padding: 10px 16px; }
   .ai-chat-brand-panel::before, .ai-chat-brand-panel h2, .ai-chat-brand-panel p, .ai-chat-brand-footer { display: none; }
   .ai-chat-brand-panel .sea-logo-fill { width: 46px; height: 54px; margin: 0; }
@@ -40,3 +45,5 @@
   .cookie-consent__actions { display: grid; grid-template-columns: 1fr 1fr; }
   .cookie-consent__actions [data-cookie-accept] { grid-column: 1 / -1; grid-row: 1; }
 }
+@keyframes chat-sheet-in { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes chat-sheet-out { from { transform: translateY(0); } to { transform: translateY(100%); } }
