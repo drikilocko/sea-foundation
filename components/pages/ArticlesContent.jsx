@@ -10,7 +10,7 @@ export default function ArticlesContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/articles/rencontre-officielle.webp">
+      <PageHeader cover="/assets/images/terrain/supporters-tribune.webp">
         <span className="eyebrow">{t("Comprendre les enjeux")}</span>
         <h1>{t("Articles & dossiers")}</h1>
         <p>{t("Des repères thématiques sur les enjeux de la jeunesse togolaise.")}</p>
@@ -27,7 +27,7 @@ export default function ArticlesContent() {
             <article
               className="page-card page-card--photo"
               style={{
-                "--project-card-image": "url('/assets/images/actions/sante-vaccination.jpg')",
+                "--project-card-image": "url('/assets/images/terrain/arrivee-officiels-terrain.webp')",
               }}
             >
               <span>{t("Dossier · Santé et bien-être")}</span>
@@ -55,7 +55,7 @@ export default function ArticlesContent() {
             <article
               className="page-card page-card--photo"
               style={{
-                "--project-card-image": "url('/assets/images/projet/elevage-agropastoral.webp')",
+                "--project-card-image": "url('/assets/images/terrain/equipes-alignees.webp')",
               }}
             >
               <span>{t("Dossier · Entrepreneuriat")}</span>

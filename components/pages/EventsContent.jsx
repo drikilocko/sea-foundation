@@ -10,7 +10,7 @@ export default function EventsContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/evenements/conference-prise-de-parole.webp">
+      <PageHeader cover="/assets/images/terrain/celebration-equipe.webp">
         <span className="eyebrow">{t("Sur le terrain")}</span>
         <h1>{t("Événements")}</h1>
         <p>
@@ -34,8 +34,8 @@ export default function EventsContent() {
             <div className="event-grid">
               <article className="event-card">
                 <img
-                  src="/assets/images/actions/tournoi-remise-trophee.webp"
-                  alt="Équipe de la Fondation SEA réunie sur le terrain"
+                  src="/assets/images/terrain/equipes-alignees.webp"
+                  alt="Équipes alignées sur le terrain avant un match du tournoi"
                   loading="lazy"
                 />
                 <div className="event-card__body">
@@ -61,8 +61,8 @@ export default function EventsContent() {
               </article>
               <article className="event-card">
                 <img
-                  src="/assets/images/evenements/atelier-agricole.jpeg"
-                  alt="Jeunes mains au travail dans une activité agricole"
+                  src="/assets/images/terrain/arrivee-officiels-terrain.webp"
+                  alt="Officiels de la Fondation SEA arrivant sur le terrain"
                   loading="lazy"
                 />
                 <div className="event-card__body">
@@ -88,8 +88,8 @@ export default function EventsContent() {
               </article>
               <article className="event-card">
                 <img
-                  src="/assets/images/evenements/conference-prise-de-parole.webp"
-                  alt="Emmanuel Adebayor s’exprimant lors d’une rencontre"
+                  src="/assets/images/terrain/echange-officiels-tente.webp"
+                  alt="Échange entre officiels sous la tente lors d’un tournoi"
                   loading="lazy"
                 />
                 <div className="event-card__body">

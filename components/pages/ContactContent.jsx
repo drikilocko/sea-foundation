@@ -24,7 +24,7 @@ export default function ContactContent() {
           <section
             className="page-callout page-callout--photo contact-callout"
             style={{
-              "--callout-image": "url('/assets/images/evenements/conference-prise-de-parole.webp')",
+              "--callout-image": "url('/assets/images/terrain/joueurs-officiels-tente.webp')",
             }}
           >
             <span className="contact-callout__eyebrow">Restons en contact</span>
@@ -75,7 +75,7 @@ export default function ContactContent() {
               className="page-card page-card--photo contact-location-card"
               style={{
                 "--project-card-image":
-                  "url('/assets/images/accueil/portrait-president.webp')",
+                  "url('/assets/images/articles/president-tournoi-tribune.webp')",
               }}
             >
               <span className="contact-method-icon" aria-hidden="true">

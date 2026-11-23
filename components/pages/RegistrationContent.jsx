@@ -9,7 +9,7 @@ export default function RegistrationContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/projet/elevage-agropastoral.webp">
+      <PageHeader cover="/assets/images/articles/president-tournoi-tribune.webp">
         <span className="eyebrow">{t("S’engager avec SEA")}</span>
         <h1>{t("Votre engagement peut faire la différence.")}</h1>
         <p>

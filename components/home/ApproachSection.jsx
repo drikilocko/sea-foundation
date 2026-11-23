@@ -48,7 +48,7 @@ export default function ApproachSection() {
             </div>
           </article>
           <article className="approach-item">
-            <img src="/assets/images/projet/formation-jeunes-terrain.webp" alt="" loading="lazy" />
+            <img src="/assets/images/terrain/celebration-equipe.webp" alt="" loading="lazy" />
             <div className="approach-item__copy">
               <span>03</span>
               <h3>{t("Promouvoir l’équité et l’inclusion")}</h3>

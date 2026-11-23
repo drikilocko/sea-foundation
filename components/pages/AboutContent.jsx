@@ -10,7 +10,7 @@ export default function AboutContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/accueil/tournoi-salut-officiels.webp">
+      <PageHeader cover="/assets/images/terrain/arrivee-officiels-terrain.webp">
         <span className="eyebrow">{t("Qui sommes-nous ?")}</span>
         <h1>{t("Une fondation engagée pour la jeunesse togolaise.")}</h1>
         <p>
@@ -44,7 +44,7 @@ export default function AboutContent() {
                 className="page-card page-card--photo"
                 style={{
                   "--project-card-image":
-                    "url('/assets/images/articles/rencontre-officielle.webp')",
+                    "url('/assets/images/terrain/echange-officiels-tente.webp')",
                 }}
               >
                 <span>2024—2028</span>
@@ -67,7 +67,7 @@ export default function AboutContent() {
               <article
                 className="page-card page-card--photo"
                 style={{
-                  "--project-card-image": "url('/assets/images/accueil/mosaique-actions-terrain.webp')",
+                  "--project-card-image": "url('/assets/images/terrain/celebration-equipe.webp')",
                 }}
               >
                 <span>{t("03 secteurs")}</span>

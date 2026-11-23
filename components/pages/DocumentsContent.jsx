@@ -21,7 +21,7 @@ export default function DocumentsContent() {
           <section
             className="page-card page-card--photo"
             style={{
-              "--project-card-image": "url('/assets/images/articles/rencontre-officielle.webp')",
+              "--project-card-image": "url('/assets/images/terrain/echange-officiels-tente.webp')",
             }}
           >
             <span>{t("Orientations · 2024–2028")}</span>

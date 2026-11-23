@@ -7,7 +7,7 @@ const page = {
   title: "Confidentialité — SEA Foundation",
   description:
     "Informations sur la confidentialité et les données personnelles du site de SEA Foundation.",
-  image: "/assets/images/actions/tournoi-remise-trophee.webp",
+  image: "/assets/images/terrain/supporters-tribune.webp",
 };
 
 export const metadata = buildMetadata(page);

@@ -6,7 +6,7 @@ const page = {
   path: "/actualites/",
   title: "Actualités — SEA Foundation",
   description: "Les actualités officielles de SEA Foundation.",
-  image: "/assets/images/evenements/conference-prise-de-parole.webp",
+  image: "/assets/images/terrain/joueurs-officiels-tente.webp",
 };
 
 export const metadata = buildMetadata(page);

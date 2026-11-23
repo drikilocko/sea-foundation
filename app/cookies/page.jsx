@@ -6,7 +6,7 @@ const page = {
   path: "/cookies/",
   title: "Cookies — SEA Foundation",
   description: "Informations sur les cookies et traceurs du site de SEA Foundation.",
-  image: "/assets/images/actions/tournoi-remise-trophee.webp",
+  image: "/assets/images/terrain/supporters-tribune.webp",
 };
 
 export const metadata = buildMetadata(page);

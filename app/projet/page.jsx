@@ -7,7 +7,7 @@ const page = {
   title: "Projet agrobusiness — SEA Foundation",
   description:
     "Découvrez le projet d’incubation de SEA Foundation pour l’insertion socioprofessionnelle des jeunes dans l’agrobusiness au Togo.",
-  image: "/assets/images/projet/elevage-agropastoral.webp",
+  image: "/assets/images/terrain/echange-officiels-tente.webp",
 };
 
 export const metadata = buildMetadata(page);

@@ -6,7 +6,7 @@ const page = {
   path: "/articles/",
   title: "Articles — SEA Foundation",
   description: "Dossiers thématiques sur la santé, l’éducation et l’entrepreneuriat des jeunes au Togo.",
-  image: "/assets/images/articles/rencontre-officielle.webp",
+  image: "/assets/images/terrain/supporters-tribune.webp",
 };
 
 export const metadata = buildMetadata(page);

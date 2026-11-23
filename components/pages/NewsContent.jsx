@@ -10,7 +10,7 @@ export default function NewsContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/evenements/conference-prise-de-parole.webp">
+      <PageHeader cover="/assets/images/terrain/joueurs-officiels-tente.webp">
         <span className="eyebrow">{t("La vie de la Fondation")}</span>
         <h1>{t("Actualités")}</h1>
         <p>
@@ -38,7 +38,7 @@ export default function NewsContent() {
               <article
                 className="news-card"
                 style={{
-                  "--news-card-image": "url('/assets/images/actions/sante-vaccination.jpg')",
+                  "--news-card-image": "url('/assets/images/terrain/supporters-tribune.webp')",
                 }}
               >
                 <span className="news-card-index">01</span>
@@ -60,7 +60,7 @@ export default function NewsContent() {
               </article>
               <article
                 className="news-card"
-                style={{ "--news-card-image": "url('/assets/images/accueil/tournoi-salut-officiels.webp')" }}
+                style={{ "--news-card-image": "url('/assets/images/terrain/celebration-equipe.webp')" }}
               >
                 <span className="news-card-index">02</span>
                 <span className="news-card-label">{t("Éducation & sport")}</span>
@@ -82,7 +82,7 @@ export default function NewsContent() {
               <article
                 className="news-card"
                 style={{
-                  "--news-card-image": "url('/assets/images/projet/elevage-agropastoral.webp')",
+                  "--news-card-image": "url('/assets/images/terrain/equipes-alignees.webp')",
                 }}
               >
                 <span className="news-card-index">03</span>
@@ -105,7 +105,7 @@ export default function NewsContent() {
               <article
                 className="news-card"
                 style={{
-                  "--news-card-image": "url('/assets/images/articles/rencontre-officielle.webp')",
+                  "--news-card-image": "url('/assets/images/terrain/echange-officiels-tente.webp')",
                 }}
               >
                 <span className="news-card-index">04</span>

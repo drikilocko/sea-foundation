@@ -7,7 +7,7 @@ const page = {
   title: "Actions — SEA Foundation",
   description:
     "Les priorités et axes d’intervention de SEA Foundation pour la jeunesse togolaise.",
-  image: "/assets/images/projet/elevage-agropastoral.webp",
+  image: "/assets/images/terrain/equipes-alignees.webp",
 };
 
 export const metadata = buildMetadata(page);

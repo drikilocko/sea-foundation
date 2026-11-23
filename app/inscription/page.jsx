@@ -7,7 +7,7 @@ const page = {
   title: "Inscription — SEA Foundation",
   description:
     "Contactez SEA Foundation pour manifester votre intérêt et connaître les possibilités de participation.",
-  image: "/assets/images/projet/elevage-agropastoral.webp",
+  image: "/assets/images/articles/president-tournoi-tribune.webp",
 };
 
 export const metadata = buildMetadata(page);

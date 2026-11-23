@@ -7,7 +7,7 @@ const page = {
   title: "À Propos — SEA Foundation",
   description:
     "Découvrez la Fondation Sheyi Emmanuel Adebayor, sa mission et sa vision pour la jeunesse togolaise.",
-  image: "/assets/images/accueil/tournoi-salut-officiels.webp",
+  image: "/assets/images/terrain/arrivee-officiels-terrain.webp",
 };
 
 export const metadata = buildMetadata(page);

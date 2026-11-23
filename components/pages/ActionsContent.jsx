@@ -10,7 +10,7 @@ export default function ActionsContent() {
   const { t } = useLanguage();
   return (
     <>
-      <PageHeader cover="/assets/images/projet/elevage-agropastoral.webp">
+      <PageHeader cover="/assets/images/terrain/equipes-alignees.webp">
         <span className="eyebrow">{t("Président de SEA Foundation")}</span>
         <h1>{t("Des priorités, des actions sur le terrain.")}</h1>
         <p>
@@ -28,7 +28,7 @@ export default function ActionsContent() {
               <article
                 className="page-card page-card--photo"
                 style={{
-                  "--project-card-image": "url('/assets/images/actions/sante-vaccination.jpg')",
+                  "--project-card-image": "url('/assets/images/terrain/supporters-tribune.webp')",
                 }}
               >
                 <span>{t("01 · Santé")}</span>
@@ -42,7 +42,7 @@ export default function ActionsContent() {
               <article
                 className="page-card page-card--photo"
                 style={{
-                  "--project-card-image": "url('/assets/images/actions/tournoi-remise-trophee.webp')",
+                  "--project-card-image": "url('/assets/images/terrain/celebration-equipe.webp')",
                 }}
               >
                 <span>{t("02 · Éducation")}</span>
@@ -56,7 +56,7 @@ export default function ActionsContent() {
               <article
                 className="page-card page-card--photo"
                 style={{
-                  "--project-card-image": "url('/assets/images/projet/elevage-agropastoral.webp')",
+                  "--project-card-image": "url('/assets/images/terrain/joueurs-officiels-tente.webp')",
                 }}
               >
                 <span>{t("03 · Entrepreneuriat")}</span>

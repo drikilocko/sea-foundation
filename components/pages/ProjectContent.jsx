@@ -6,7 +6,7 @@ import PageHeader from "@/components/layout/PageHeader";
 export default function ProjectContent() {
   return (
     <>
-      <PageHeader cover="/assets/images/projet/elevage-agropastoral.webp">
+      <PageHeader cover="/assets/images/terrain/echange-officiels-tente.webp">
         <span className="eyebrow">Entrepreneuriat agricole · Togo</span>
         <h1>Incubation pour l’insertion socioprofessionnelle des jeunes en agrobusiness</h1>
         <p>
@@ -40,7 +40,7 @@ export default function ProjectContent() {
                 className="page-card page-card--photo"
                 style={{
                   "--project-card-image":
-                    "url('/assets/images/projet/formation-jeunes-terrain.webp')",
+                    "url('/assets/images/terrain/equipes-alignees.webp')",
                 }}
               >
                 <span>Composante 01</span>
@@ -54,7 +54,7 @@ export default function ProjectContent() {
               <article
                 className="page-card page-card--photo"
                 style={{
-                  "--project-card-image": "url('/assets/images/projet/elevage-agropastoral.webp')",
+                  "--project-card-image": "url('/assets/images/terrain/joueurs-officiels-tente.webp')",
                 }}
               >
                 <span>Composante 02</span>
@@ -69,7 +69,7 @@ export default function ProjectContent() {
                 className="page-card page-card--photo"
                 style={{
                   "--project-card-image":
-                    "url('/assets/images/articles/rencontre-officielle.webp')",
+                    "url('/assets/images/terrain/arrivee-officiels-terrain.webp')",
                 }}
               >
                 <span>Composante 03</span>
