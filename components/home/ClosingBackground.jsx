@@ -1,26 +1,27 @@
 "use client";
 
 import { useEffect } from "react";
-import { subscribeToScroll } from "@/lib/scrollEffects";
 
+// Affiche la photo de fond de fin de page tant que la FAQ ou le pied de page sont à l’écran.
+// Un IntersectionObserver suffit : rien n’est mesuré pendant le défilement.
 export default function ClosingBackground() {
   useEffect(() => {
     const faq = document.getElementById("faq");
     const footer = document.querySelector(".footer");
     if (!faq || !footer) return undefined;
 
-    const update = () => {
-      const isActive =
-        faq.getBoundingClientRect().top < window.innerHeight &&
-        footer.getBoundingClientRect().bottom > 0;
-      document.body.classList.toggle("closing-background-active", isActive);
-    };
-    const unsubscribe = subscribeToScroll(update);
-    window.addEventListener("resize", update);
-    update();
+    const visible = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      });
+      document.body.classList.toggle("closing-background-active", visible.size > 0);
+    });
+    observer.observe(faq);
+    observer.observe(footer);
     return () => {
-      unsubscribe();
-      window.removeEventListener("resize", update);
+      observer.disconnect();
       document.body.classList.remove("closing-background-active");
     };
   }, []);

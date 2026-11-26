@@ -16,10 +16,16 @@ const PARTNERS = [
     caption: "Formation agricole",
   },
   {
-    logo: "iastm.webp",
-    alt: "Logo de l’IASTM",
-    name: "IASTM",
-    caption: "Enseignement supérieur et formation",
+    logo: "dekawowo-sportfest.webp",
+    alt: "Logo du Dékawowo Sportfest",
+    name: "Dékawowo Sportfest",
+    caption: "Tournoi sportif pour la jeunesse",
+  },
+  {
+    logo: "cooperation-allemande.webp",
+    alt: "Logo de la Coopération allemande au Togo",
+    name: "Coopération allemande",
+    caption: "Deutsche Zusammenarbeit au Togo",
   },
   {
     logo: "pnud.webp",

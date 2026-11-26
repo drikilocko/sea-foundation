@@ -11,7 +11,10 @@
 .priority-story svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Seule la navigation reste visible au-dessus de la vue. */
-html.is-priority-story-open .topbar { z-index: 96; }
+/* Seule la barre passe devant la vue : l’en-tête de l’accueil ne forme plus de calque
+   à part, pour que le hero (et son carrousel) reste derrière la vue. */
+html.is-priority-story-open .topbar { z-index: auto; }
+html.is-priority-story-open .site-header-slot { z-index: 96; }
 html.is-priority-story-open .sea-header-panel.is-scroll-nav.is-scroll-nav-hidden { transform: none; opacity: 1; pointer-events: auto; }
 html.is-priority-story-open .ai-social-links,
 html.is-priority-story-open .ai-chat-launcher,

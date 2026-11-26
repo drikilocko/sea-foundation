@@ -111,12 +111,12 @@
   .site-page-main .page-content:not(.has-toc) > section:not(.page-callout):not(.page-card):not(.page-card-grid) > * { grid-column: 2; }
   .site-page-main .page-content:not(.has-toc) > section:not(.page-callout):not(.page-card):not(.page-card-grid) > .page-section-heading { grid-column: 1; grid-row: 1 / span 2; }
   .site-page-main .page-content:not(.has-toc) > section:not(.page-callout):not(.page-card):not(.page-card-grid) > .page-copy { margin-top: 30px; }
-  .site-page-main .page-content:not(.has-toc) > section:not(.page-callout):not(.page-card):not(.page-card-grid) > :is(.page-card-grid, .event-grid, .news-grid) {
+  .site-page-main .page-content:not(.has-toc) > section:not(.page-callout):not(.page-card):not(.page-card-grid) > :is(.page-card-grid, .event-grid, .news-grid, .news-videos) {
     grid-column: 1 / -1;
     margin-top: 56px;
   }
 }
-.site-page-main .page-content > section > :is(.page-card-grid, .event-grid, .news-grid) { margin-top: 44px; }
+.site-page-main .page-content > section > :is(.page-card-grid, .event-grid, .news-grid, .news-videos) { margin-top: 44px; }
 
 /* ---------- Cartes ---------- */
 .site-page-main .page-card-grid,

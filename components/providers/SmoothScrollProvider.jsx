@@ -22,8 +22,9 @@ export function SmoothScrollProvider({ children }) {
         if (cancelled) return;
         lenisRef.current = new Lenis({
           autoRaf: true,
-          duration: 0.5,
-          lerp: 0.2,
+          // Lissage continu : chaque cran de molette prolonge le mouvement en cours au lieu de
+          // relancer une animation de durée fixe, ce qui provoquait des à-coups.
+          lerp: 0.1,
           smoothWheel: true,
           syncTouch: false,
           wheelMultiplier: 1,

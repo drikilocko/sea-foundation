@@ -9,7 +9,6 @@ import NewsSection from "@/components/home/NewsSection";
 import AxesSection from "@/components/home/AxesSection";
 import VisionSection from "@/components/home/VisionSection";
 import ApproachSection from "@/components/home/ApproachSection";
-import BrandShowcaseSection from "@/components/home/BrandShowcaseSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import PartnersSection from "@/components/home/PartnersSection";
 import FaqSection from "@/components/home/FaqSection";
@@ -27,7 +26,6 @@ export default function HomePage() {
         <AxesSection />
         <VisionSection />
         <ApproachSection />
-        <BrandShowcaseSection />
         <TestimonialsSection />
         <PartnersSection />
         <FaqSection />

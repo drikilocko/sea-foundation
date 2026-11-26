@@ -14,26 +14,34 @@ export default function ScrollProgress() {
     const bar = barRef.current;
     if (!bar) return undefined;
 
-    const update = () => {
-      const view = window.innerHeight;
+    // La hauteur de la page n’est relue qu’au redimensionnement : pendant le défilement,
+    // seule la position change, sans forcer le navigateur à recalculer la mise en page.
+    let view = 0;
+    let thumb = 0;
+    let scrollable = 0;
+    const measure = () => {
+      view = window.innerHeight;
       const total = document.documentElement.scrollHeight;
-      const scrollable = total - view;
-      const thumb = scrollable > 0 ? Math.max(48, (view * view) / total) : 0;
-      const progress = scrollable > 0 ? Math.min(Math.max(window.scrollY / scrollable, 0), 1) : 0;
+      scrollable = total - view;
+      thumb = scrollable > 0 ? Math.max(48, (view * view) / total) : 0;
       bar.style.setProperty("--thumb-size", `${thumb}px`);
-      bar.style.setProperty("--thumb-offset", `${progress * (view - thumb)}px`);
       bar.classList.toggle("is-hidden", scrollable <= 0);
+      update();
+    };
+    const update = () => {
+      const progress = scrollable > 0 ? Math.min(Math.max(window.scrollY / scrollable, 0), 1) : 0;
+      bar.style.setProperty("--thumb-offset", `${progress * (view - thumb)}px`);
     };
 
     const unsubscribe = subscribeToScroll(update);
-    const resize = new ResizeObserver(update);
+    const resize = new ResizeObserver(measure);
     resize.observe(document.body);
-    window.addEventListener("resize", update);
-    update();
+    window.addEventListener("resize", measure);
+    measure();
     return () => {
       unsubscribe();
       resize.disconnect();
-      window.removeEventListener("resize", update);
+      window.removeEventListener("resize", measure);
     };
   }, [pathname]);
 

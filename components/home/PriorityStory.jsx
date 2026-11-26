@@ -30,7 +30,7 @@ function naturalSize(url) {
 // L’image reste dessinée une seule fois à la taille de la bannière : le trajet n’utilise que
 // des déplacements, des agrandissements et un recadrage, que la carte graphique gère sans
 // recalculer la mise en page. Le recadrage reproduit celui de la carte.
-function placeGhost(ghost, image, big, small, bigRadius, imageUrl) {
+export function placeGhost(ghost, image, big, small, bigRadius, imageUrl) {
   Object.assign(ghost.style, {
     left: `${big.left}px`,
     top: `${big.top}px`,
@@ -176,7 +176,12 @@ export default function PriorityStory({ initialIndex, getSourceCard, prepareRetu
     const update = () => {
       root.classList.toggle("is-scrolled", scroller.scrollTop > 8);
       // Bas réel du menu, qui peut changer de hauteur après l’ouverture.
-      const navBottom = panel ? Math.max(0, panel.getBoundingClientRect().bottom) : 0;
+      // Une barre fixe peut être encore en train de réapparaître : sa hauteur suffit.
+      const navBottom = !panel
+        ? 0
+        : panel.classList.contains("is-scroll-nav")
+          ? panel.offsetHeight
+          : Math.max(0, panel.getBoundingClientRect().bottom);
       root.style.setProperty("--story-sticky", `${Math.round(navBottom)}px`);
     };
     scroller.addEventListener("scroll", update, { passive: true });
