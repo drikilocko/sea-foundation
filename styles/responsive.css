@@ -15,7 +15,9 @@
   .sea-topbar .site-language-toggle { order: 1; margin-left: auto; }
   .sea-topbar .sea-menu-toggle { order: 2; margin-left: 0; }
   .sea-header-links { display: none; }
-  .sea-nav { display: flex; width: 100%; flex: 0 0 auto; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; max-height: 0; overflow: hidden; padding: 0 6px; text-align: left; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: max-height .48s cubic-bezier(.22,1,.36,1), opacity .24s ease, transform .32s ease, padding .32s ease, visibility .32s; }
+  /* Plus d’animation de liste déroulante : elle se rejouait à la fermeture du menu plein écran
+     et faisait grandir puis rétrécir la barre. */
+  .sea-nav { display: flex; width: 100%; flex: 0 0 auto; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; max-height: 0; overflow: hidden; padding: 0 6px; text-align: left; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: none; }
   .sea-nav.is-open { max-height: calc(100dvh - 110px); overflow-y: auto; padding: 12px 6px 16px; opacity: 1; visibility: visible; transform: translateY(0); }
   .sea-nav a, .sea-nav-group > summary { min-height: 48px; display: flex; align-items: center; padding: 0 14px; border-radius: 10px; font-size: 18px; }
   .sea-nav > a, .sea-nav-group { width: 100%; justify-content: flex-start; text-align: left; }
@@ -41,21 +43,22 @@
     z-index: 1100;
     width: var(--menu-panel-width, 100%);
     margin: 0;
-    /* La barre garde son propre fond (couvert par le fond du menu) : à la fermeture, le fond du
-       menu se rétracte exactement sur elle puis s’efface, et l’on retrouve la barre en fondu.
-       Le flou est coupé tant que le menu est ouvert (il ferait de la barre le repère des éléments
-       fixes) ; il revient en douceur grâce à la transition de la barre. */
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
+    /* La barre garde son fond et son flou pendant tout le menu (couverts par le fond du menu) :
+       à la fermeture, le fond du menu se rétracte exactement sur elle puis s’efface, et l’on
+       retrouve la barre telle quelle, sans rien à remettre en place. Le fond du menu et les liens
+       sont donc placés par rapport à la barre (position absolue), pas par rapport à l’écran. */
     transform: none;
     opacity: 1;
     pointer-events: auto;
     transition: none;
   }
   .sea-header-panel.is-menu-open .sea-menu-curtain {
-    position: fixed;
-    inset: 0;
+    position: absolute;
+    top: var(--menu-offset-top, 0px);
+    left: var(--menu-offset-left, 0px);
     z-index: 0;
+    width: var(--menu-vw, 100vw);
+    height: var(--menu-vh, 100dvh);
     display: block;
     background: radial-gradient(120% 70% at 100% 0%, rgba(47, 93, 70, .5), transparent 60%), linear-gradient(160deg, #0b2d26, #061a16);
     clip-path: var(--menu-from, inset(0 0 100% 0));
@@ -68,16 +71,16 @@
   .sea-header-panel.is-menu-settling .sea-menu-curtain { opacity: 0; transition: opacity .34s ease; }
   .sea-header-panel.is-menu-open .sea-topbar { position: relative; z-index: 1; }
   .sea-header-panel.is-menu-open .sea-nav {
-    position: fixed;
-    top: var(--menu-top, 110px);
-    right: 0;
-    bottom: 0;
-    left: 0;
+    position: absolute;
+    top: calc(var(--menu-top, 110px) + var(--menu-offset-top, 0px));
+    left: var(--menu-offset-left, 0px);
     z-index: 1;
+    width: var(--menu-vw, 100vw);
+    height: calc(var(--menu-vh, 100dvh) - var(--menu-top, 110px));
     display: flex;
     max-height: none;
     overflow-y: auto;
-    padding: clamp(18px, 4vh, 40px) max(22px, calc((100% - 720px) / 2)) 40px;
+    padding: clamp(18px, 4vh, 40px) max(22px, calc((var(--menu-vw, 100vw) - 720px) / 2)) 40px;
     opacity: 1;
     visibility: visible;
     transform: none;

@@ -59,6 +59,12 @@ export default function SiteHeader({ anchor, solid = false, overlay = false }) {
     panel.style.setProperty("--menu-panel-top", `${rect.top}px`);
     panel.style.setProperty("--menu-panel-left", `${rect.left}px`);
     panel.style.setProperty("--menu-panel-width", `${rect.width}px`);
+    // Taille exacte de l’écran : le fond du menu et les liens sont placés par rapport à la barre.
+    panel.style.setProperty("--menu-vw", `${window.innerWidth}px`);
+    // Décalage entre la barre (bordure comprise) et le coin de l’écran.
+    panel.style.setProperty("--menu-offset-left", `${-(rect.left + panel.clientLeft)}px`);
+    panel.style.setProperty("--menu-offset-top", `${-(rect.top + panel.clientTop)}px`);
+    panel.style.setProperty("--menu-vh", `${window.innerHeight}px`);
     // La barre sort du flux pendant l’ouverture : son emplacement garde sa hauteur.
     slotRef.current.style.minHeight = `${panel.offsetHeight}px`;
     window.clearTimeout(closeTimerRef.current);
