@@ -41,9 +41,10 @@
     z-index: 1100;
     width: var(--menu-panel-width, 100%);
     margin: 0;
-    border-color: transparent;
-    background: transparent;
-    box-shadow: none;
+    /* La barre garde son propre fond (couvert par le fond du menu) : à la fermeture, le fond du
+       menu se rétracte exactement sur elle puis s’efface, et l’on retrouve la barre en fondu.
+       Le flou est coupé tant que le menu est ouvert (il ferait de la barre le repère des éléments
+       fixes) ; il revient en douceur grâce à la transition de la barre. */
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     transform: none;
@@ -59,9 +60,12 @@
     background: radial-gradient(120% 70% at 100% 0%, rgba(47, 93, 70, .5), transparent 60%), linear-gradient(160deg, #0b2d26, #061a16);
     clip-path: var(--menu-from, inset(0 0 100% 0));
     transition: clip-path var(--menu-duration) var(--menu-ease);
+    /* Le fond du menu apparaît en fondu par-dessus la barre, sans changement de couleur brusque. */
+    animation: menu-curtain-in .22s ease backwards;
     pointer-events: none;
   }
   .sea-header-panel.is-menu-active .sea-menu-curtain { clip-path: inset(0px 0px 0px 0px round 0px 0px 0px 0px); }
+  .sea-header-panel.is-menu-settling .sea-menu-curtain { opacity: 0; transition: opacity .34s ease; }
   .sea-header-panel.is-menu-open .sea-topbar { position: relative; z-index: 1; }
   .sea-header-panel.is-menu-open .sea-nav {
     position: fixed;
@@ -298,3 +302,4 @@
   .news-rail__arrow--previous { left: -10px; }
   .news-rail__arrow--next { right: -10px; }
 }
+@keyframes menu-curtain-in { from { opacity: 0; } }

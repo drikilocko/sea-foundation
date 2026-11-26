@@ -69,12 +69,11 @@ export default function NewsVideoStory({ videos, initialIndex, getSourceCard, pr
     // par l’historique : c’est la vue qui place la page pour que l’image retrouve sa carte.
     const previousRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = "manual";
-    const navBottom = panel
-      ? panel.classList.contains("is-scroll-nav")
-        ? panel.offsetHeight
-        : Math.max(0, panel.getBoundingClientRect().bottom)
-      : 0;
-    root.style.setProperty("--story-top", `${navBottom}px`);
+    // Le header remonte et s’efface pendant la vue (voir priority-story.css) : la vue
+    // occupe toute la hauteur de l’écran.
+    root.style.setProperty("--story-top", "0px");
+    // Hauteur de la barre fixe, qui réapparaîtra en haut de l’écran à la fermeture.
+    root.dataset.returnOffset = panel?.classList.contains("is-scroll-nav") ? String(panel.offsetHeight) : "0";
     lockScroll();
 
     const inertElements = [...document.body.children].filter(
@@ -126,16 +125,9 @@ export default function NewsVideoStory({ videos, initialIndex, getSourceCard, pr
   useEffect(() => {
     const scroller = scrollerRef.current;
     const root = rootRef.current;
-    const panel = document.querySelector(".sea-header-panel");
     const update = () => {
       root.classList.toggle("is-scrolled", scroller.scrollTop > 8);
-      // Une barre fixe peut être encore en train de réapparaître : sa hauteur suffit.
-      const navBottom = !panel
-        ? 0
-        : panel.classList.contains("is-scroll-nav")
-          ? panel.offsetHeight
-          : Math.max(0, panel.getBoundingClientRect().bottom);
-      root.style.setProperty("--story-sticky", `${Math.round(navBottom)}px`);
+      root.style.setProperty("--story-sticky", "0px");
     };
     scroller.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
@@ -179,7 +171,8 @@ export default function NewsVideoStory({ videos, initialIndex, getSourceCard, pr
       onClosed();
     };
 
-    const topOffset = parseFloat(root.style.getPropertyValue("--story-top")) || 0;
+    // La carte doit finir sous la barre qui revient, pas dessous.
+    const topOffset = Number(root.dataset.returnOffset) || 0;
     const big = mediaRef.current.getBoundingClientRect();
     const radius = parseFloat(window.getComputedStyle(mediaRef.current).borderTopLeftRadius) || 22;
     sourceCardRef.current?.classList.remove("is-story-source");

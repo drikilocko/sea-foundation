@@ -57,6 +57,9 @@
   backdrop-filter: blur(22px) saturate(150%);
   -webkit-backdrop-filter: blur(22px) saturate(150%);
   box-shadow: 0 18px 48px rgba(3, 25, 65, 0.38);
+  /* Déplacements, couleur et flou en douceur : sortie pendant les vues immersives, retour
+     du flou après le menu mobile. */
+  transition: transform .55s cubic-bezier(.22, 1, .36, 1), opacity .4s ease, background-color .3s ease, -webkit-backdrop-filter .35s ease, backdrop-filter .35s ease;
 }
 .sea-header-panel.is-scroll-nav {
   position: fixed;
@@ -80,7 +83,7 @@
   backdrop-filter: blur(10px);
   transform: translateY(0);
   opacity: 1;
-  transition: transform .42s cubic-bezier(.22, 1, .36, 1), opacity .28s ease, background-color .28s ease;
+  transition: transform .42s cubic-bezier(.22, 1, .36, 1), opacity .28s ease, background-color .28s ease, -webkit-backdrop-filter .35s ease, backdrop-filter .35s ease;
 }
 .sea-header-panel.is-scroll-nav.is-scroll-nav-hidden { transform: translateY(-110%); opacity: 0; pointer-events: none; }
 .sea-header-panel.is-scroll-nav .sea-topbar { display: contents; }

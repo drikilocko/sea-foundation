@@ -15,7 +15,14 @@
    à part, pour que le hero (et son carrousel) reste derrière la vue. */
 html.is-priority-story-open .topbar { z-index: auto; }
 html.is-priority-story-open .site-header-slot { z-index: 96; }
-html.is-priority-story-open .sea-header-panel.is-scroll-nav.is-scroll-nav-hidden { transform: none; opacity: 1; pointer-events: auto; }
+/* Pendant la vue, le header remonte et s’efface en douceur, puis revient à la fermeture. */
+html.is-priority-story-open .sea-header-panel,
+html.is-priority-story-open .sea-header-panel.is-scroll-nav,
+html.is-priority-story-open .sea-header-panel.is-scroll-nav.is-scroll-nav-hidden {
+  transform: translateY(calc(-100% - 24px));
+  opacity: 0;
+  pointer-events: none;
+}
 html.is-priority-story-open .ai-social-links,
 html.is-priority-story-open .ai-chat-launcher,
 html.is-priority-story-open .scroll-progress { visibility: hidden; opacity: 0; transition: opacity .3s ease, visibility 0s linear .3s; }

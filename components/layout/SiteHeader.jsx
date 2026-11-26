@@ -23,6 +23,8 @@ const NAV_GROUPS = {
 
 // Durée de l’agrandissement du fond, à garder égale à --menu-duration en CSS.
 const MENU_DURATION = 620;
+// Fondu final : le fond du menu se fond dans le fond de la barre, sans changement brusque.
+const MENU_SETTLE = 340;
 
 // En-tête unique du site : même logo, même navigation et même menu mobile sur toutes les pages.
 // `anchor` désigne l’élément sous lequel la barre devient fixe (masquée en descendant,
@@ -36,7 +38,8 @@ export default function SiteHeader({ anchor, solid = false, overlay = false }) {
   const navRef = useRef(null);
   const menuButtonRef = useRef(null);
   const closeTimerRef = useRef(0);
-  // closed → open (le fond s’agrandit, puis les liens apparaissent) → closing → closed
+  // closed → open (le fond s’agrandit, puis les liens apparaissent) → closing (le fond se
+  // rétracte vers la barre) → settling (il se fond dans la barre) → closed
   const [menu, setMenu] = useState("closed");
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [scrollNav, setScrollNav] = useState("static");
@@ -86,9 +89,15 @@ export default function SiteHeader({ anchor, solid = false, overlay = false }) {
   useEffect(() => {
     if (menu !== "closing") return undefined;
     closeTimerRef.current = window.setTimeout(
-      () => setMenu("closed"),
+      () => setMenu(prefersReducedMotion() ? "closed" : "settling"),
       prefersReducedMotion() ? 0 : MENU_DURATION,
     );
+    return () => window.clearTimeout(closeTimerRef.current);
+  }, [menu]);
+
+  useEffect(() => {
+    if (menu !== "settling") return undefined;
+    closeTimerRef.current = window.setTimeout(() => setMenu("closed"), MENU_SETTLE);
     return () => window.clearTimeout(closeTimerRef.current);
   }, [menu]);
 
@@ -223,6 +232,7 @@ export default function SiteHeader({ anchor, solid = false, overlay = false }) {
     scrollNav === "hidden" && "is-scroll-nav-hidden",
     isMenuOpen && "is-menu-open",
     isMenuActive && "is-menu-active",
+    menu === "settling" && "is-menu-settling",
   ]
     .filter(Boolean)
     .join(" ");
