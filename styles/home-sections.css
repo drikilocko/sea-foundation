@@ -210,6 +210,7 @@ blockquote { margin: 0; color: white; font-size: 15px; line-height: 1.6; }
 .partner-track__group { display: flex; width: max-content; flex: 0 0 auto; gap: 14px; padding-inline: 7px; }
 .partner-card { width: 185px; min-height: 230px; flex: 0 0 185px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 9px; text-align: center; padding: 18px 16px; border-radius: 18px; border: 1px solid rgba(255,255,255,.2); background: transparent; }
 @keyframes partner-marquee { to { transform: translateX(-50%); } }
+.partner-track.is-paused { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .partner-track { animation: none; } }
 .partner-logo-frame { width: 116px; height: 116px; flex: 0 0 auto; display: grid; place-items: center; overflow: hidden; border: 0; border-radius: 50%; background: white; }
 .partner-logo-frame img { display: block; width: 88%; height: 88%; object-fit: contain; }

@@ -14,6 +14,9 @@ export default function ScrollProgress() {
     const bar = barRef.current;
     if (!bar) return undefined;
 
+    // Si le navigateur sait lier une animation au défilement, le curseur avance tout seul,
+    // entièrement géré par la carte graphique (voir base.css) : aucun calcul pendant le défilement.
+    const scrollDriven = CSS.supports("animation-timeline: scroll()");
     // La hauteur de la page n’est relue qu’au redimensionnement : pendant le défilement,
     // seule la position change, sans forcer le navigateur à recalculer la mise en page.
     let view = 0;
@@ -26,14 +29,18 @@ export default function ScrollProgress() {
       thumb = scrollable > 0 ? Math.max(48, (view * view) / total) : 0;
       bar.style.setProperty("--thumb-size", `${thumb}px`);
       bar.classList.toggle("is-hidden", scrollable <= 0);
-      update();
+      if (!scrollDriven) update();
     };
+    // Le curseur est déplacé par sa propriété transform, directement : la carte graphique le
+    // déplace sans que le navigateur ait à redessiner ni à réorganiser les calques de la page,
+    // ce qu’imposait une variable CSS modifiée à chaque image.
+    const thumbElement = bar.firstElementChild;
     const update = () => {
       const progress = scrollable > 0 ? Math.min(Math.max(window.scrollY / scrollable, 0), 1) : 0;
-      bar.style.setProperty("--thumb-offset", `${progress * (view - thumb)}px`);
+      thumbElement.style.transform = `translate3d(0, ${(progress * (view - thumb)).toFixed(1)}px, 0)`;
     };
 
-    const unsubscribe = subscribeToScroll(update);
+    const unsubscribe = scrollDriven ? () => {} : subscribeToScroll(update);
     const resize = new ResizeObserver(measure);
     resize.observe(document.body);
     window.addEventListener("resize", measure);

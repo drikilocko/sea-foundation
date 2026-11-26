@@ -24,7 +24,8 @@ export default function KindnessStatement() {
     const setWord = (index, value) => {
       if (values[index] === value) return;
       values[index] = value;
-      words[index].style.setProperty("--word-reveal", value);
+      // Opacité appliquée directement : plus léger qu’une variable CSS à recalculer.
+      words[index].style.opacity = value;
     };
 
     const update = () => {

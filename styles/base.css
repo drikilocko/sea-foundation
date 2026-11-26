@@ -90,9 +90,22 @@ body.has-reveal .reveal-item.is-revealed { opacity: 1; transform: translateY(0);
   border-radius: 999px;
   background: #58744d;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, .35);
-  transform: translateY(var(--thumb-offset, 0px));
+  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 @media (max-width: 760px) {
   .scroll-progress { width: 3px; }
+}
+/* Le curseur suit le défilement grâce à une animation liée au défilement, que la carte graphique
+   joue seule. Le déplacer depuis JavaScript à chaque image obligeait le navigateur à redessiner
+   et à réorganiser les calques de toute la page. */
+@supports (animation-timeline: scroll()) {
+  .scroll-progress__thumb {
+    animation: scroll-progress-thumb linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes scroll-progress-thumb {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, calc(100dvh - var(--thumb-size, 0px)), 0); }
 }

@@ -318,7 +318,7 @@ export default function NewsVideoStory({ videos, initialIndex, getSourceCard, pr
           </div>
 
           {/* La vidéo reste collée pendant que seul le texte, à côté, défile. */}
-          <div className="video-story__layout">
+          <div className={`video-story__layout${video.orientation === "landscape" ? " is-landscape" : ""}`}>
             <div className="video-story__sticky">
               <figure
                 key={`media-${video.id}`}

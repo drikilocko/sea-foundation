@@ -59,3 +59,14 @@
   }
   .video-story__copy { width: min(100%, 560px); }
 }
+
+/* Vidéo horizontale : elle passe au-dessus du texte, en grand, au format 16:9. */
+.video-story__layout.is-landscape { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: clamp(28px, 4vh, 44px); }
+.video-story__layout.is-landscape .video-story__sticky { position: static; width: 100%; display: flex; justify-content: center; }
+.video-story__layout.is-landscape .video-story__media {
+  width: min(100%, calc((100svh - var(--story-sticky, var(--story-top, 0px)) - 110px) * 16 / 9));
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+.video-story__layout.is-landscape .video-story__media video { object-fit: contain; background: #000; }
+.video-story__layout.is-landscape .video-story__copy { width: min(100%, 760px); }

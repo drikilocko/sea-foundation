@@ -85,6 +85,41 @@ export const NEWS_VIDEOS = [
     images: [DEKAWOWO_APOTHEOSE],
   },
   {
+    id: "jubile-annonce",
+    // Vidéo horizontale : la vue l’affiche en grand, au format 16:9.
+    orientation: "landscape",
+    tags: ["Jubilé SEA 4", "Lomé"],
+    title: "Jubilé SEA 4 : nous sommes prêts !",
+    text: "« Après des mois de préparation, ça y est, nous sommes prêts ! J’ai hâte de célébrer avec vous mon Jubilé du 25 au 27 octobre à Lomé. Merci à tous pour le soutien incroyable. »",
+    paragraphs: [
+      "Une légende sur le terrain, un héros pour des millions, une source d’inspiration pour tous : Shéyi Emmanuel Adebayor et la Fondation SEA ont donné rendez-vous à Lomé, du 25 au 27 octobre 2024, pour célébrer le jubilé de fin de carrière du numéro 4 national.",
+      "Trois jours de fête, de sport et de musique : un concert au Stade Omnisport le 26 octobre, puis un match de gala au Stade de Kégué le 27 octobre, avec des légendes du football africain et mondial, dont Samuel Eto’o, Asamoah Gyan et Daniel Amokachi.",
+    ],
+    highlightsLabel: "Palmarès",
+    highlights: [
+      "Vainqueur de la Copa del Rey en 2011 avec le Real Madrid.",
+      "Joueur africain de l’année en 2008.",
+      "Finaliste de la Ligue des champions de l’UEFA en 2004 avec l’AS Monaco.",
+      "Meilleur buteur de l’équipe nationale togolaise.",
+      "Plusieurs distinctions individuelles en Premier League et dans divers championnats européens.",
+    ],
+  },
+  {
+    id: "jubile-claudia-sassou-nguesso",
+    tags: ["Jubilé SEA 4", "Invitée d’honneur"],
+    title: "Claudia Sassou Nguesso accueillie à Lomé",
+    text: "« C’est un honneur pour moi de recevoir à Lomé Madame la Distinguée Invitée d’Honneur Claudia Sassou Nguesso, ainsi que sa fille, ma très chère filleule Allison, et les membres de sa famille, à l’occasion du SEA Jubilé. »",
+    paragraphs: [
+      "Arrivée à l’aéroport, accueil chaleureux au pied de l’avion, moment d’échange au salon d’honneur puis déjeuner en famille : la vidéo retrace la venue de l’invitée d’honneur et de ses proches à Lomé.",
+      "Une visite placée sous le signe de l’amitié entre le Congo et le Togo, dont les drapeaux accompagnent le message de bienvenue « Welcome to Lomé ».",
+    ],
+    highlights: [
+      "L’accueil au pied de l’avion, à l’aéroport de Lomé.",
+      "Un moment d’échange au salon d’honneur.",
+      "Un déjeuner en famille pour clore la journée.",
+    ],
+  },
+  {
     id: "rencontre-maroc",
     tags: ["Rencontre", "CAN Maroc 2025"],
     title: "Greet and Meet avec Acıbadem au Maroc",

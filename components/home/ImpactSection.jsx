@@ -12,8 +12,12 @@ export default function ImpactSection() {
         <LogoWatermark />
         <div className="wrap impact-section__inner">
           <div className="impact-visual">
+            {/* Version à 1680 px (trois fois sa taille d’affichage maximale) : même rendu,
+                décodage bien plus léger ; l’original reste disponible pour les grands écrans. */}
             <img
-              src="/assets/images/accueil/mosaique-actions-terrain.webp"
+              src="/assets/images/accueil/mosaique-actions-terrain-1680.webp"
+              srcSet="/assets/images/accueil/mosaique-actions-terrain-1680.webp 1680w, /assets/images/accueil/mosaique-actions-terrain.webp 3150w"
+              sizes="(max-width: 980px) calc(100vw - 28px), 560px"
               alt="Des jeunes réunis autour d’activités éducatives et communautaires."
               loading="lazy"
               decoding="async"

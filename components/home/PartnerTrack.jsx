@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const PARTNERS = [
@@ -68,9 +69,23 @@ function PartnerGroup({ decorative = false }) {
 
 export default function PartnerTrack() {
   const { t } = useLanguage();
+  const trackRef = useRef(null);
+
+  // Le défilement des logos ne tourne que lorsqu’il est à l’écran : une animation infinie
+  // oblige sinon le navigateur à recalculer des images en permanence, même hors de vue.
+  useEffect(() => {
+    const track = trackRef.current;
+    const observer = new IntersectionObserver(([entry]) => {
+      track.classList.toggle("is-paused", !entry.isIntersecting);
+    });
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
-      className="partner-track"
+      ref={trackRef}
+      className="partner-track is-paused"
       id="partner-track"
       aria-label={t("Logos des organisations présents dans les ressources du site")}
     >
