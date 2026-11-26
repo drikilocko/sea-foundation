@@ -35,7 +35,11 @@
   background: #0b1f1a;
 }
 .sea-hero-wrap > .fixed-photo::after { background: linear-gradient(180deg, rgba(7, 13, 16, .20), rgba(7, 13, 16, .52)); }
-.sea-hero-wrap::before { position: absolute; inset: 0; z-index: 0; background: linear-gradient(90deg, rgba(4, 19, 23, 0.80) 0%, rgba(4, 19, 23, 0.48) 32%, rgba(4, 19, 23, 0.14) 100%); content: ""; pointer-events: none; }
+.sea-hero-wrap::before { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(4, 19, 23, 0.80) 0%, rgba(4, 19, 23, 0.48) 32%, rgba(4, 19, 23, 0.14) 100%); content: ""; pointer-events: none; }
+/* Photo du hero au niveau 0, voile au niveau 1, contenu au-dessus : cet ordre ne dépend pas de
+   l’en-tête. Avec un niveau négatif, la photo passait derrière le fond sombre de la section dès que
+   l’en-tête cessait de former un calque (pendant une vue immersive), puis réapparaissait d’un coup. */
+.sea-hero-wrap > .fixed-photo { z-index: 0; }
 .sea-hero { position: relative; z-index: 1; min-height: calc(100vh - var(--header-panel-space, 0px)); min-height: calc(100svh - var(--header-panel-space, 0px)); display: flex; align-items: center; padding: 30px 0 0; }
 .sea-header-panel {
   position: relative;
@@ -184,7 +188,7 @@
 .sea-cta-card .text strong { display: block; margin-bottom: 4px; color: white; font-size: 20px; }
 .sea-news-slider { position: relative; min-height: 0; overflow: hidden; isolation: isolate; border: 1px solid rgba(255,255,255,.16); border-radius: 17px; background: #12392e; }
 .sea-news-slide { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; padding: 22px; color: #fff; opacity: 0; visibility: hidden; transform: translateX(16px); transition: opacity .35s ease, transform .35s ease, visibility .35s; }
-.sea-news-slide.is-active { z-index: 1; opacity: 1; visibility: visible; transform: translateX(0); }
+.sea-news-slide.is-active { z-index: 1; opacity: 1; visibility: visible; transform: translateX(0); cursor: pointer; }
 .sea-news-slide::after { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(5, 23, 18, .05) 4%, rgba(5, 23, 18, .24) 36%, rgba(5, 23, 18, .9) 100%); content: ""; }
 .sea-news-slide img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .sea-news-slider:hover .sea-news-slide.is-active img { transform: scale(1.035); }

@@ -50,7 +50,8 @@
 
 @media (max-width: 860px) {
   .video-story__layout { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 28px; }
-  .video-story__sticky { position: static; }
+  /* La vidéo est centrée dans toute la largeur de l’écran. */
+  .video-story__sticky { position: static; display: flex; width: 100%; justify-content: center; }
   .video-story .video-story__media {
     width: min(100%, 430px, calc((100svh - var(--story-top, 0px) - 120px) * 9 / 16));
     height: auto;

@@ -53,6 +53,8 @@ export default function NewsSlider() {
             <article
               key={video.id}
               className={`sea-news-slide${isActive ? " is-active" : ""}`}
+              // Toute la diapositive ouvre la vidéo, pas seulement le bouton.
+              onClick={isActive ? () => setStoryIndex(index) : undefined}
               data-news-slide=""
               aria-roledescription="diapositive"
               aria-label={t(`${index + 1} sur ${NEWS_VIDEOS.length}`)}
@@ -65,7 +67,10 @@ export default function NewsSlider() {
                 aria-label={t("Lire la vidéo")}
                 aria-haspopup="dialog"
                 tabIndex={isActive ? undefined : -1}
-                onClick={() => setStoryIndex(index)}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setStoryIndex(index);
+                }}
               >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M8 5.5v13l10.5-6.5z" />
@@ -79,7 +84,10 @@ export default function NewsSlider() {
                   className="sea-news-slide__link"
                   aria-haspopup="dialog"
                   tabIndex={isActive ? undefined : -1}
-                  onClick={() => setStoryIndex(index)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setStoryIndex(index);
+                  }}
                 >
                   {t("Regarder la vidéo")}{" "}
                   <span aria-hidden="true">

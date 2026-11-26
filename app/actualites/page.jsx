@@ -1,4 +1,4 @@
-import NewsContent from "@/components/pages/NewsContent";
+import UnderConstruction from "@/components/pages/UnderConstruction";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
@@ -6,7 +6,7 @@ const page = {
   path: "/actualites/",
   title: "Actualités — SEA Foundation",
   description: "Les actualités officielles de SEA Foundation.",
-  image: "/assets/videos/dekawowo-retour-en-images.webp",
+  image: "/assets/images/terrain/joueurs-officiels-tente.webp",
 };
 
 export const metadata = buildMetadata(page);
@@ -16,7 +16,7 @@ export default function Page() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd(page)} />
-      <NewsContent />
+      <UnderConstruction />
     </>
   );
 }
