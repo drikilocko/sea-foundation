@@ -1,0 +1,143 @@
+{
+  "nom": "animation-vue-immersive-carte",
+  "version": "1.0",
+  "langue": "fr",
+  "description": "Prompt réutilisable pour recréer l’animation de la vue immersive du site SEA Foundation (sections « Nos priorités », « Actualités » et carte « SEA Action ») : l’image d’une carte s’agrandit jusqu’à devenir le média d’une vue plein écran (animation « in »), puis revient exactement se poser sur sa carte à la fermeture (animation « out »). Technique FLIP avec un calque « fantôme » animé uniquement par transform et clip-path.",
+  "quand_utiliser": [
+    "Une grille ou un rail de cartes (image, vidéo) qui doit ouvrir un détail en plein écran avec continuité visuelle.",
+    "Le retour doit ramener l’image sur sa carte, même si l’utilisateur a navigué vers un autre élément dans la vue.",
+    "Le site utilise React / Next.js (App Router) et éventuellement Lenis pour le défilement fluide."
+  ],
+  "prompt_systeme": "Tu es un développeur front-end spécialiste des animations d’interface fluides (60 images/s) en React. Tu animes uniquement transform, opacity et clip-path, jamais width/height/top/left pendant une animation. Tu mesures tout AVANT le premier pas d’animation, tu respectes prefers-reduced-motion et l’accessibilité (dialog, inert, focus, Échap, bouton Retour du navigateur).",
+  "prompt_utilisateur": "Crée une vue immersive ouverte depuis une carte {TYPE_DE_CARTE} de la section {SECTION}. Au clic sur la carte (n’importe où sur la carte, pas seulement sur un bouton), l’image de la carte doit s’agrandir de façon continue jusqu’à devenir le média de la vue plein écran ({FORMAT_DU_MEDIA}), pendant qu’un fond sombre apparaît en fondu et que le reste de la page devient inactif ; la barre de navigation reste visible au-dessus. Le contenu de la vue (étiquettes, titre, textes, liste, bouton « suivant ») apparaît ensuite en cascade. À la fermeture (bouton « Retour », touche Échap ou bouton Retour du navigateur), le contenu s’efface, l’image revient exactement sur la carte de l’élément affiché (même si l’utilisateur en a changé dans la vue) et le fond disparaît en fondu, sans aucun saut de la page ni du header. Respecte toutes les règles ci-dessous.",
+  "variables": {
+    "TYPE_DE_CARTE": "ex. carte vidéo verticale 9:16, carte priorité avec photo",
+    "SECTION": "ex. Actualités, Nos priorités, carrousel du hero",
+    "FORMAT_DU_MEDIA": "ex. vidéo verticale 430 × 764 collée à gauche du texte ; bannière photo pleine largeur ; vidéo 16:9 au-dessus du texte"
+  },
+  "parametres_animation": {
+    "ouverture_ms": 950,
+    "fermeture_ms": 820,
+    "courbe": "cubic-bezier(.16, 1, .3, 1)",
+    "fondu_fond_ouverture": {
+      "duree_ms": 620,
+      "courbe": "ease"
+    },
+    "fondu_fond_fermeture": {
+      "duree_ms": 520,
+      "delai_ms": 300,
+      "courbe": "cubic-bezier(.4, 0, .2, 1)"
+    },
+    "disparition_fantome_ms": 180,
+    "cascade_contenu": {
+      "delai_initial_ms": 430,
+      "delai_apres_changement_ms": 60,
+      "pas_par_element_ms": 70,
+      "duree_ms": 900,
+      "deplacement_px": 26
+    },
+    "sortie_contenu_ms": 260,
+    "rayon_carte_px": 22
+  },
+  "architecture": {
+    "composants": {
+      "Grille / rail": "Possède cardRefs, l’état storyIndex et la fonction prepareReturn(index, topOffset). Rend la vue quand storyIndex !== null.",
+      "Vue immersive": "Rendue dans document.body via createPortal, role=\"dialog\", aria-modal. Contient : fond (backdrop), défileur interne, barre Retour/flèches, média, contenu, et le calque fantôme.",
+      "Calque fantôme": "Un div fixe (ghost) contenant un div image (ghost-image) avec la même image que la carte en background. C’est le SEUL élément qui voyage entre la carte et le média."
+    },
+    "phases": {
+      "opening": "Le fantôme est visible, le vrai média est caché (visibility: hidden). La carte source a la classe is-story-source (cachée).",
+      "open": "Le fantôme est caché, le vrai média (vidéo/photo) est visible.",
+      "closing": "Le média est caché, le fantôme refait le trajet inverse ; le contenu s’efface."
+    }
+  },
+  "etapes": {
+    "1_mesure_et_fantome": {
+      "explication": "Mesurer la carte (small) et le média final (big) avec getBoundingClientRect. Poser le fantôme à la taille du média final, puis calculer la transformation qui le ramène sur la carte : translation des centres + échelle = max(ratio largeur, ratio hauteur). Le clip-path inset recadre comme la carte (cover) et reproduit son arrondi (rayon / échelle). L’image intérieure garde sa taille réelle et reçoit une contre-échelle pour que le recadrage soit identique à la carte.",
+      "code": "export function placeGhost(ghost, image, big, small, bigRadius, imageUrl) {\n  // Le calque fantôme est posé UNE fois à la taille finale (grande) ; le trajet n'utilise\n  // ensuite que transform + clip-path, gérés par la carte graphique, sans mise en page.\n  Object.assign(ghost.style, { left: `${big.left}px`, top: `${big.top}px`, width: `${big.width}px`, height: `${big.height}px` });\n  const scale = Math.max(small.width / big.width, small.height / big.height);\n  const cropX = (big.width - small.width / scale) / 2;\n  const cropY = (big.height - small.height / scale) / 2;\n  const dx = small.left + small.width / 2 - (big.left + big.width / 2);\n  const dy = small.top + small.height / 2 - (big.top + big.height / 2);\n\n  // L'image garde sa taille complète, centrée (comme background-size: cover) ;\n  // c'est le recadrage du calque qui choisit la partie visible.\n  let imageScale = 1;\n  const probe = new Image();\n  probe.src = imageUrl; // déjà en cache : la carte l'affiche\n  if (probe.naturalWidth) {\n    const bigCover = Math.max(big.width / probe.naturalWidth, big.height / probe.naturalHeight);\n    const smallCover = Math.max(small.width / probe.naturalWidth, small.height / probe.naturalHeight);\n    const width = probe.naturalWidth * bigCover;\n    const height = probe.naturalHeight * bigCover;\n    Object.assign(image.style, { left: `${(big.width - width) / 2}px`, top: `${(big.height - height) / 2}px`, width: `${width}px`, height: `${height}px`, right: \"auto\", bottom: \"auto\", backgroundSize: \"100% 100%\" });\n    imageScale = smallCover / (bigCover * scale);\n  }\n  return {\n    ghostSmall: { transform: `translate(${dx}px, ${dy}px) scale(${scale})`, clipPath: `inset(${cropY}px ${cropX}px round ${CARD_RADIUS / scale}px)` },\n    ghostBig: { transform: \"translate(0px, 0px) scale(1)\", clipPath: `inset(0px 0px round ${bigRadius}px)` },\n    imageSmall: { transform: `scale(${imageScale})` },\n    imageBig: { transform: \"scale(1)\" },\n  };\n}"
+    },
+    "2_animation_in": {
+      "explication": "Dans un useLayoutEffect exécuté une seule fois (donc dans la foulée du clic) : classe sur <html>, scrollRestoration manuel, position de la barre de nav en variable CSS, défilement bloqué, reste de la page en inert, focus sur Retour. Puis trois animations Web Animations API en parallèle : fondu du fond, fantôme petit → grand, image contre-échelle petit → grand. À la fin : phase « open ».",
+      "code": "useLayoutEffect(() => {\n  const root = rootRef.current;\n  const panel = document.querySelector(\".sea-header-panel\");\n  document.documentElement.classList.add(\"is-priority-story-open\");\n  const previousRestoration = window.history.scrollRestoration;\n  window.history.scrollRestoration = \"manual\";           // le navigateur ne doit pas replacer la page\n  const navBottom = panel?.classList.contains(\"is-scroll-nav\") ? panel.offsetHeight : Math.max(0, panel?.getBoundingClientRect().bottom ?? 0);\n  root.style.setProperty(\"--story-top\", `${navBottom}px`);\n  lockScroll();                                            // Lenis.stop() + overflow hidden\n  const inert = [...document.body.children].filter((el) => el !== root && !el.matches(\"header, script, .ai-chat, .site-header-slot\"));\n  inert.forEach((el) => el.setAttribute(\"inert\", \"\"));\n  const source = getSourceCard(initialIndex);\n  backRef.current?.focus({ preventScroll: true });\n\n  if (prefersReducedMotion() || !source) {\n    root.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: \"ease\" });\n  } else {\n    const small = source.getBoundingClientRect();\n    const big = mediaRef.current.getBoundingClientRect();\n    const radius = parseFloat(getComputedStyle(mediaRef.current).borderTopLeftRadius) || 28;\n    const f = placeGhost(ghostRef.current, ghostImageRef.current, big, small, radius, imageUrl);\n    source.classList.add(\"is-story-source\");               // la carte se cache : c'est le fantôme qui part\n    const timing = { duration: 950, easing: \"cubic-bezier(.16, 1, .3, 1)\", fill: \"both\" };\n    backdropRef.current.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 620, easing: \"ease\", fill: \"both\" });\n    ghostImageRef.current.animate([f.imageSmall, f.imageBig], timing);\n    ghostRef.current.animate([f.ghostSmall, f.ghostBig], timing).finished.then(() => setPhase(\"open\")).catch(() => {});\n  }\n  return () => {\n    window.history.scrollRestoration = previousRestoration;\n    document.documentElement.classList.remove(\"is-priority-story-open\");\n    inert.forEach((el) => el.removeAttribute(\"inert\"));\n    unlockScroll();\n  };\n}, []);"
+    },
+    "3_lecture_video": {
+      "explication": "Pour une vidéo, appeler video.play() dans un useLayoutEffect dépendant de l’index : il s’exécute encore dans le geste de l’utilisateur, donc le son est autorisé (iOS compris). Mettre la vidéo en pause au début de la fermeture."
+    },
+    "4_preparer_le_retour": {
+      "explication": "Avant l’animation out, amener la carte de l’élément affiché à l’écran D’UN COUP (sans animation), pendant que le fond sombre la cache encore : d’abord dans le rail horizontal (aligné sur un point d’accroche), puis dans la page (entièrement visible sous la barre de nav). Ensuite seulement, mesurer la carte.",
+      "code": "const prepareReturn = useCallback((index, topOffset) => {\n  const rail = railRef.current;\n  const card = cardRefs.current[index];\n  if (!card) return null;\n  // 1. Dans le rail horizontal : alignée sur un point d'accroche, sans animation.\n  const padding = parseFloat(getComputedStyle(rail).scrollPaddingLeft) || 0;\n  const railBounds = rail.getBoundingClientRect();\n  let bounds = card.getBoundingClientRect();\n  if (bounds.left < railBounds.left || bounds.right > railBounds.right) {\n    rail.scrollTo({ left: Math.max(0, rail.scrollLeft + bounds.left - railBounds.left - padding), behavior: \"instant\" });\n  }\n  // 2. Dans la page : entièrement visible sous la barre de navigation.\n  bounds = card.getBoundingClientRect();\n  const margin = 16;\n  const room = innerHeight - topOffset - margin * 2;\n  let shift = 0;\n  if (bounds.height > room || bounds.top < topOffset + margin) shift = bounds.top - topOffset - margin;\n  else if (bounds.bottom > innerHeight - margin) shift = bounds.bottom - innerHeight + margin;\n  if (shift) scrollToY(scrollY + shift, { immediate: true }); // Lenis.scrollTo(..., { immediate, force })\n  return card;\n}, [scrollToY]);"
+    },
+    "5_animation_out": {
+      "explication": "Mesurer le média (big) et la carte placée (small), recalculer le fantôme, passer en phase « closing » avec flushSync (toute la mise en page avant le premier pas), puis au requestAnimationFrame suivant : fantôme grand → petit, fondu du fond retardé de 300 ms, et enfin fondu du fantôme (180 ms) une fois la carte réaffichée.",
+      "code": "const close = useCallback(() => {\n  if (closingRef.current) return;\n  closingRef.current = true;\n  const root = rootRef.current;\n  videoRef.current?.pause();\n  const topOffset = parseFloat(root.style.getPropertyValue(\"--story-top\")) || 0;\n  const big = mediaRef.current.getBoundingClientRect();\n  const radius = parseFloat(getComputedStyle(mediaRef.current).borderTopLeftRadius) || 22;\n  const card = prepareReturn(indexRef.current, topOffset); // place la carte À L'ÉCRAN, d'un coup, derrière le voile\n  if (prefersReducedMotion() || !card) { root.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: \"both\" }).finished.then(onClosed); return; }\n  card.classList.add(\"is-story-source\");\n  const small = card.getBoundingClientRect();              // mesurée APRÈS le placement\n  const f = placeGhost(ghostRef.current, ghostImageRef.current, big, small, radius, imageUrl);\n  flushSync(() => setPhase(\"closing\"));                    // toute la mise en page AVANT le premier pas\n  requestAnimationFrame(() => {\n    const timing = { duration: 820, easing: \"cubic-bezier(.16, 1, .3, 1)\", fill: \"both\" };\n    backdropRef.current.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 520, delay: 300, easing: \"cubic-bezier(.4, 0, .2, 1)\", fill: \"both\" });\n    ghostImageRef.current.animate([f.imageBig, f.imageSmall], timing);\n    ghostRef.current.animate([f.ghostBig, f.ghostSmall], timing).finished\n      .then(() => { card.classList.remove(\"is-story-source\"); return ghostRef.current.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 180, fill: \"forwards\" }).finished; })\n      .then(onClosed).catch(onClosed);\n  });\n}, [onClosed, prepareReturn]);"
+    },
+    "6_historique_et_clavier": {
+      "explication": "Ajouter une entrée d’historique à l’ouverture pour que le bouton Retour du téléphone ferme la vue. Échap ferme, flèches gauche/droite changent d’élément (sauf si le focus est dans le lecteur vidéo).",
+      "code": "// Le bouton Retour du navigateur / du téléphone ferme la vue au lieu de quitter la page.\nuseEffect(() => {\n  if (!history.state?.seaVideoStory) history.pushState({ ...history.state, seaVideoStory: true }, \"\");\n  ownsEntryRef.current = true;\n  const onPopState = () => { ownsEntryRef.current = false; close(); };\n  addEventListener(\"popstate\", onPopState);\n  return () => removeEventListener(\"popstate\", onPopState);\n}, [close]);\nconst requestClose = useCallback(() => {\n  if (ownsEntryRef.current && history.state?.seaVideoStory) { ownsEntryRef.current = false; history.back(); return; }\n  close();\n}, [close]);"
+    },
+    "7_css": {
+      "explication": "Styles essentiels du fond, du fantôme, des phases, de la cascade et de la superposition avec la navigation.",
+      "code": ".priority-story { position: fixed; inset: 0; z-index: 95; }\n.priority-story__backdrop { position: absolute; inset: 0; overflow: hidden; background: #06140f; }\n/* Fantôme : seul élément qui voyage ; déplacé par la carte graphique. */\n.priority-story__ghost { position: fixed; top: 0; left: 0; z-index: 2; width: 0; height: 0; overflow: hidden; visibility: hidden; transform-origin: center; pointer-events: none; will-change: transform, clip-path; }\n.priority-story__ghost-image { position: absolute; inset: 0; background: var(--story-image) center / cover no-repeat; transform-origin: center; will-change: transform; }\n.priority-story[data-phase=\"opening\"] .priority-story__ghost,\n.priority-story[data-phase=\"closing\"] .priority-story__ghost { visibility: visible; }\n.priority-story[data-phase=\"opening\"] .priority-story__media,\n.priority-story[data-phase=\"closing\"] .priority-story__media { visibility: hidden; }\n.priority-story[data-phase=\"closing\"] .priority-story__bar,\n.priority-story[data-phase=\"closing\"] .priority-story__body { animation: story-out .26s ease forwards; }\n/* Le contenu monte en cascade après l'arrivée de l'image. */\n.story-rise { animation: story-rise .9s cubic-bezier(.16, 1, .3, 1) both; animation-delay: calc(var(--story-delay, 430ms) + var(--i, 0) * 70ms); }\n@keyframes story-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }\n@keyframes story-out { to { opacity: 0; transform: translateY(10px); } }\n/* La carte d'origine se cache pendant le trajet (c'est le fantôme qu'on voit). */\n.is-story-source { visibility: hidden; }\n/* Seule la barre de navigation passe devant la vue. */\nhtml.is-priority-story-open .topbar { z-index: auto; }\nhtml.is-priority-story-open .site-header-slot { z-index: 96; }\nhtml.is-priority-story-open .sea-header-panel.is-scroll-nav.is-scroll-nav-hidden { transform: none; opacity: 1; pointer-events: auto; }"
+    }
+  },
+  "pieges_resolus": [
+    {
+      "probleme": "Au retour, l’image retombait à côté de sa carte (surtout sur mobile).",
+      "cause": "La fermeture passe par history.back() ; le navigateur restaurait automatiquement l’ancienne position de défilement APRÈS que prepareReturn avait placé la carte.",
+      "solution": "history.scrollRestoration = \"manual\" pendant toute la durée de la vue, restauré au démontage."
+    },
+    {
+      "probleme": "Le fond du hero devenait noir pendant le retour puis réapparaissait brusquement.",
+      "cause": "Pour garder la nav au-dessus de la vue, l’en-tête passe en z-index: auto ; la photo du hero, en z-index négatif, passait alors derrière le fond sombre de la section.",
+      "solution": "Photo du hero en z-index 0, voile en 1, contenu au-dessus : un ordre qui ne dépend pas de l’en-tête."
+    },
+    {
+      "probleme": "Le header glissait ou disparaissait pendant l’animation out.",
+      "cause": "Le défilement fait par prepareReturn déclenchait la logique « masquer en descendant / afficher en remontant ».",
+      "solution": "Pendant que <html> a la classe de la vue, le header ignore le défilement ; s’il était masqué, il redevient visible (MutationObserver sur la classe)."
+    },
+    {
+      "probleme": "La vidéo débordait en bas de l’écran.",
+      "cause": "La hauteur de la barre de nav était mesurée pendant qu’elle réapparaissait (getBoundingClientRect().bottom négatif).",
+      "solution": "Barre fixe : utiliser offsetHeight au lieu de la position mesurée."
+    },
+    {
+      "probleme": "Le rail se recalait pendant le trajet du fantôme.",
+      "cause": "scrollLeft arbitraire dans un conteneur à scroll-snap : le navigateur réaccroche en animant.",
+      "solution": "Placer la carte exactement sur son point d’accroche (scrollPaddingLeft pris en compte) avec behavior: \"instant\"."
+    },
+    {
+      "probleme": "Le son de la vidéo était bloqué.",
+      "cause": "play() appelé après l’animation, hors du geste de l’utilisateur.",
+      "solution": "play() dans un useLayoutEffect, exécuté de façon synchrone dans la foulée du clic."
+    }
+  ],
+  "regles_performance": [
+    "N’animer que transform, opacity et clip-path ; le fantôme est posé une fois à sa taille finale.",
+    "Toutes les mesures (getBoundingClientRect) AVANT le premier pas ; flushSync pour appliquer la phase « closing » avant l’animation.",
+    "will-change: transform, clip-path uniquement sur le fantôme et son image.",
+    "Défilement de la page bloqué pendant la vue (Lenis.stop() + overflow: hidden) ; défilement interne avec sa propre instance de Lenis si besoin.",
+    "Pas de backdrop-filter coûteux sur les éléments qui bougent pendant le trajet."
+  ],
+  "accessibilite": [
+    "role=\"dialog\", aria-modal=\"true\", aria-labelledby vers le titre.",
+    "Reste de la page en attribut inert (sauf header, chat, barre de navigation).",
+    "Focus sur le bouton Retour à l’ouverture ; focus rendu à la carte à la fermeture.",
+    "prefers-reduced-motion : simple fondu de 200 ms, sans trajet ni cascade.",
+    "Échap, bouton Retour du navigateur et flèches clavier pris en charge."
+  ],
+  "criteres_de_validation": [
+    "Ouverture et fermeture à 60 images/s, sans image sautée.",
+    "Le fantôme arrive au pixel près sur la carte (comparer getBoundingClientRect du fantôme en fin de trajet et de la carte), sur ordinateur, tablette et téléphone.",
+    "Test : ouvrir une carte, passer à un autre élément avec les flèches, faire défiler le texte, puis fermer : l’image retourne sur la carte de l’élément affiché.",
+    "Aucun saut de la page, du header ni du fond du hero pendant la fermeture.",
+    "La vidéo démarre avec le son au clic ; elle est en pause dès le début de la fermeture."
+  ],
+  "fichiers_de_reference": [
+    "components/home/PriorityStory.jsx (placeGhost, vue des priorités)",
+    "components/news/NewsVideoStory.jsx (vue vidéo)",
+    "components/news/NewsVideos.jsx (rail, prepareReturn)",
+    "components/home/NewsSlider.jsx (carrousel SEA Action)",
+    "styles/priority-story.css, styles/video-story.css"
+  ]
+}
