@@ -65,6 +65,10 @@ export default function NewsVideoStory({ videos, initialIndex, getSourceCard, pr
     const root = rootRef.current;
     const panel = document.querySelector(".sea-header-panel");
     document.documentElement.classList.add(OPEN_CLASS);
+    // Le navigateur ne doit pas remettre la page à son ancienne position quand la vue se ferme
+    // par l’historique : c’est la vue qui place la page pour que l’image retrouve sa carte.
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
     const navBottom = panel
       ? panel.classList.contains("is-scroll-nav")
         ? panel.offsetHeight
@@ -100,6 +104,7 @@ export default function NewsVideoStory({ videos, initialIndex, getSourceCard, pr
     }
 
     return () => {
+      window.history.scrollRestoration = previousRestoration;
       document.documentElement.classList.remove(OPEN_CLASS);
       inertElements.forEach((element) => element.removeAttribute("inert"));
       sourceCardRef.current?.classList.remove("is-story-source");

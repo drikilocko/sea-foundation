@@ -24,7 +24,35 @@
 .news-heading .eyebrow, .news-heading .section-lead { color: rgba(255,255,255,.72); }
 .news-heading .section-heading { color: #fff; }
 .news-heading .section-lead { max-width: 390px; margin: 0 0 4px; }
-.news-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; width: 100%; max-width: 1320px; margin: 28px auto 0; }
+/* Rangée des vidéos : pleine largeur jusqu’à cinq vidéos, rail glissable au-delà. */
+.news-rail { position: relative; width: 100%; max-width: 1320px; margin: 28px auto 0; }
+.news-videos {
+  /* Cinq vidéos visibles sur grand écran ; la rangée défile à partir de la sixième. */
+  --cols: 5;
+  --gap: 18px;
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.news-videos::-webkit-scrollbar { display: none; }
+.news-videos.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.news-videos.is-dragging .news-video { pointer-events: none; }
+.news-rail.is-scrollable .news-videos { cursor: grab; }
+.news-videos > .news-video { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols)); scroll-snap-align: start; }
+/* Moins de cinq vidéos : la rangée reste centrée (les marges automatiques tombent à zéro dès qu’elle défile). */
+.news-videos > .news-video:first-child { margin-left: auto; }
+.news-videos > .news-video:last-child { margin-right: auto; }
+.news-rail__arrow { position: absolute; top: 50%; z-index: 2; display: none; width: 48px; height: 48px; place-items: center; padding: 0; border: 1px solid rgba(255, 255, 255, .5); border-radius: 50%; background: rgba(8, 40, 30, .72); color: #fff; cursor: pointer; transform: translateY(-50%); transition: background .2s ease, color .2s ease, opacity .2s ease; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.news-rail__arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.news-rail__arrow--previous { left: -24px; }
+.news-rail__arrow--next { right: -24px; }
+.news-rail__arrow:hover:not(:disabled) { background: #d7ed83; color: #10261d; }
+.news-rail__arrow:disabled { opacity: 0; pointer-events: none; }
+.news-rail__arrow:focus-visible { outline: 3px solid #d7ed83; outline-offset: 3px; }
+.news-rail.is-scrollable .news-rail__arrow { display: grid; }
 .news-video { position: relative; display: block; width: 100%; overflow: hidden; aspect-ratio: 9 / 16; padding: 0; border: 0; border-radius: 22px; background: #04211a; color: #fff; font: inherit; text-align: left; cursor: pointer; }
 .news-video.is-story-source { visibility: hidden; }
 .news-video:focus-visible { outline: 3px solid #d7ed83; outline-offset: 3px; }
