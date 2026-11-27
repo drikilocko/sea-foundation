@@ -9,3 +9,9 @@ txt
 .next/
 out/
 *.tsbuildinfo
+
+# Médias originaux (non optimisés) gardés hors du dépôt
+media-source/
+
+# Prompts / notes de travail gardés en local uniquement
+docs/prompts/
